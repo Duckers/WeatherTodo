@@ -1,6 +1,7 @@
 
 var Fabric = require("Fabric");
 var EntityCache = require("Fabric/EntityCache");
+var EntityDiskCache = require("Fabric/EntityDiskCache");
 
 // Real fibers
 var FirebaseBackend = require("WeatherTodo/FirebaseBackend");
@@ -13,7 +14,7 @@ var MockOpenWeatherMapBackend = require("WeatherTodo/Mock/MockOpenWeatherMapBack
 
 
 module.exports = new Fabric(
-	new EntityCache("weather", "todos"),
+	new DiskCache("todos"),
 	new FirebaseBackend(),
 	new OpenWeatherMapBackend(),
 	//new MockFirebaseBackend(),

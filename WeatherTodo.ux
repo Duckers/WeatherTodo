@@ -1,7 +1,12 @@
 <App>
-	<JavaScript>
-		var app = require("WeatherTodo");
+	<JavaScript File="WeatherTodo.js" />
 
-		module.exports = app;
-	</JavaScript>
+	<StackPanel>
+		<Each Items="{todos}">
+			<DockPanel>
+				<Switch Dock="Right" Value="{isDone}" />
+				<Text Margin="16">{description}</Text>
+			</DockPanel>
+		</Each>
+	</StackPanel>
 </App>
