@@ -1,0 +1,7 @@
+<App>
+	<JavaScript>
+		var app = require("WeatherTodo");
+
+		module.exports = app;
+	</JavaScript>
+</App>

@@ -8,6 +8,9 @@
   	"../Fabric/Fabric.unoproj"
   ],
   "Includes": [
-    "*"
+    "*",
+    "WeatherTodo.js:Bundle",
+    "WeatherTodo/*.js:Bundle",
+    "WeatherTodo/Mock/*.js:Bundle"
   ]
 }
