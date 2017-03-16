@@ -5,3 +5,5 @@ function OpenWeatherMapConfig() {
 	this.OpenWeatherMapApiKey = '0a743a318c32002c6248839dcbefd5d8';
 
 }
+
+module.exports = OpenWeatherMapConfig;
