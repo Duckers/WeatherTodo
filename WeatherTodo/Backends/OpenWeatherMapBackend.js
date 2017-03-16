@@ -2,6 +2,32 @@ function OpenWeatherMapBackend() {
 
 	var self = this;
 
+	var iconmap = {
+		'01': 'clear sky',
+		'02': 'few clouds',
+		'03': 'scattered clouds',
+		'04': 'broken clouds',
+		'09': 'shower rain',
+		'10': 'rain',
+		'11': 'thunderstorm',
+		'13': 'snow',
+		'50': 'mist'
+	};
+
+	function mapIconToWeather(icon) {
+		var number = icon.substring(0, 2);
+		if (number in iconmap) {
+			return iconmap[number];
+		} else {
+			return 'clear sky';
+		}
+	}
+
+	function mapIconToDayOrNight(icon) {
+		if (icon[2] === 'd') return 'Day';
+		else return 'Night';
+	}
+
 	function fetchWeatherRest(latitude, longitude) {
 
 		// Get by latitude/longitude
@@ -15,6 +41,7 @@ function OpenWeatherMapBackend() {
 		return fetch(requestString)
 			.then(function (response) { 
 				self.fabric.debug('Got response: ' + JSON.stringify(response));
+				self.fabric.debug('Body: ' + response._bodyInit);
 				return response.json(); 				
 			})
 			.then(function (data) {
