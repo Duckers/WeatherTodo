@@ -7,9 +7,8 @@ function BackendValidators() {
 	}
 
 	this.fetchWeatherNow = function(latitude, longitude) {
-		if (arguments.length === 2) {
-			return this.next.weatherNow(latitude, longitude);
-		} 
+		if (latitude && longitude)
+			return this.next.fetchWeatherNow(latitude, longitude);
 	}
 
 	this.forecast = function(latitude, longitude) {

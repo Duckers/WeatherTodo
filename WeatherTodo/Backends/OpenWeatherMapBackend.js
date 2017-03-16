@@ -1,14 +1,16 @@
 function OpenWeatherMapBackend() {
 
+	var self = this;
+
 	function fetchWeatherRest(latitude, longitude) {
 
 		// Get by latitude/longitude
-		var requestString = this.fabric.OpenWeatherMapWeatherUrl + 
+		var requestString = self.fabric.OpenWeatherMapWeatherUrl + 
 			'?lat=' + arguments[0].toString() + 
 			'&lon=' + arguments[1].toString() + 
-			'&APPID=' + this.fabric.OpenWeatherMapApiKey;
+			'&APPID=' + self.fabric.OpenWeatherMapApiKey;
 
-		this.fabric.debug('Fetching data from: ' + requestString);
+		self.fabric.debug('Fetching data from: ' + requestString);
 
 		return fetch(requestString)
 			.then(function (response) { 
@@ -17,12 +19,12 @@ function OpenWeatherMapBackend() {
 	}
 
 	function fetchForecastRest(latitude, longitude) {
-		var requestString = this.fabric.OpenWeatherMapForecastUrl + 
+		var requestString = self.fabric.OpenWeatherMapForecastUrl + 
 			'?lat=' + arguments[0].toString() + 
 			'&lon=' + arguments[1].toString() + 
-			'&APPID=' + this.fabric.OpenWeatherMapApiKey;
+			'&APPID=' + self.fabric.OpenWeatherMapApiKey;
 
-		this.fabric.debug('Fetching data from: ' + requestString);
+		self.fabric.debug('Fetching data from: ' + requestString);
 
 		return fetch(requestString)
 			.then(function (response) { 

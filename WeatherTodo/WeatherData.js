@@ -14,4 +14,4 @@ function WeatherData() {
 	};
 }
 
-module.exports = Weather;
+module.exports = WeatherData;
