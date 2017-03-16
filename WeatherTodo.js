@@ -14,7 +14,7 @@ var TemperatureCalculator = require('WeatherTodo/TemperatureCalculator');
 
 // Mock fibers
 //var MockFirebaseBackend = require("WeatherTodo/Mock/MockFirebaseBackend");
-//var MockOpenWeatherMapBackend = require("WeatherTodo/Mock/MockOpenWeatherMapBackend");
+var OpenWeatherMapBackend = require("WeatherTodo/Backends/OpenWeatherMapBackend");
 var MockApp = require('WeatherTodo/MockApp');
 var MockGeoLocation = require('WeatherTodo/Mock/MockGeoLocation');
 
@@ -31,7 +31,7 @@ module.exports = new Fabric(
 	//new DiskCache("todos"),
 	//new BackendValidators(),
 	//new FirebaseBackend(),
-	//new OpenWeatherMapBackend(),
+	new OpenWeatherMapBackend(),
 	//new MockFirebaseBackend(),
 	//new MockOpenWeatherMapBackend()
 	new MockApp()

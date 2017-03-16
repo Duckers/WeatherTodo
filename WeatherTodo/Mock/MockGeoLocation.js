@@ -4,10 +4,10 @@ function MockGeoLocation(behavior) {
 
 	this.longitude = Observable();
 	this.latitude = Observable();
+	var self = this;
 
-	this.create = function() {    
+	this.create = function() {
     	var completionTime = 1000;
-		var self = this;
 
     	switch (behavior) {
     		case 'fail':
@@ -15,14 +15,13 @@ function MockGeoLocation(behavior) {
     			break;
 	    	default:
 	    		this.fabric.info('Mock is generating mock location for Oslo, Norway');
-		    	setTimeout(function () {
+		    	setTimeout(function () { 
 		    		self.fabric.latitude.value = 59.91273;
 		    		self.fabric.longitude.value = 10.74609;
 		    		self.fabric.locationChanged(59.91273, 10.74609);
 		    	}, completionTime);
     	}    	
-	}
-
+	}; 
 }
 
 module.exports = MockGeoLocation;
