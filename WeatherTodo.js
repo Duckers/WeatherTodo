@@ -19,11 +19,14 @@ var MockApp = require('WeatherTodo/MockApp');
 var MockGeoLocation = require('WeatherTodo/Mock/MockGeoLocation');
 
 module.exports = new Fabric(
+
 	new LogLevelFilter('ALL'),
 	new ConsoleLogger(),
 	new MockGeoLocation(),
 	new OpenWeatherMapConfig(),
 	new TemperatureCalculator(),
+
+ 
 	//new ReleaseConfiguration(),
 	//new DiskCache("todos"),
 	//new BackendValidators(),

@@ -1,7 +1,8 @@
 <App>
+	<Router ux:Name="router" />
 	<Panel>
-		<Navigator DefaultPath="todoListPage">
-			<LoginPage ux:Template="loginPage"/>
+		<Navigator DefaultPath="loginPage">
+			<LoginPage ux:Template="loginPage" router="router"/>
 			<TodoListPage ux:Template="todoListPage"/>
 			<EditTodoPage ux:Template="editTodoPage"/>
 		</Navigator>

@@ -1,4 +1,5 @@
 <Page ux:Class="LoginPage">
+	<Router ux:Dependency="router" />
 	<JavaScript File="LoginPage.js"/>
 	<StackPanel Alignment="Center" Width="80%" ItemSpacing="15">
 		<TextInput Value="{username}" PlaceholderText="username" Alignment="Center"/>

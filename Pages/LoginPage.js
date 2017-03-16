@@ -6,12 +6,16 @@ var username = Observable();
 var password = Observable();
 
 
-function login(){	
-	WeatherTodo.login(username.value, password.value);
+function login(){
+	WeatherTodo.login(username.value, password.value).then(function(){
+		router.goto("todoListPage");
+	});
 }
 
 function signup(){
-	WeatherTodo.signup(username.value, password.value);
+	WeatherTodo.signup(username.value, password.value).then(function(){
+		router.goto("todoListPage");
+	});
 }
 
 module.exports = {
