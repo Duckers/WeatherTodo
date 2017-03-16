@@ -1,12 +1,17 @@
+var EntityClass = require('Fabric/EntityClass');
 
-function Weather() {
+var Weather = new EntityClass({});
+
+function WeatherData() {
 	
-	this.weatherInOsloRightNow = Observable(0);
-	
-	this.create = function () {
-		// set up some streaming
-		this.weatherInOsloRightNow.value = newValue; 
-	}
+	this.weatherNow = Weather.item(function (latitude, longitude) {
+		return this.next.fetchWeatherNow(latitude, longitude);
+	});
+
+	this.locationChanged = function(latitude, longitude) {
+		this.fabric.weatherNow.refresh(latitude, longitude);
+		return this.next.locationChanged(latitude, longitude);
+	};
 }
 
 module.exports = Weather;

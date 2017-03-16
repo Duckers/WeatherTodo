@@ -4,6 +4,7 @@ function MockGeoLocation(behavior) {
 
 	this.longitude = Observable();
 	this.latitude = Observable();
+	
 	var self = this;
 
 	this.create = function() {

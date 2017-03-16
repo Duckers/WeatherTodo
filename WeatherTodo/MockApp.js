@@ -78,16 +78,8 @@ function MockApp() {
     this.currentCity = Observable('');
 
 	// The current weather in city
-	this.weatherNow = Observable("broken clouds");
-
-	// 5 days of forecast for weather in city
-	this.forecast = Observable(
-		"clear sky",
-		"few clouds",
-		"shower rain",
-		"mist",
-		"snow"
-	);
+	this.weatherNow = Observable({ weather: "broken clouds" });
+	
 }
 
 module.exports = MockApp;

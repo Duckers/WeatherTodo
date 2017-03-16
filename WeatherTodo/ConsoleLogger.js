@@ -1,3 +1,5 @@
+
+
 function ConsoleLogger() {
 
 	this.debug = function(message) {

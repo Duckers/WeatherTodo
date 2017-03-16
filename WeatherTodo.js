@@ -26,12 +26,12 @@ module.exports = new Fabric(
 	new OpenWeatherMapConfig(),
 	new TemperatureCalculator(),
 
- 
+
+ 	new OpenWeatherMapBackend(),
 	//new ReleaseConfiguration(),
 	//new DiskCache("todos"),
 	//new BackendValidators(),
 	//new FirebaseBackend(),
-	new OpenWeatherMapBackend(),
 	//new MockFirebaseBackend(),
 	//new MockOpenWeatherMapBackend()
 	new MockApp()

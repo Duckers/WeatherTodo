@@ -6,14 +6,14 @@ function BackendValidators() {
 		});
 	}
 
-	this.weatherNow = function() {
-		if (arguments.length === 1 
-			|| arguments.length === 2) 
-		{
-			return this.next.weatherNow(arguments);
-		} else {
-			return validationFailure('city');
-		}
+	this.fetchWeatherNow = function(latitude, longitude) {
+		if (arguments.length === 2) {
+			return this.next.weatherNow(latitude, longitude);
+		} 
+	}
+
+	this.forecast = function(latitude, longitude) {
+
 	}
 
 	this.addTodo = function(todoData) {

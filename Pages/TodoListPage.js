@@ -12,7 +12,7 @@ var weathers = {
 	"mist" : { day: "DayFog", night: "NightFog" }
 };
 
-console.log("WeahterNow: " + WeatherTodo.weatherNow);
+console.log("WeatherNow: " + WeatherTodo.weatherNow);
 
 module.exports = {
 	todos: WeatherTodo.todos.map(function(x){
