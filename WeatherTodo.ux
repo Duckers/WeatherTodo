@@ -1,6 +1,6 @@
 <App>
 	<Panel>
-		<Navigator DefaultPath="todoListPage">
+		<Navigator DefaultPath="loginPage">
 			<LoginPage ux:Template="loginPage"/>
 			<TodoListPage ux:Template="todoListPage"/>
 			<EditTodoPage ux:Template="editTodoPage"/>

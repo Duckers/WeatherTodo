@@ -5,12 +5,12 @@ function MockApp() {
 
     // Login to the todo-store
     this.login = function(username, password) {
-
+		console.log("Logging in with: " + username + ", and " + password);
     };
 
     // Signup for the todo-store
     this.signup = function(username, password) {
-
+		console.log("Signing up with: " + username + ", and " + password);
     };
 
     // The sorted list of todos
