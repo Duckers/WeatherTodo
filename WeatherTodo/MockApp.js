@@ -65,6 +65,8 @@ function MockApp() {
 
     };
 
+    this.currentCity = Observable('');
+
 	// The current weather in city
 	this.weatherNow = Observable("broken clouds");
 

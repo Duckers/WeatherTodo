@@ -6,9 +6,11 @@ function BackendValidators() {
 		});
 	}
 
-	this.weather = function(city) {
-		if (city) {
-			return this.next.weather(city);
+	this.weatherNow = function() {
+		if (arguments.length === 1 
+			|| arguments.length === 2) 
+		{
+			return this.next.weatherNow(arguments);
 		} else {
 			return validationFailure('city');
 		}
