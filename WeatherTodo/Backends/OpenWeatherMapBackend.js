@@ -70,7 +70,8 @@ function OpenWeatherMapBackend() {
 	function mapToWeatherSchema(data) {
 		return {
 			city: data.name,
-			weather: data.weather[0].description,
+			weather: mapIconToWeather(data.weather[0].icon),
+			daypart: mapIconToDayOrNight(data.weather[0].icon)
 		};
 	}
 
@@ -96,7 +97,7 @@ function OpenWeatherMapBackend() {
 	}
 
 	this.fetchForecast = function(latitude, longitude) {
-		fetchForecastRest(latitude, longitude)
+		return fetchForecastRest(latitude, longitude)
 			.then(function (data) {
 				this.fabric.debug('Got data from API: ' + JSON.stringify(data));
 				this.fabric.currentCity = data.name;
