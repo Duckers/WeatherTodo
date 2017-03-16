@@ -18,35 +18,35 @@ function MockApp() {
            "description": "This is todo item 1",
            "id": 0,
            "isDone": false,
-           "preferredWeather": "sunny",
+           "preferredWeather": "clear sky",
            "title": "Todo item 1"
          },
          {
            "description": "This is todo item 2",
            "id": 1,
            "isDone": true,
-           "preferredWeather": "raining",
+           "preferredWeather": "broken clouds",
            "title": "Todo item 2"
          },
          {
            "description": "This is todo item 3",
            "id": 2,
            "isDone": false,
-           "preferredWeather": "sunny",
+           "preferredWeather": "rain",
            "title": "Todo item 3"
          },
          {
            "description": "This is todo item 4",
            "id": 3,
            "isDone": false,
-           "preferredWeather": "cloudy",
+           "preferredWeather": "snow",
            "title": "Todo item 4"
          },
          {
            "description": "This is todo item 5",
            "id": 4,
            "isDone": true,
-           "preferredWeather": "snowing",
+           "preferredWeather": "mist",
            "title": "Todo item 5"
          });
 
@@ -66,15 +66,15 @@ function MockApp() {
     };
 
 	// The current weather in city
-	this.weatherNow = Observable("sunny");
+	this.weatherNow = Observable("broken clouds");
 
 	// 5 days of forecast for weather in city
 	this.forecast = Observable(
-		"sunny",
-		"snowy",
-		"foggy",
-		"sunny",
-		"sunny"
+		"clear sky",
+		"few clouds",
+		"shower rain",
+		"mist",
+		"snow"
 	);
 }
 
