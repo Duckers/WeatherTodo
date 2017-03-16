@@ -1,14 +1,5 @@
 <App>
 	<JavaScript File="WeatherTodo.js" />
 
-	<ScrollView>
-		<StackPanel>		
-			<Each Items="{todos}">
-				<DockPanel>
-					<Switch Margin="16" Dock="Right" Value="{isDone}" />
-					<Text Margin="16" Value="{description}" />
-				</DockPanel>
-			</Each>
-		</StackPanel>
-	</ScrollView>
+
 </App>

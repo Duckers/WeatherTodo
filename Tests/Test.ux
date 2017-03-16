@@ -1,0 +1,22 @@
+<App>
+	<JavaScript>
+		function assertEqual(expected, actual) {
+			if (expected !== actual) {
+				throw new Error('Expected: ' + expected + ', ' + 'Actual: ' + actual);
+			}		
+		}
+
+		function test(description, impl) {
+			try {
+				impl();
+				console.log('Passed: ' + description);
+			} catch (e) {
+				console.log('Failed: ' + description + ': ' + e);
+			}
+		}
+
+		// Tests go here...
+		test('pass', function () { assertEqual(1, 1); });
+		test('fail', function () { assertEqual(1, 2); });
+	</JavaScript>
+</App>
