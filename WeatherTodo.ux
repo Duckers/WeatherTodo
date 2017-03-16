@@ -1,5 +1,9 @@
 <App>
-	<JavaScript File="WeatherTodo.js" />
-
-
+	<Panel>
+		<Navigator DefaultPath="todoListPage">
+			<LoginPage ux:Template="loginPage"/>
+			<TodoListPage ux:Template="todoListPage"/>
+			<EditTodoPage ux:Template="editTodoPage"/>
+		</Navigator>
+	</Panel>
 </App>

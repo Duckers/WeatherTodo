@@ -1,12 +1,25 @@
-<Page>	
-	<ScrollView>
-		<StackPanel>		
-			<Each Items="{todos}">
-				<DockPanel>
-					<Switch Margin="16" Dock="Right" Value="{isDone}" />
-					<Text Margin="16" Value="{description}" />
-				</DockPanel>
-			</Each>
-		</StackPanel>
-	</ScrollView>
+<Page ux:Class="TodoListPage">
+	<JavaScript File="TodoListPage.js" />
+	<DockPanel>
+		<Panel Height="100" Dock="Top">
+			<Text Value="{weatherNow}" Alignment="Center"/>
+			<WeatherIcon Icon="DaySnowWind" Color="#f0f" />
+		</Panel>
+		<ScrollView>
+			<StackPanel>
+				<Each Items="{todos}">
+					<DockPanel Margin="4" Padding="6">
+						<Switch Margin="16" Dock="Right" Value="{isDone}" />
+						<StackPanel>
+							<Text Value="{title}" />
+							<Text Value="{description}" />
+							<Text Value="{preferredWeather}" />
+						</StackPanel>
+
+						<Rectangle CornerRadius="2" Color="#8c9eff" Layer="Background"/>
+					</DockPanel>
+				</Each>
+			</StackPanel>
+		</ScrollView>
+	</DockPanel>
 </Page>

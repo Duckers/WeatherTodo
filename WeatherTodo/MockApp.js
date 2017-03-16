@@ -4,12 +4,12 @@ function MockApp() {
     this.welcome = "Hello, dude";
 
     // Login to the todo-store
-    this.login = function(next, username, password) {
+    this.login = function(username, password) {
 
     };
 
     // Signup for the todo-store
-    this.signup = function(next, username, password) {
+    this.signup = function(username, password) {
 
     };
 
@@ -51,19 +51,31 @@ function MockApp() {
          });
 
     // Add a todo to the store
-    this.addTodo = function(next, todoData) {
-
+    this.addTodo = function(todoData) {
+		
     };
 
     // Update an existing todo
-    this.updateTodo = function(next, todoId, todoData) {
+    this.updateTodo = function(todoId, todoData) {
 
     };
 
     // Set the completed-state for a todo
-    this.setIsDone = function(next, todoId, isDone) {
+    this.setIsDone = function(todoId, isDone) {
 
     };
+
+	// The current weather in city
+	this.weatherNow = Observable("sunny");
+
+	// 5 days of forecast for weather in city
+	this.forecast = Observable(
+		"sunny",
+		"snowy",
+		"foggy",
+		"sunny",
+		"sunny"
+	);
 }
 
 module.exports = MockApp;
