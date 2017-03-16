@@ -14,8 +14,16 @@ function OpenWeatherMapBackend() {
 
 		return fetch(requestString)
 			.then(function (response) { 
-				return response.json(); 
-			});
+				self.fabric.debug('Got response: ' + JSON.stringify(response));
+				return response.json(); 				
+			})
+			.then(function (data) {
+				this.fabric.debug('HASSELKNIPPE, WHY THIS NO GET CALLED?? Got data from API: ' + JSON.stringify(data));				
+				return mapToWeatherSchema(data);
+			})
+			.catch(function (err) {
+				this.fabric.error(err.toString());
+			});		
 	}
 
 	function fetchForecastRest(latitude, longitude) {
@@ -49,10 +57,13 @@ function OpenWeatherMapBackend() {
 
 	this.fetchWeatherNow = function(latitude, longitude) {
 
-		fetchWeatherRest(latitude, longitude)			
+		return fetchWeatherRest(latitude, longitude)			
 			.then(function (data) {
 				this.fabric.debug('Got data from API: ' + JSON.stringify(data));				
 				return mapToWeatherSchema(data);
+			})
+			.catch(function (err) {
+				this.fabric.error(err.toString());
 			});		
 
 	}
