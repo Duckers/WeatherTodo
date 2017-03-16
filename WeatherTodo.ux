@@ -3,7 +3,7 @@
 	<Panel>
 		<Navigator DefaultPath="loginPage">
 			<LoginPage ux:Template="loginPage" router="router"/>
-			<TodoListPage ux:Template="todoListPage"/>
+			<TodoListPage ux:Template="todoListPage" router="router"/>
 			<EditTodoPage ux:Template="editTodoPage"/>
 		</Navigator>
 	</Panel>

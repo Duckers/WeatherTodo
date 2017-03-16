@@ -21,5 +21,8 @@ module.exports = {
 	weatherNow: WeatherTodo.weatherNow,
 	weatherIcon: WeatherTodo.weatherNow.map(function(x){
 		return weathers[x].day;
-	})
+	}),
+	newTodo: function(){
+		router.push("editTodoPage");
+	}
 };

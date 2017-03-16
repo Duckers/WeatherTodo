@@ -1,1 +1,3 @@
-<Page ux:Class="EditTodoPage" />
+<Page ux:Class="EditTodoPage">
+	<Text Value="NEW TODO" Alignment="Center" FontSize="30" />
+</Page>
