@@ -10,13 +10,13 @@ function MockBackend() {
 		})
 	}
 
-	this.todosByDescription = function(next, description) {
+	this.todosByDescription = function(description) {
 		
 	}
 
 	var todoEnumerator = MockTodos.length;
 
-	this.addTodo = function(next, todo) {
+	this.addTodo = function(todo) {
 		var id = todoEnumerator++;
 		return new Promise(function(resolve) {
 			MockTodos.push(todo);
@@ -24,7 +24,7 @@ function MockBackend() {
 		})
 	}
 
-	this.setTodoIsDone = function(next, todoId, isDone) {
+	this.setTodoIsDone = function(todoId, isDone) {
 		return new Promise(function(resolve, reject) {
 			MockTodos.forEach(function (todo) {
 				if (todo.id === todoId) {
@@ -37,7 +37,7 @@ function MockBackend() {
 		})
 	}
 
-	this.weather = function(next, city) {
+	this.weather = function(city) {
 		return new Promise(function(resolve) {
 			resolve(MockWeather);
 		});

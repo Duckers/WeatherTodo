@@ -6,25 +6,25 @@ function BackendValidators() {
 		});
 	}
 
-	this.weather = function(next, city) {
+	this.weather = function(city) {
 		if (city) {
-			return next.weather(city);
+			return this.next.weather(city);
 		} else {
 			return validationFailure('city');
 		}
 	}
 
-	this.addTodo = function(next, todoData) {
+	this.addTodo = function(todoData) {
 		if (todoData === null || todoData === undefined) {
 			return validationFailure('todoData');
 		} else {
-			return next.addTodo(todoData);
+			return this.next.addTodo(todoData);
 		}
 	}
 
-	this.todosByDescription = function(next, description) {
+	this.todosByDescription = function(description) {
 		if (description) {
-			return next.todosByDescription(description);
+			return this.next.todosByDescription(description);
 		} else {
 			return new Promise(function (resolve) { resolve([]); });
 		}

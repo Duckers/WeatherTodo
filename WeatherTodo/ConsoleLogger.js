@@ -1,28 +1,28 @@
 function ConsoleLogger() {
 
-	this.debug = function(next, message) {
+	this.debug = function(message) {
 		console.log('[DEBUG]: ' + message);
-		next.debug(message);
+		this.next.debug(message);
 	}
 
-	this.info = function(next, message) {
+	this.info = function(message) {
 		console.log('[INFO]:  ' + message);
-		next.debug(message);
+		this.next.debug(message);
 	}
 
-	this.warn = function(next, message) {
+	this.warn = function(message) {
 		console.log('[WARN]:  ' + message);
-		next.warn(message);
+		this.next.warn(message);
 	}
 
-	this.error = function(next, message) {
+	this.error = function(message) {
 		console.log('[ERROR]: ' + message);
-		next.error(message);
+		this.next.error(message);
 	}
 
-	this.fatal = function(next, message) {
+	this.fatal = function(message) {
 		console.log('[FATAL]: ' + message);
-		next.fatal(message);
+		this.next.fatal(message);
 	}
 
 }

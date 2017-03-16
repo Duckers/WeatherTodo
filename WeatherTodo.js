@@ -7,8 +7,8 @@ var Fabric = require("Fabric");
 //var AppSchema = require("WeatherTodo/AppSchema");
 //var ReleaseConfiguration = require("WeatherTodo/ReleaseConfiguration");
 //var BackendValidators = require("WeatherTodo/Backend/BackendValidators");
-//var LogLevelFilter = require('WeatherTodo/LogLevelFilter');
-//var ConsoleLogger = require('WeatherTodo/ConsoleLogger');
+var LogLevelFilter = require('WeatherTodo/LogLevelFilter');
+var ConsoleLogger = require('WeatherTodo/ConsoleLogger');
 
 // Mock fibers
 //var MockFirebaseBackend = require("WeatherTodo/Mock/MockFirebaseBackend");
@@ -16,8 +16,8 @@ var Fabric = require("Fabric");
 var MockApp = require('WeatherTodo/MockApp');
 
 module.exports = new Fabric(
-	//new LogLevelFilter('ALL'),
-	//new ConsoleLogger(),
+	new LogLevelFilter('ALL'),
+	new ConsoleLogger(),
 	//new ReleaseConfiguration(),
 	//new DiskCache("todos"),
 	//new BackendValidators(),

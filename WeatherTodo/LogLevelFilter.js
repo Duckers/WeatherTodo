@@ -32,24 +32,24 @@ function LogLevelFilter(logLevel) {
 		}		
 	}
 
-	this.debug = function(next, message) {
-		if (check('DEBUG')) return next.debug(message);		
+	this.debug = function(message) {
+		if (check('DEBUG')) return this.next.debug(message);		
 	}
 
-	this.info = function(next, message) {
-		if (check('INFO')) return next.info(message);
+	this.info = function(message) {
+		if (check('INFO')) return this.next.info(message);
 	}
 
-	this.warn = function(next, message) {
-		if (check('WARN')) return next.warn(message);
+	this.warn = function(message) {
+		if (check('WARN')) return this.next.warn(message);
 	}
 
-	this.error = function(next, message) {
-		if (check('ERROR')) return next.error(message);
+	this.error = function(message) {
+		if (check('ERROR')) return this.next.error(message);
 	}
 
-	this.fatal = function(next, message) {
-		if (check('FATAL')) return next.fatal(message);
+	this.fatal = function(message) {
+		if (check('FATAL')) return this.next.fatal(message);
 	}
 }
 

@@ -1,6 +1,6 @@
 function OpenWeatherMapBackend() {
 
-	this.weather = function(next, city) {
+	this.weather = function(city) {
 		var requestString = this.fabric.OpenWeatherMapUrl + '/' +
 			city + '&APPID=' + this.fabric.OpenWeatherMapApiKey;
 
