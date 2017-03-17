@@ -24,8 +24,8 @@ function OpenWeatherMapBackend() {
 	}
 
 	function mapIconToDayOrNight(icon) {
-		if (icon[2] === 'd') return 'Day';
-		else return 'Night';
+		if (icon[2] === 'd') return 'day';
+		else return 'night';
 	}
 
 	function fetchWeatherRest(latitude, longitude) {

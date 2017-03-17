@@ -43,5 +43,5 @@ module.exports = new Fabric(
 
 	// Mock
 	new MockApp(),
-	new MockGeoLocation()
+	new MockGeoLocation('succeed')
 );
