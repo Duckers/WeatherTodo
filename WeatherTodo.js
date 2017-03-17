@@ -20,11 +20,13 @@ var OpenWeatherMapBackend = require("WeatherTodo/Backends/OpenWeatherMapBackend"
 var MockApp = require('WeatherTodo/MockApp');
 var MockGeoLocation = require('WeatherTodo/Mock/MockGeoLocation');
 
-module.exports = new Fabric(
+// Development fibers
+var InspectApi = require('WeatherTodo/InspectApi');
 
-	
+module.exports = new Fabric(
+	new InspectApi('weatherNow', 'forecast', 'todos'),
 	new LogLevelFilter('ALL'),
-	new ConsoleLogger(),
+	new ConsoleLogger({ trimLongLines: 120 }),
 	new MockGeoLocation(),
 	new TemperatureCalculator(),
 	new WeatherData(),

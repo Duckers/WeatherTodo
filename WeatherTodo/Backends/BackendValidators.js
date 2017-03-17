@@ -11,8 +11,9 @@ function BackendValidators() {
 			return this.next.fetchWeatherNow(latitude, longitude);
 	}
 
-	this.forecast = function(latitude, longitude) {
-
+	this.fetchForecast = function(latitude, longitude) {
+		if (latitude && longitude)
+			return this.next.fetchForecast(latitude, longitude);
 	}
 
 	this.addTodo = function(todoData) {

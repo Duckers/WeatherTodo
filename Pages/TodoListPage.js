@@ -15,7 +15,8 @@ var weathers = {
 console.log("WeatherNow: " + WeatherTodo.weatherNow);
 
 module.exports = {
-	todos: WeatherTodo.todos.map(function(x){
+	todos: WeatherTodo.todos.map(function(x) {
+		WeatherTodo.debug('Mapping over: ' + JSON.stringify(x));
 		x.preferredWeatherIcon = weathers[x.preferredWeather].day;
 		console.log("weather icon: " + x.preferredWeatherIcon);
 		return x;

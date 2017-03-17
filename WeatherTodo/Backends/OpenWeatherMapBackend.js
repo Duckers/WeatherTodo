@@ -39,30 +39,21 @@ function OpenWeatherMapBackend() {
 		self.fabric.debug('Fetching data from: ' + requestString);
 
 		return fetch(requestString)
-			.then(function (response) { 
-				self.fabric.debug('Got response: ' + JSON.stringify(response));
-				self.fabric.debug('Body: ' + response._bodyInit);
+			.then(function (response) { 				
 				return response.json(); 				
-			})
-			.then(function (data) {
-				this.fabric.debug('HASSELKNIPPE, WHY THIS NO GET CALLED?? Got data from API: ' + JSON.stringify(data));				
-				return mapToWeatherSchema(data);
-			})
-			.catch(function (err) {
-				this.fabric.error(err.toString());
 			});		
 	}
 
 	function fetchForecastRest(latitude, longitude) {
 		var requestString = self.fabric.OpenWeatherMapForecastUrl + 
-			'?lat=' + arguments[0].toString() + 
-			'&lon=' + arguments[1].toString() + 
+			'?lat=' + latitude.toString() + 
+			'&lon=' + longitude.toString() + 
 			'&APPID=' + self.fabric.OpenWeatherMapApiKey;
 
 		self.fabric.debug('Fetching data from: ' + requestString);
 
 		return fetch(requestString)
-			.then(function (response) { 
+			.then(function (response) { 				
 				return response.json(); 
 			});
 	}
@@ -82,24 +73,27 @@ function OpenWeatherMapBackend() {
 		};
 	}
 	
-
-	this.fetchWeatherNow = function(latitude, longitude) {
-
-		return fetchWeatherRest(latitude, longitude)			
-			.then(function (data) {
-				this.fabric.debug('Got data from API: ' + JSON.stringify(data));				
-				return mapToWeatherSchema(data);
-			})
-			.catch(function (err) {
-				this.fabric.error(err.toString());
-			});		
+	this.BackEnd$weatherNow = function(latitude, longitude) {
 
 	}
 
+	self.fetchWeatherNow = function(latitude, longitude) {
+		self.fabric.debug('Fetching weatherNow');
+		return fetchWeatherRest(latitude, longitude)
+			.then(function (data) {
+				self.fabric.debug('WeatherNow: Got data from API: ' + JSON.stringify(data));				
+				return mapToWeatherSchema(data);
+			})
+			.catch(function (err) {
+				self.fabric.error(err.toString());
+			});		
+	}
+
 	this.fetchForecast = function(latitude, longitude) {
+		this.fabric.debug('Fetching forecast');
 		return fetchForecastRest(latitude, longitude)
 			.then(function (data) {
-				this.fabric.debug('Got data from API: ' + JSON.stringify(data));
+				this.fabric.debug('WeatherNow: Got data from API: ' + JSON.stringify(data));
 				this.fabric.currentCity = data.name;
 				return data.list.map(mapToForecastSchema);
 			});		
