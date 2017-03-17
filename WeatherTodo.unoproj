@@ -5,14 +5,14 @@
   	"FuseJS"
   ],
   "Projects": [
-  	  "../Fabric/Fabric.unoproj",
+  	  "../fuse-packages/Fabric/Fabric.unoproj",
 	  "WeatherIcons/WeatherIcons.unoproj"
   ],
   "Includes": [
     "*",
     "WeatherTodo.js:Bundle",
     "WeatherTodo/*.js:Bundle",
-    "WeatherTodo/Backends/*.js:Bundle",
-    "WeatherTodo/Mock/*.js:Bundle"
+    "WeatherTodo/Mock/*.js:Bundle",
+	"WeatherTodo/Backends/*.js:Bundle"	
   ]
 }
