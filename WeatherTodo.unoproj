@@ -5,8 +5,9 @@
   	"FuseJS"
   ],
   "Projects": [
-  	  "../fuse-packages/Fabric/Fabric.unoproj",
-	  "WeatherIcons/WeatherIcons.unoproj"
+  	  "../Fabric/Fabric.unoproj",
+	  "WeatherIcons/WeatherIcons.unoproj",
+	  "MaterialIcons/MaterialIcons.unoproj"
   ],
   "Includes": [
     "*",
