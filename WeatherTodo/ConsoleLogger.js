@@ -8,11 +8,11 @@ function ConsoleLogger(config) {
 
 	function trim(message) {
 		if (trimLongLines) {
-			var continuation = '';
+			var ellipsis = '';
 			if (message.length > trimLongLines) {
-				continuation = '(...)';
+				ellipsis = '(...)';
 			}
-			return message.substring(0, trimLongLines) + continuation;
+			return message.substring(0, trimLongLines) + ellipsis;
 		} else return message;
 	}
 

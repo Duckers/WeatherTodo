@@ -24,21 +24,36 @@ var MockGeoLocation = require('WeatherTodo/Mock/MockGeoLocation');
 var InspectApi = require('WeatherTodo/InspectApi');
 
 module.exports = new Fabric(
+	// Instrumentation
 	new InspectApi('weatherNow', 'forecast', 'todos'),
+
+	// Config
+ 	new OpenWeatherMapConfig(),
+	
+	// Logging
 	new LogLevelFilter('ALL'),
 	new ConsoleLogger({ trimLongLines: 120 }),
-	new MockGeoLocation(),
-	new TemperatureCalculator(),
+	
+	// Data model
 	new WeatherData(),
-	new OpenWeatherMapConfig(),
+	
+	// Helper methods
+	new TemperatureCalculator(),
+
+	// Backend
  	new BackendValidators(),
  	new OpenWeatherMapBackend(),
-	//new ReleaseConfiguration(),
-	//new DiskCache("todos"),
-	//new BackendValidators(),
-	//new FirebaseBackend(),
-	//new MockFirebaseBackend(),
-	//new MockOpenWeatherMapBackend()
-	new MockApp()
+
+	// Mock
+	new MockApp(),
+	new MockGeoLocation(),
 );
+
+
+//new ReleaseConfiguration(),
+//new DiskCache("todos"),
+//new BackendValidators(),
+//new FirebaseBackend(),
+//new MockFirebaseBackend(),
+//new MockOpenWeatherMapBackend()
 
