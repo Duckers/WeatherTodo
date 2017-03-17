@@ -77,12 +77,15 @@ function OpenWeatherMapBackend() {
 
 	}
 
-	self.fetchWeatherNow = function(latitude, longitude) {
-		self.fabric.debug('Fetching weatherNow');
+	this.fetchWeatherNow = function(latitude, longitude) {
+		//self.fabric.debug('Fetching weatherNow');
+		console.log("Foo");
 		return fetchWeatherRest(latitude, longitude)
 			.then(function (data) {
 				self.fabric.debug('WeatherNow: Got data from API: ' + JSON.stringify(data));				
-				return mapToWeatherSchema(data);
+				var ret = mapToWeatherSchema(data);
+				console.log("Got stuff: " + ret);
+				return ret;
 			})
 			.catch(function (err) {
 				self.fabric.error(err.toString());

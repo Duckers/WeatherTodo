@@ -6,8 +6,10 @@ var LogLevelFilter = require('WeatherTodo/LogLevelFilter');
 var ConsoleLogger = require('WeatherTodo/ConsoleLogger');
 var OpenWeatherMapConfig = require('WeatherTodo/OpenWeatherMapConfig');
 var OpenWeatherMapBackend = require("WeatherTodo/Backends/OpenWeatherMapBackend");
+var FirebaseBackendConfig = require("WeatherTodo/FirebaseBackendConfig");
 var FirebaseBackend = require("WeatherTodo/Backends/FirebaseBackend");
 var TemperatureCalculator = require('WeatherTodo/TemperatureCalculator');
+var ErrorHandling = require('WeatherTodo/ErrorHandling');
 
 // Data model
 var AppData = require("WeatherTodo/AppData");
@@ -23,8 +25,11 @@ module.exports = new Fabric(
 	// Instrumentation
 	new InspectApi('weatherNow', 'forecast', 'todos'),
 
+	new ErrorHandling(),
+
 	// Config
  	new OpenWeatherMapConfig(),
+	new FirebaseBackendConfig(),
 	
 	// Logging
 	new LogLevelFilter('ALL'),
@@ -38,6 +43,7 @@ module.exports = new Fabric(
 
 	// Backend
  	new BackendValidators(),
+
  	new FirebaseBackend(),
  	new OpenWeatherMapBackend(),
 

@@ -3,7 +3,7 @@ var WeatherTodo = require("WeatherTodo");
 var weathers = {
 	"clear sky" : { day: "DaySunny", night: "NightClear" },
 	"few clouds" : { day: "DayCloudy", night: "NightAltCloudy" },
-	"scattered clouds" : { day: "Cloudy", night: "Cloudy" },
+	"scattered clouds" : { day: "Cloudy", night: "Cloud" },
 	"broken clouds" : { day: "Cloudy", night: "Cloudy" },
 	"shower rain" : { day: "DayShowers", night: "NightShowers" },
 	"rain" : { day: "Rain", night: "Rain" },
@@ -11,8 +11,6 @@ var weathers = {
 	"snow" : { day: "DaySnow", night : "NightSnow" },
 	"mist" : { day: "DayFog", night: "NightFog" }
 };
-
-console.log("WeatherNow: " + WeatherTodo.weatherNow);
 
 module.exports = {
 	todos: WeatherTodo.todos.map(function(x) {
@@ -22,9 +20,9 @@ module.exports = {
 		return x;
 	}),
 	weatherNow: WeatherTodo.weatherNow,
-	weatherIcon: WeatherTodo.weatherNow.map(function(x) {
-		WeatherTodo.debug('Map on: ' + JSON.stringify(x));
-		return weathers[x.weather].day;
+	weatherIcon: WeatherTodo.weatherNow.map(function(x){
+		console.log("WEATHHHTHEHRHEAHERH:" + JSON.stringify(x));
+		return weathers[x.weather][x.daypart];
 	}),
 	newTodo: function(){
 		router.push("editTodoPage");

@@ -1,14 +1,35 @@
 var EntityClass = require('Fabric/EntityClass');
 
 var Weather = new EntityClass({});
+var Todo = new EntityClass({
+	title: "Default title",
+	description: "Default description",
+	preferredWeather: "rain",
+	isDone: false
+});
 
 function AppData() {
 	
 	var self = this;
 
+	this.todos = Todo.list(function(){
+		self.fabric.debug('Refreshing todos');
+		return this.next.fetchTodos().catch(function(e){
+			console.log("error: " + e);
+		});
+	});
+
 	this.weatherNow = Weather.item(function (latitude, longitude) {
 		self.fabric.debug('Refreshing weatherNow');
-		return this.next.fetchWeatherNow(latitude, longitude);
+		console.log("fetching weathernow appdata");
+		console.dir(this.next);
+		var promise = self.next.fetchWeatherNow(latitude, longitude);
+		if (promise){
+			return promise.then(function(x){
+				console.log("GOT WEATHER: " + x);
+				return x;
+			});
+		}
 	});
 
 	this.forecast = Weather.list(function (latitude, longitude) {
