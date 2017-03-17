@@ -3,7 +3,7 @@ var WeatherTodo = require("WeatherTodo");
 var weathers = {
 	"clear sky" : { day: "DaySunny", night: "NightClear" },
 	"few clouds" : { day: "DayCloudy", night: "NightAltCloudy" },
-	"scattered clouds" : { day: "Clouds", night: "Clouds" },
+	"scattered clouds" : { day: "Cloudy", night: "Cloudy" },
 	"broken clouds" : { day: "Cloudy", night: "Cloudy" },
 	"shower rain" : { day: "DayShowers", night: "NightShowers" },
 	"rain" : { day: "Rain", night: "Rain" },
