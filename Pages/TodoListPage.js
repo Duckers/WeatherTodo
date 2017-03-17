@@ -22,8 +22,9 @@ module.exports = {
 		return x;
 	}),
 	weatherNow: WeatherTodo.weatherNow,
-	weatherIcon: WeatherTodo.weatherNow.map(function(x){
-		return weathers[x].day;
+	weatherIcon: WeatherTodo.weatherNow.map(function(x) {
+		WeatherTodo.debug('Map on: ' + JSON.stringify(x));
+		return weathers[x.weather].day;
 	}),
 	newTodo: function(){
 		router.push("editTodoPage");
