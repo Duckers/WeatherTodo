@@ -1,22 +1,18 @@
 var Fabric = require("Fabric");
-//var EntityDiskCache = require("Fabric/EntityDiskCache");
 
 // Real fibers
-//var FirebaseBackend = require("WeatherTodo/FirebaseBackend");
-//var OpenWeatherMapBackend = require("WeatherTodo/FirebaseBackend");
-//var AppSchema = require("WeatherTodo/AppSchema");
-//var ReleaseConfiguration = require("WeatherTodo/ReleaseConfiguration");
 var BackendValidators = require("WeatherTodo/Backends/BackendValidators");
 var LogLevelFilter = require('WeatherTodo/LogLevelFilter');
 var ConsoleLogger = require('WeatherTodo/ConsoleLogger');
 var OpenWeatherMapConfig = require('WeatherTodo/OpenWeatherMapConfig');
+var OpenWeatherMapBackend = require("WeatherTodo/Backends/OpenWeatherMapBackend");
+var FirebaseBackend = require("WeatherTodo/Backends/FirebaseBackend");
 var TemperatureCalculator = require('WeatherTodo/TemperatureCalculator');
 
+// Data model
 var WeatherData = require("WeatherTodo/WeatherData");
 
-// Mock fibers
-//var MockFirebaseBackend = require("WeatherTodo/Mock/MockFirebaseBackend");
-var OpenWeatherMapBackend = require("WeatherTodo/Backends/OpenWeatherMapBackend");
+// Mocks
 var MockApp = require('WeatherTodo/MockApp');
 var MockGeoLocation = require('WeatherTodo/Mock/MockGeoLocation');
 
@@ -42,18 +38,10 @@ module.exports = new Fabric(
 
 	// Backend
  	new BackendValidators(),
+ 	new FirebaseBackend(),
  	new OpenWeatherMapBackend(),
 
 	// Mock
 	new MockApp(),
-	new MockGeoLocation(),
+	new MockGeoLocation()
 );
-
-
-//new ReleaseConfiguration(),
-//new DiskCache("todos"),
-//new BackendValidators(),
-//new FirebaseBackend(),
-//new MockFirebaseBackend(),
-//new MockOpenWeatherMapBackend()
-
