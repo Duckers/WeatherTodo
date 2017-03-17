@@ -10,7 +10,7 @@ var FirebaseBackend = require("WeatherTodo/Backends/FirebaseBackend");
 var TemperatureCalculator = require('WeatherTodo/TemperatureCalculator');
 
 // Data model
-var WeatherData = require("WeatherTodo/WeatherData");
+var AppData = require("WeatherTodo/AppData");
 
 // Mocks
 var MockApp = require('WeatherTodo/MockApp');
@@ -31,7 +31,7 @@ module.exports = new Fabric(
 	new ConsoleLogger({ trimLongLines: 120 }),
 	
 	// Data model
-	new WeatherData(),
+	new AppData(),
 	
 	// Helper methods
 	new TemperatureCalculator(),

@@ -2,7 +2,7 @@ var EntityClass = require('Fabric/EntityClass');
 
 var Weather = new EntityClass({});
 
-function WeatherData() {
+function AppData() {
 	
 	var self = this;
 
@@ -23,4 +23,4 @@ function WeatherData() {
 	};
 }
 
-module.exports = WeatherData;
+module.exports = AppData;
