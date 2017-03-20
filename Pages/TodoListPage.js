@@ -2,7 +2,7 @@ var WeatherTodo = require("WeatherTodo");
 var WeatherTypes = require("WeatherTypes");
 
 module.exports = {
-	todos: WeatherTodo.todos.map(function(x) {
+	todos: WeatherTodo.sortedTodos.map(function(x) {
 		WeatherTodo.debug('Mapping over: ' + JSON.stringify(x));
 		x.preferredWeatherIcon = WeatherTypes[x.preferredWeather].day;
 		console.log("weather icon: " + x.preferredWeatherIcon);

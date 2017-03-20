@@ -96,7 +96,7 @@ function OpenWeatherMapBackend() {
 		return fetchForecastRest(latitude, longitude)
 			.then(function (data) {
 				self.fabric.debug('WeatherNow: Got data from API: ' + JSON.stringify(data));
-				console.log(JSON.stringify(data));
+				//console.log(JSON.stringify(data));
 				var ret = data.list.map(function (d) {
 					return mapToForecastSchema(d, data.city.name);				
 				});

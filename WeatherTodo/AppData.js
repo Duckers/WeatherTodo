@@ -11,24 +11,33 @@ var Todo = new EntityClass({
 });
 
 function AppData() {
-	
-	var self = this;
 
-	this.todos = Todo.list(function(){
-		self.fabric.debug('Refreshing todos');
-		return self.next.fetchTodos();
+	var todos = Todo.list(function() {
+		this.fabric.debug('Refreshing todos');
+		return this.next.fetchTodos()
+			.then(function(d) { 
+				console.log('TODOs: ' + JSON.stringify(d)); 
+				return d;
+			});
 	});
 
-	this.getTodo = Todo.get;
+	var forecast = Forecast.list(function (latitude, longitude) {
+		this.fabric.debug('Refreshing forecast');
+		return this.next.fetchForecast(latitude, longitude);
+	});
+
+	var sortedTodos = todos.combineArrays(forecast, function (todos, forecast) {
+		console.log('Created combined array: ' + JSON.stringify(todos));
+		return todos;
+	});
+
+	this.todos = todos;
+	this.forecast = forecast;
+	this.sortedTodos = sortedTodos;
 
 	this.currentWeather = CurrentWeather.item(function (latitude, longitude) {
-		self.fabric.debug('Refreshing currentWeather');	
-		return self.next.fetchWeatherNow(latitude, longitude);
-	});
-
-	this.forecast = Forecast.list(function (latitude, longitude) {
-		self.fabric.debug('Refreshing forecast');
-		return this.next.fetchForecast(latitude, longitude);
+		this.fabric.debug('Refreshing currentWeather');	
+		return this.next.fetchWeatherNow(latitude, longitude);
 	});
 
 	this.locationChanged = function(latitude, longitude) {
