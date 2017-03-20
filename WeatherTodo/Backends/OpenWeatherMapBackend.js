@@ -65,11 +65,17 @@ function OpenWeatherMapBackend() {
 		};
 	}
 
-	function mapToForecastSchema(data) {
-		return {
-			weather: data.weather.description,
-			time: new Date(data.dt * 1000)
+	function mapToForecastSchema(data, city) {
+		//console.log('Mapping: ' + JSON.stringify(data));
+		var timestamp = new Date(data.dt * 1000);
+		var ret = {
+			id: city + ":" + data.dt,
+			weather: mapIconToWeather(data.weather[0].icon),
+			daypart: mapIconToDayOrNight(data.weather[0].icon),
+			time: timestamp
 		};
+		console.log('MAPPED: ' + JSON.stringify(ret));
+		return ret;
 	}
 
 	this.fetchWeatherNow = function(latitude, longitude) {
@@ -89,8 +95,12 @@ function OpenWeatherMapBackend() {
 		self.fabric.debug('Fetching forecast');
 		return fetchForecastRest(latitude, longitude)
 			.then(function (data) {
-				self.fabric.debug('WeatherNow: Got data from API: ' + JSON.stringify(data));			
-				return data.list.map(mapToForecastSchema);
+				self.fabric.debug('WeatherNow: Got data from API: ' + JSON.stringify(data));
+				console.log(JSON.stringify(data));
+				var ret = data.list.map(function (d) {
+					return mapToForecastSchema(d, data.city.name);				
+				});
+				return ret;
 			});		
 	}
 
