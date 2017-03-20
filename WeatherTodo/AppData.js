@@ -14,22 +14,12 @@ function AppData() {
 
 	this.todos = Todo.list(function(){
 		self.fabric.debug('Refreshing todos');
-		return this.next.fetchTodos().catch(function(e){
-			console.log("error: " + e);
-		});
+		return self.next.fetchTodos();
 	});
 
 	this.weatherNow = Weather.item(function (latitude, longitude) {
-		self.fabric.debug('Refreshing weatherNow');
-		console.log("fetching weathernow appdata");
-		console.dir(this.next);
-		var promise = self.next.fetchWeatherNow(latitude, longitude);
-		if (promise){
-			return promise.then(function(x){
-				console.log("GOT WEATHER: " + x);
-				return x;
-			});
-		}
+		self.fabric.debug('Refreshing weatherNow');	
+		return self.next.fetchWeatherNow(latitude, longitude);	
 	});
 
 	this.forecast = Weather.list(function (latitude, longitude) {

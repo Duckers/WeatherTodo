@@ -21,7 +21,7 @@ module.exports = {
 		return x;
 	}),
 	weatherNow: WeatherTodo.weatherNow,
-	weatherIcon: WeatherTodo.weatherNow.map(function(x){
+	weatherIcon: WeatherTodo.weatherNow.map(function(x) {
 		console.log("WEATHHHTHEHRHEAHERH:" + JSON.stringify(x));
 		return weatherTypes[x.weather][x.daypart];
 	}),

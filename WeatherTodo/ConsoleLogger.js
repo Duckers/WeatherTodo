@@ -7,6 +7,9 @@ function ConsoleLogger(config) {
 	}
 
 	function trim(message) {
+		if (typeof message !== 'string') {
+			message = message.toString();
+		}
 		if (trimLongLines) {
 			var ellipsis = '';
 			if (message.length > trimLongLines) {

@@ -29,6 +29,8 @@ function LogLevelFilter(logLevel) {
 			case 'FATAL':
 				if (level === 'FATAL') return true;
 				else return false;
+			default:
+				return false;
 		}		
 	}
 

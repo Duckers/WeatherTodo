@@ -29,7 +29,6 @@ function OpenWeatherMapBackend() {
 	}
 
 	function fetchWeatherRest(latitude, longitude) {
-
 		// Get by latitude/longitude
 		var requestString = self.fabric.OpenWeatherMapWeatherUrl + 
 			'?lat=' + arguments[0].toString() + 
@@ -53,7 +52,7 @@ function OpenWeatherMapBackend() {
 		self.fabric.debug('Fetching data from: ' + requestString);
 
 		return fetch(requestString)
-			.then(function (response) { 				
+			.then(function (response) {
 				return response.json(); 
 			});
 	}
@@ -72,19 +71,13 @@ function OpenWeatherMapBackend() {
 			time: new Date(data.dt * 1000)
 		};
 	}
-	
-	this.BackEnd$weatherNow = function(latitude, longitude) {
-
-	}
 
 	this.fetchWeatherNow = function(latitude, longitude) {
-		//self.fabric.debug('Fetching weatherNow');
-		console.log("Foo");
+		self.fabric.debug('Fetching weatherNow');
 		return fetchWeatherRest(latitude, longitude)
 			.then(function (data) {
-				self.fabric.debug('WeatherNow: Got data from API: ' + JSON.stringify(data));				
+				self.fabric.debug('WeatherNow: Got data from API: ' + JSON.stringify(data));
 				var ret = mapToWeatherSchema(data);
-				console.log("Got stuff: " + ret);
 				return ret;
 			})
 			.catch(function (err) {
@@ -92,18 +85,15 @@ function OpenWeatherMapBackend() {
 			});		
 	}
 
-	this.fetchForecast = function(latitude, longitude) {
-		this.fabric.debug('Fetching forecast');
+	this.fetchForecast = function(latitude, longitude) {		
+		self.fabric.debug('Fetching forecast');
 		return fetchForecastRest(latitude, longitude)
 			.then(function (data) {
-				this.fabric.debug('WeatherNow: Got data from API: ' + JSON.stringify(data));
-				this.fabric.currentCity = data.name;
+				self.fabric.debug('WeatherNow: Got data from API: ' + JSON.stringify(data));			
 				return data.list.map(mapToForecastSchema);
 			});		
 	}
 
-
-	
 }
 
 module.exports = OpenWeatherMapBackend;
