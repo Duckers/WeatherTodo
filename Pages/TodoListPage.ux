@@ -4,8 +4,8 @@
 	<DockPanel>
 		<Panel Height="140" Dock="Top" Margin="10">
 			<StackPanel Alignment="BottomRight">
-				<Text Value="{weatherNow.city}" FontSize="30" TextAlignment="Right"/>
-				<Text Value="{weatherNow.weather}" FontSize="20" TextAlignment="Right" />
+				<Text Value="{currentWeather.city}" FontSize="30" TextAlignment="Right"/>
+				<Text Value="{currentWeather.weather}" FontSize="20" TextAlignment="Right" />
 			</StackPanel>
 			<WeatherIcon Icon="{weatherIcon}"  Alignment="TopLeft" Margin="25,0,0,0" Size="80"/>
 		</Panel>

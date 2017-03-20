@@ -78,7 +78,7 @@ function MockApp() {
     this.currentCity = Observable('');
 
 	// The current weather in city
-	this.weatherNow = Observable({ weather: "broken clouds" });
+	this.currentWeather = Observable({ weather: "broken clouds" });
 	
 }
 

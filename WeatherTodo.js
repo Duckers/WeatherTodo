@@ -23,7 +23,7 @@ var InspectApi = require('WeatherTodo/InspectApi');
 
 module.exports = new Fabric(
 	// Instrumentation
-	new InspectApi('weatherNow', 'forecast', 'todos'),
+	new InspectApi('currentWeather', 'forecast', 'todos'),
 
 	new ErrorHandling(),
 

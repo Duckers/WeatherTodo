@@ -20,8 +20,8 @@ module.exports = {
 		console.log("weather icon: " + x.preferredWeatherIcon);
 		return x;
 	}),
-	weatherNow: WeatherTodo.weatherNow,
-	weatherIcon: WeatherTodo.weatherNow.map(function(x) {
+	currentWeather: WeatherTodo.currentWeather,
+	weatherIcon: WeatherTodo.currentWeather.map(function(x) {
 		console.log("WEATHHHTHEHRHEAHERH:" + JSON.stringify(x));
 		return weatherTypes[x.weather][x.daypart];
 	}),

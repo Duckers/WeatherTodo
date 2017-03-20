@@ -1,6 +1,8 @@
 var EntityClass = require('Fabric/EntityClass');
 
-var Weather = new EntityClass({});
+var CurrentWeather = new EntityClass({});
+var Forecast = new EntityClass({});
+
 var Todo = new EntityClass({
 	title: "Default title",
 	description: "Default description",
@@ -17,18 +19,18 @@ function AppData() {
 		return self.next.fetchTodos();
 	});
 
-	this.weatherNow = Weather.item(function (latitude, longitude) {
-		self.fabric.debug('Refreshing weatherNow');	
-		return self.next.fetchWeatherNow(latitude, longitude);	
+	this.currentWeather = CurrentWeather.item(function (latitude, longitude) {
+		self.fabric.debug('Refreshing currentWeather');	
+		return self.next.fetchWeatherNow(latitude, longitude);
 	});
 
-	this.forecast = Weather.list(function (latitude, longitude) {
+	this.forecast = Forecast.list(function (latitude, longitude) {
 		self.fabric.debug('Refreshing forecast');
 		return this.next.fetchForecast(latitude, longitude);
 	});
 
 	this.locationChanged = function(latitude, longitude) {
-		this.fabric.weatherNow.refresh(latitude, longitude);
+		this.fabric.currentWeather.refresh(latitude, longitude);
 		this.fabric.forecast.refresh(latitude, longitude);
 		return this.next.locationChanged(latitude, longitude);
 	};
