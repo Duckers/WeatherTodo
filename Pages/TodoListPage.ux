@@ -17,10 +17,10 @@
 			<ScrollView>
 				<StackPanel ItemSpacing="4">
 					<Each Items="{todos}">
-						<Panel>
+						<Panel Clicked="{editTodo}">
 							<DockPanel Margin="4" Padding="6">
 								<Panel Dock="Left">
-									<WeatherIcon Icon="{preferredWeatherIcon}" Size="40"/> 
+									<WeatherIcon Icon="{preferredWeatherIcon}" Size="40"/>
 								</Panel>
 								<Switch Margin="16" Dock="Right" Value="{isDone}" />
 								<StackPanel Alignment="VerticalCenter" Margin="15,0">

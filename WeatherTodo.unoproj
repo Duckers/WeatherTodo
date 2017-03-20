@@ -1,19 +1,20 @@
 {
-  "RootNamespace":"",
-  "Packages": [
-  	"Fuse",
-  	"FuseJS"
-  ],
-  "Projects": [
-  	  "../Fabric/Fabric.unoproj",
-	  "WeatherIcons/WeatherIcons.unoproj",
-	  "MaterialIcons/MaterialIcons.unoproj"
-  ],
-  "Includes": [
-    "*",
-    "WeatherTodo.js:Bundle",
-    "WeatherTodo/*.js:Bundle",
-    "WeatherTodo/Mock/*.js:Bundle",
-	"WeatherTodo/Backends/*.js:Bundle"	
-  ]
+	"RootNamespace":"",
+	"Packages": [
+		"Fuse",
+		"FuseJS"
+	],
+	"Projects": [
+		"../Fabric/Fabric.unoproj",
+		"WeatherIcons/WeatherIcons.unoproj",
+		"MaterialIcons/MaterialIcons.unoproj"
+	],
+	"Includes": [
+		"*",
+		"WeatherTodo.js:Bundle",
+		"WeatherTypes.js:Bundle",
+		"WeatherTodo/*.js:Bundle",
+		"WeatherTodo/Mock/*.js:Bundle",
+		"WeatherTodo/Backends/*.js:Bundle"
+	]
 }

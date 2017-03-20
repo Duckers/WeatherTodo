@@ -1,5 +1,6 @@
 var Fabric = require("Fabric");
 
+
 // Real fibers
 var BackendValidators = require("WeatherTodo/Backends/BackendValidators");
 var LogLevelFilter = require('WeatherTodo/LogLevelFilter');
@@ -30,14 +31,14 @@ module.exports = new Fabric(
 	// Config
  	new OpenWeatherMapConfig(),
 	new FirebaseBackendConfig(),
-	
+
 	// Logging
 	new LogLevelFilter('ALL'),
 	new ConsoleLogger({ trimLongLines: 120 }),
-	
+
 	// Data model
 	new AppData(),
-	
+
 	// Helper methods
 	new TemperatureCalculator(),
 
