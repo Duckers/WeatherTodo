@@ -19,6 +19,8 @@ function AppData() {
 		return self.next.fetchTodos();
 	});
 
+	this.getTodo = Todo.get;
+
 	this.currentWeather = CurrentWeather.item(function (latitude, longitude) {
 		self.fabric.debug('Refreshing currentWeather');	
 		return self.next.fetchWeatherNow(latitude, longitude);
