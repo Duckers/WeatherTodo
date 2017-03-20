@@ -3,7 +3,7 @@ var Observable = require('FuseJS/Observable');
 function InspectApi() {
 
 	var self = this;
-	var args = arguments;
+	var args = Array.prototype.slice.call(arguments);
 
 	this.create = function() {
 		for (var i = 0; i < args.length; i++) {	
