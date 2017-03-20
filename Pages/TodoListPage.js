@@ -1,6 +1,6 @@
 var WeatherTodo = require("WeatherTodo");
 
-var weathers = {
+var weatherTypes = {
 	"clear sky" : { day: "DaySunny", night: "NightClear" },
 	"clouds" : { day: "DayCloudy", night: "NightAltCloudy" },
 	"few clouds" : { day: "DayCloudy", night: "NightAltCloudy" },
@@ -16,14 +16,14 @@ var weathers = {
 module.exports = {
 	todos: WeatherTodo.todos.map(function(x) {
 		WeatherTodo.debug('Mapping over: ' + JSON.stringify(x));
-		x.preferredWeatherIcon = weathers[x.preferredWeather].day;
+		x.preferredWeatherIcon = weatherTypes[x.preferredWeather].day;
 		console.log("weather icon: " + x.preferredWeatherIcon);
 		return x;
 	}),
 	weatherNow: WeatherTodo.weatherNow,
 	weatherIcon: WeatherTodo.weatherNow.map(function(x){
 		console.log("WEATHHHTHEHRHEAHERH:" + JSON.stringify(x));
-		return weathers[x.weather][x.daypart];
+		return weatherTypes[x.weather][x.daypart];
 	}),
 	newTodo: function(){
 		router.push("editTodoPage");
