@@ -106,7 +106,7 @@ function AppData() {
 
 	this.currentWeather = CurrentWeather.item(function (latitude, longitude) {
 		this.fabric.debug('Refreshing currentWeather');	
-		return this.next.fetchWeatherNow(latitude, longitude);
+		return this.next.fetchCurrentWeather(latitude, longitude);
 	});
 
 	this.locationChanged = function(latitude, longitude) {

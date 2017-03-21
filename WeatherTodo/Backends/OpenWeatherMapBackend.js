@@ -78,12 +78,13 @@ function OpenWeatherMapBackend() {
 		return ret;
 	}
 
-	this.fetchWeatherNow = function(latitude, longitude) {
+	this.fetchCurrentWeather = function(latitude, longitude) {
 		self.fabric.debug('Fetching currentWeather');
 		return fetchWeatherRest(latitude, longitude)
 			.then(function (data) {
-				self.fabric.debug('WeatherNow: Got data from API: ' + JSON.stringify(data));
+				self.fabric.debug('fetchCurrentWeather: Got data from API: ' + JSON.stringify(data));
 				var ret = mapToWeatherSchema(data);
+				console.log ('CURRENT WEATHER: ' + JSON.stringify(ret));
 				return ret;
 			})
 			.catch(function (err) {
@@ -95,8 +96,7 @@ function OpenWeatherMapBackend() {
 		self.fabric.debug('Fetching forecast');
 		return fetchForecastRest(latitude, longitude)
 			.then(function (data) {
-				self.fabric.debug('WeatherNow: Got data from API: ' + JSON.stringify(data));
-				//console.log(JSON.stringify(data));
+				self.fabric.debug('fetchForecast: Got data from API: ' + JSON.stringify(data));				
 				var ret = data.list.map(function (d) {
 					return mapToForecastSchema(d, data.city.name);				
 				});

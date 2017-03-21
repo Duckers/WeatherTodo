@@ -4,14 +4,10 @@ var MockWeather = require("WeatherTodo/Mock/MockWeather");
 
 function MockBackend() {
 
-	this.todos = function() {
+	this.fetchTodos = function() {
 		return new Promise(function(resolve) {
 			resolve(MockTodos);
 		})
-	}
-
-	this.todosByDescription = function(description) {
-		
 	}
 
 	var todoEnumerator = MockTodos.length;
@@ -37,11 +33,17 @@ function MockBackend() {
 		})
 	}
 
-	this.weather = function(city) {
+	this.fetchCurrentWeather = function(latitude, longitude) {
 		return new Promise(function(resolve) {
-			resolve(MockWeather);
+			resolve(MockWeather.mockCurrentWeather);
 		});
 	}
+
+	this.fetchForecast = function(latitude, longitude) {
+		return new Promise(function (resolve) {
+			resolve(MockWeather.mockForecast);
+		});
+	};
 
 }
 

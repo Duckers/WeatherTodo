@@ -6,9 +6,9 @@ function BackendValidators() {
 		});
 	}
 
-	this.fetchWeatherNow = function(latitude, longitude) {
+	this.fetchCurrentWeather = function(latitude, longitude) {
 		if (latitude && longitude)
-			return this.next.fetchWeatherNow(latitude, longitude);
+			return this.next.fetchCurrentWeather(latitude, longitude);
 	}
 
 	this.fetchForecast = function(latitude, longitude) {
@@ -21,14 +21,6 @@ function BackendValidators() {
 			return validationFailure('todoData');
 		} else {
 			return this.next.addTodo(todoData);
-		}
-	}
-
-	this.todosByDescription = function(description) {
-		if (description) {
-			return this.next.todosByDescription(description);
-		} else {
-			return new Promise(function (resolve) { resolve([]); });
 		}
 	}
 }

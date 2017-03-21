@@ -17,6 +17,7 @@ var AppData = require("WeatherTodo/AppData");
 
 // Mocks
 var MockApp = require('WeatherTodo/MockApp');
+var MockBackend = require('WeatherTodo/Mock/MockBackend');
 var MockGeoLocation = require('WeatherTodo/Mock/MockGeoLocation');
 
 // Development fibers
@@ -45,8 +46,12 @@ module.exports = new Fabric(
 	// Backend
  	new BackendValidators(),
 
+ 	// Actual implementations of backends
  	new FirebaseBackend(),
  	new OpenWeatherMapBackend(),
+
+ 	// MockBackend
+	new MockBackend(),
 
 	// Mock
 	new MockApp(),
