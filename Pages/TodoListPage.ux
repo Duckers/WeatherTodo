@@ -20,12 +20,18 @@
 						<Panel Clicked="{editTodo}">
 							<DockPanel Margin="4" Padding="6">
 								<Panel Dock="Left">
-									<WeatherIcon Icon="{preferredWeatherIcon}" Size="40"/>
+									<WhileTrue Value="{forecasted}">
+										<WeatherIcon Icon="{preferredWeatherIcon}" Size="40" />
+									</WhileTrue>
+									<WhileFalse Value="{forecasted}">
+										<WeatherIcon Icon="{preferredWeatherIcon}" Size="20" />
+									</WhileFalse>
 								</Panel>
 								<Switch Margin="16" Dock="Right" Value="{isDone}" />
 								<StackPanel Alignment="VerticalCenter" Margin="15,0">
 									<Text Value="{title}" />
 									<Text Value="{description}" />
+									<Text Value="{timespan}" />
 								</StackPanel>
 							</DockPanel>
 							<Rectangle CornerRadius="2" Color="#f5f5f5" Layer="Background"/>
