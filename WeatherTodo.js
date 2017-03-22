@@ -1,6 +1,5 @@
 var Fabric = require("Fabric");
 
-
 // Real fibers
 var BackendValidators = require("WeatherTodo/Backends/BackendValidators");
 var LogLevelFilter = require('WeatherTodo/LogLevelFilter');
@@ -11,6 +10,8 @@ var FirebaseBackendConfig = require("WeatherTodo/FirebaseBackendConfig");
 var FirebaseBackend = require("WeatherTodo/Backends/FirebaseBackend");
 var TemperatureCalculator = require('WeatherTodo/TemperatureCalculator');
 var ErrorHandling = require('WeatherTodo/ErrorHandling');
+
+var BusinessLogic = require('WeatherTodo/BusinessLogic');
 
 // Data model
 var AppData = require("WeatherTodo/AppData");
@@ -39,6 +40,9 @@ module.exports = new Fabric(
 
 	// Data model
 	new AppData(),
+
+	// Business logic
+	new BusinessLogic(),
 
 	// Helper methods
 	new TemperatureCalculator(),
