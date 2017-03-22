@@ -2,16 +2,8 @@ function AppData() {
 	return function(fabric, next) {		
 		
 
-		this.create = function() {
-			fabric.subscribe('todos', fabric.sortTodos);
-			fabric.subscribe('forecast', fabric.sortTodos);
-
-			this.refreshTodos();
-		}
-
 		this.todos = [];
 		this.forecast = [];
-		this.sortedTodos = [];
 		this.currentWeather = { 'weather' : 'clear sky'};
 
 		this.refreshCurrentWeather = function(latitude, longitude) {

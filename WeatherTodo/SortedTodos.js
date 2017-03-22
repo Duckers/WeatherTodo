@@ -1,5 +1,7 @@
-function BusinessLogic() {
+function SortedTodos() {
 	return function(fabric, next) {
+
+		this.sortedTodos = [];
 
 		this.locationChanged = function(latitude, longitude) {
 			fabric.refreshCurrentWeather(latitude, longitude);
@@ -17,16 +19,23 @@ function BusinessLogic() {
 			'Saturday'
 		];
 
-		this.sortTodos = function (todos, forecast) {
+		this.create = function() {
+			fabric.subscribe('todos', sortTodos);
+			fabric.subscribe('forecast', sortTodos);
+		}
+
+		function sortTodos() {
+			var todos = fabric.todos;
+			var forecast = fabric.forecast;
 			if (!todos || !forecast) return;
 
 			console.log('Created combined array: ' + JSON.stringify(todos));
 
 			var todoList = [];
-			
+
 			var todosToBeDone = todos.filter(function(t) { return t.isDone === false; });		
 			var doneTodos = todos.filter(function(t) { return t.isDone === true; });
-			
+
 			var weatherTypes = {};
 			todosToBeDone.forEach(function(t)  {
 				if (t.preferredWeather in weatherTypes === false) {
@@ -59,7 +68,7 @@ function BusinessLogic() {
 					todoList.push(t);
 				});
 			}
-		
+
 			doneTodos.forEach(function(t) { 
 				t.forecasted = false;
 				todoList.push(t); 
