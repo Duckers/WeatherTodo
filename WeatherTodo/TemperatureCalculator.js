@@ -1,7 +1,9 @@
 function TemperatureCalculator() {
 
-	this.fahrenheitToCelcius = function(fahrenheit) {
-		return (5 / 9) * (fahrenheit - 32);
+	return function() {
+		this.fahrenheitToCelcius = function(fahrenheit) {
+			return (5 / 9) * (fahrenheit - 32);
+		}
 	}
 	
 }

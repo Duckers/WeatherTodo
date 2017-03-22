@@ -3,46 +3,48 @@ var MockTodos = require("WeatherTodo/Mock/MockTodos");
 var MockWeather = require("WeatherTodo/Mock/MockWeather");
 
 function MockBackend() {
+	return function() {
 
-	this.fetchTodos = function() {
-		return new Promise(function(resolve) {
-			resolve(MockTodos);
-		})
-	}
-
-	var todoEnumerator = MockTodos.length;
-
-	this.addTodo = function(todo) {
-		var id = todoEnumerator++;
-		return new Promise(function(resolve) {
-			MockTodos.push(todo);
-			resolve(id);
-		})
-	}
-
-	this.setTodoIsDone = function(todoId, isDone) {
-		return new Promise(function(resolve, reject) {
-			MockTodos.forEach(function (todo) {
-				if (todo.id === todoId) {
-					todo.isDone = isDone;
-					resolve();
-					return;
-				}
+		this.fetchTodos = function() {
+			return new Promise(function(resolve) {
+				resolve(MockTodos);
 			})
-			reject("Invalid Todo ID");
-		})
-	}
+		}
 
-	this.fetchCurrentWeather = function(latitude, longitude) {
-		return new Promise(function(resolve) {
-			resolve(MockWeather.mockCurrentWeather);
-		});
-	}
+		var todoEnumerator = MockTodos.length;
 
-	this.fetchForecast = function(latitude, longitude) {
-		return new Promise(function (resolve) {
-			resolve(MockWeather.mockForecast);
-		});
+		this.addTodo = function(todo) {
+			var id = todoEnumerator++;
+			return new Promise(function(resolve) {
+				MockTodos.push(todo);
+				resolve(id);
+			})
+		}
+
+		this.setTodoIsDone = function(todoId, isDone) {
+			return new Promise(function(resolve, reject) {
+				MockTodos.forEach(function (todo) {
+					if (todo.id === todoId) {
+						todo.isDone = isDone;
+						resolve();
+						return;
+					}
+				})
+				reject("Invalid Todo ID");
+			})
+		}
+
+		this.fetchCurrentWeather = function(latitude, longitude) {
+			return new Promise(function(resolve) {
+				resolve(MockWeather.mockCurrentWeather);
+			});
+		}
+
+		this.fetchForecast = function(latitude, longitude) {
+			return new Promise(function (resolve) {
+				resolve(MockWeather.mockForecast);
+			});
+		};
 	};
 
 }
