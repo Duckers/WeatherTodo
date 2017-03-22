@@ -1,11 +1,24 @@
-function Todos() {
+function Todos(router) {
 	return function(fabric, next) {
 
 		this.todos = [];
 
-		this.setTodos = function(todos) {
-			debugger;
-			
+		this.editTodo = function(arg) {
+			console.log('editTodo: ' + JSON.stringify(arg));
+			var id = arg.data.id.value;			
+			if (id) {				
+				var todo = fabric.todos.filter(function (t) { return t.id === id; });
+				fabric.set('currentTodo', todo);
+				router.push("editTodoPage", { action: "edit", id: id });
+			}
+		};
+
+		this.newTodo = function() {
+			router.push("editTodoPage", { action: "new" });
+		};
+
+		this.setTodos = function(todos) {			
+			console.log(JSON.stringify(todos));
 			fabric.set('todos', todos.map(function(todo) {
 				todo.icon = fabric.weatherTypes[todo.preferredWeather].day;
 				return todo;
@@ -13,6 +26,8 @@ function Todos() {
 
 			console.log("TODOS: " + JSON.stringify(fabric.todos));
 		}
+
+		this.currentTodo = {};
 
 		this.refreshTodos = function() {
 			fabric.fetchTodos()

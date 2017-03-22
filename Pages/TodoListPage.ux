@@ -1,6 +1,5 @@
 <Page ux:Class="TodoListPage">
-	<Router ux:Dependency="router" />
-	<JavaScript File="TodoListPage.js" />
+	<Router ux:Dependency="router" />	
 	<DockPanel>
 		<Panel Height="140" Dock="Top" Margin="10">
 			<StackPanel Alignment="BottomRight">

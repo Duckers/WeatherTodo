@@ -40,7 +40,7 @@ module.exports = new ObservableAdapter(new Fabric(
 	// App model
 	new Login(router),
 	new Weather(),
-	new Todos(),
+	new Todos(router),
 
 	// Backend
  	new BackendValidators(),

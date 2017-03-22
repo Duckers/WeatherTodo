@@ -1,6 +1,4 @@
-<Page ux:Class="EditTodoPage">
-	<JavaScript File="EditTodoPage.js" />
-
+<Page ux:Class="EditTodoPage">	
 	<Panel Alignment="BottomRight" Margin="30">
 		<Material.MaterialIcon Icon="Check" Color="White" Size="30" Alignment="Center"/>
 		<Circle Width="70" Height="70">
