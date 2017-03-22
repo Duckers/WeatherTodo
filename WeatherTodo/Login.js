@@ -3,7 +3,7 @@
 function Login(router) {
 	return function (fabric, next) {
 
-		var username = "";
+		this.username = "";
 		var password = "";
 
 		this.usernameChanged = function(args) {
@@ -15,13 +15,14 @@ function Login(router) {
 		}
 
 		this.login = function() {
-			fabric.login(fabric.username, password).then(function(){
+			console.log("username: " + fabric.username + ", password: " + password);
+			next.login(fabric.username, password).then(function(){
 				router.goto("todoListPage");
 			});
 		}
 
 		this.signup = function(){
-			fabric.signup(fabric.username, password).then(function(){
+			next.signup(fabric.username, password).then(function(){
 				router.goto("todoListPage");
 			});
 		}
