@@ -14,6 +14,8 @@ function AppData() {
 		this.create = function() {
 			fabric.subscribe('todos', sortTodos);
 			fabric.subscribe('forecast', sortTodos);
+
+			this.refreshTodos();
 		}
 
 		var sortTodos = function (todos, forecast) {
@@ -65,20 +67,30 @@ function AppData() {
 			});
 
 			fabric.set('sortedTodos', todoList);
-		});
+		};
 
 		this.todos = [];
 		this.forecast = [];
 		this.sortedTodos = [];
 
-		this.refreshCurrentWeather = function (latitude, longitude) {
+		this.refreshCurrentWeather = function(latitude, longitude) {
 			fabric.debug('Refreshing currentWeather');	
-			next.fetchCurrentWeather(latitude, longitude);
+			fabric.set('currentWeather', next.fetchCurrentWeather(latitude, longitude);
 		};
 
+		this.refreshForecast = function(latitude, longitude) {
+			fabric.debug('Refreshing forecast');	
+			fabric.set('forecast', next.fetchForecast(latitude, longitude));
+		}
+
+		this.refreshTodos = function() {
+			fabric.debug('Refreshing todos');	
+			fabric.set('todos', next.fetchTodos());
+		}
+
 		this.locationChanged = function(latitude, longitude) {
-			fabric.currentWeather.refresh(latitude, longitude);
-			fabric.forecast.refresh(latitude, longitude);
+			fabric.refreshCurrentWeather(latitude, longitude);
+			fabric.refreshForecast(latitude, longitude);
 			return next.locationChanged(latitude, longitude);
 		};
 	}
