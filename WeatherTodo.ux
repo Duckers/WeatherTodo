@@ -1,4 +1,5 @@
 <App>
+	<JavaScript File="WeatherTodo.js" />
 	<Router ux:Name="router" />
 	<Panel>
 		<Navigator DefaultPath="loginPage">

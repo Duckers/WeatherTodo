@@ -1,27 +1,27 @@
 var Observable = require('FuseJS/Observable');
 
 function MockApp() {
-    return function() {
+    return function(fabric, next) {
       this.welcome = "Hello, dude";
 
       // Login to the todo-store
       this.login = function(username, password) {
-  		this.fabric.debug("Logging in with: " + username + ", and " + password);
-  		return new Promise(function(resolve) {
-  			setTimeout(function(){
-  				resolve();
-  			},1000);
-  		});
+    		fabric.debug("Logging in with: " + username + ", and " + password);
+    		return new Promise(function(resolve) {
+    			setTimeout(function(){
+    				resolve();
+    			},1000);
+    		});
       };
 
       // Signup for the todo-store
       this.signup = function(username, password) {
-  		this.fabric.debug("Signing up with: " + username + ", and " + password);
-  		return new Promise(function(resolve) {
-  			setTimeout(function(){
-  				resolve();
-  			},1000);
-  		});
+  		  fabric.debug("Signing up with: " + username + ", and " + password);
+    		return new Promise(function(resolve) {
+    			setTimeout(function(){
+    				resolve();
+    			},1000);
+    		});
       };
 
       // The sorted list of todos

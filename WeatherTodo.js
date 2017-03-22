@@ -10,7 +10,6 @@ var FirebaseBackendConfig = require("WeatherTodo/FirebaseBackendConfig");
 var FirebaseBackend = require("WeatherTodo/Backends/FirebaseBackend");
 var TemperatureCalculator = require('WeatherTodo/TemperatureCalculator');
 var ErrorHandling = require('WeatherTodo/ErrorHandling');
-
 var BusinessLogic = require('WeatherTodo/BusinessLogic');
 
 // Data model

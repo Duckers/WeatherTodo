@@ -12,6 +12,7 @@ function AppData() {
 		this.todos = [];
 		this.forecast = [];
 		this.sortedTodos = [];
+		this.currentWeather = { 'weather' : 'clear sky'};
 
 		this.refreshCurrentWeather = function(latitude, longitude) {
 			fabric.debug('Refreshing currentWeather');	
