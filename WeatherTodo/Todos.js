@@ -1,13 +1,23 @@
-function SortedTodos() {
+function Todos() {
 	return function(fabric, next) {
 
-		this.sortedTodos = [];
+		this.todos = [];
 
-		this.locationChanged = function(latitude, longitude) {
-			fabric.refreshCurrentWeather(latitude, longitude);
-			fabric.refreshForecast(latitude, longitude);
-			return next.locationChanged(latitude, longitude);
+		this.setTodos = function(todos) {
+			fabric.set('todos', todos.map(function(todo) {
+				todo.icon = fabric.weatherTypes[todo.preferredWeather].day;
+				return todo;
+			}));
+
+			console.log("TODOS: " + JSON.stringify(fabric.todos));
+		}
+
+		this.refreshTodos = function() {
+			fabric.fetchTodos()
+				  .then(fabric.setTodos);
 		};
+
+		this.sortedTodos = [];
 
 		var days = [
 			'Sunday',
@@ -20,16 +30,17 @@ function SortedTodos() {
 		];
 
 		this.create = function() {
+
 			fabric.subscribe('todos', sortTodos);
 			fabric.subscribe('forecast', sortTodos);
+			fabric.refreshTodos();
+			sortTodos();
 		}
 
 		function sortTodos() {
 			var todos = fabric.todos;
 			var forecast = fabric.forecast;
 			if (!todos || !forecast) return;
-
-			console.log('Created combined array: ' + JSON.stringify(todos));
 
 			var todoList = [];
 
@@ -79,4 +90,4 @@ function SortedTodos() {
 	}
 }
 
-module.exports = BusinessLogic;
+module.exports = Todos;

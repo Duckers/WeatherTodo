@@ -11,8 +11,7 @@
 	],
 	"Includes": [
 		"*",
-		"WeatherTodo.js:Bundle",
-		"WeatherTypes.js:Bundle",
+		"WeatherTodo.js:Bundle",	
 		"WeatherTodo/*.js:Bundle",
 		"WeatherTodo/Mock/*.js:Bundle",
 		"WeatherTodo/Backends/*.js:Bundle"

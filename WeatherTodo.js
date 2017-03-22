@@ -1,32 +1,29 @@
 var Fabric = require("Fabric");
 
-// Real fibers
+// Backends
 var BackendValidators = require("WeatherTodo/Backends/BackendValidators");
+var OpenWeatherMapConfig = require('WeatherTodo/Backends/OpenWeatherMapConfig');
+var OpenWeatherMapBackend = require("WeatherTodo/Backends/OpenWeatherMapBackend");
+var FirebaseBackendConfig = require("WeatherTodo/Backends/FirebaseBackendConfig");
+var FirebaseBackend = require("WeatherTodo/Backends/FirebaseBackend");
+
+// Logging & error handling
 var LogLevelFilter = require('WeatherTodo/LogLevelFilter');
 var ConsoleLogger = require('WeatherTodo/ConsoleLogger');
-var OpenWeatherMapConfig = require('WeatherTodo/OpenWeatherMapConfig');
-var OpenWeatherMapBackend = require("WeatherTodo/Backends/OpenWeatherMapBackend");
-var FirebaseBackendConfig = require("WeatherTodo/FirebaseBackendConfig");
-var FirebaseBackend = require("WeatherTodo/Backends/FirebaseBackend");
-var TemperatureCalculator = require('WeatherTodo/TemperatureCalculator');
 var ErrorHandling = require('WeatherTodo/ErrorHandling');
-var BusinessLogic = require('WeatherTodo/BusinessLogic');
 
-// Data model
-var AppData = require("WeatherTodo/AppData");
+// Data & business logic
+var Todos = require('WeatherTodo/Todos');
+var Weather = require("WeatherTodo/Weather");
 
 // Mocks
 var MockApp = require('WeatherTodo/MockApp');
 var MockBackend = require('WeatherTodo/Mock/MockBackend');
 var MockGeoLocation = require('WeatherTodo/Mock/MockGeoLocation');
 
-// Development fibers
-var InspectApi = require('WeatherTodo/InspectApi');
 
 module.exports = new Fabric(
-	// Instrumentation
-	new InspectApi('currentWeather', 'forecast', 'todos'),
-
+	
 	new ErrorHandling(),
 
 	// Config
@@ -34,17 +31,12 @@ module.exports = new Fabric(
 	new FirebaseBackendConfig(),
 
 	// Logging
-	new LogLevelFilter('ALL'),
+	new LogLevelFilter('ERROR'),
 	new ConsoleLogger({ trimLongLines: 120 }),
 
-	// Data model
-	new AppData(),
-
-	// Business logic
-	new BusinessLogic(),
-
-	// Helper methods
-	new TemperatureCalculator(),
+	// App model
+	new Weather(),
+	new Todos(),
 
 	// Backend
  	new BackendValidators(),

@@ -7,7 +7,7 @@
 				<Text Value="{currentWeather.city}" FontSize="30" TextAlignment="Right"/>
 				<Text Value="{currentWeather.weather}" FontSize="20" TextAlignment="Right" />
 			</StackPanel>
-			<WeatherIcon Icon="{weatherIcon}"  Alignment="TopLeft" Margin="25,0,0,0" Size="80"/>
+			<WeatherIcon Icon="{currentWeather.icon}"  Alignment="TopLeft" Margin="25,0,0,0" Size="80"/>
 		</Panel>
 		<Panel>
 			<Circle Width="60" Height="60" Color="#ddd" Alignment="BottomRight" Margin="50" Clicked="{newTodo}">
@@ -21,10 +21,10 @@
 							<DockPanel Margin="4" Padding="6">
 								<Panel Dock="Left">
 									<WhileTrue Value="{forecasted}">
-										<WeatherIcon Icon="{preferredWeatherIcon}" Size="40" />
+										<WeatherIcon Icon="{icon}" Size="40" />
 									</WhileTrue>
 									<WhileFalse Value="{forecasted}">
-										<WeatherIcon Icon="{preferredWeatherIcon}" Size="20" />
+										<WeatherIcon Icon="{icon}" Size="20" />
 									</WhileFalse>
 								</Panel>
 								<Switch Margin="16" Dock="Right" Value="{isDone}" />
