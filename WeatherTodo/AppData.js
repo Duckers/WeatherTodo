@@ -16,18 +16,28 @@ function AppData() {
 
 		this.refreshCurrentWeather = function(latitude, longitude) {
 			fabric.debug('Refreshing currentWeather');	
-			fabric.set('currentWeather', next.fetchCurrentWeather(latitude, longitude));
+			next.fetchCurrentWeather(latitude, longitude)
+				.then(function (currentWeatherData)
+				{
+					fabric.set('currentWeather', currentWeatherData);	
+				});			
 		};
 
 		this.refreshForecast = function(latitude, longitude) {
 			fabric.debug('Refreshing forecast');	
-			fabric.set('forecast', next.fetchForecast(latitude, longitude));
-		}
+			next.fetchForecast(latitude, longitude)
+				.then(function (forecast) {
+					fabric.set('forecast', forecast);
+				});			
+		};
 
 		this.refreshTodos = function() {
 			fabric.debug('Refreshing todos');	
-			fabric.set('todos', next.fetchTodos());
-		}
+			next.fetchTodos()
+				.then(function (todos) {
+					fabric.set('todos', todos);
+				});			
+		};
 
 	}
 }
