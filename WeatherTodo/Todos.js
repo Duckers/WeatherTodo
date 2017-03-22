@@ -32,7 +32,6 @@ function Todos() {
 		];
 
 		this.create = function() {
-
 			fabric.subscribe('todos', sortTodos);
 			fabric.subscribe('forecast', sortTodos);
 			fabric.refreshTodos();

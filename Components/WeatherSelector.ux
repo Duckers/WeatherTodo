@@ -3,7 +3,7 @@
 
 	<Panel>
 		<Panel ux:InnerClass="WeatherOption" Width="50" Height="50" HitTestMode="LocalBounds">
-			<WeatherIcons.IconName ux:Property="Icon" />
+			<WeatherIconName ux:Property="Icon" />
 			<string ux:Property="Value" />
 			<WeatherIcon Icon="{ReadProperty Icon}" Alignment="Center" Size="35"/>
 

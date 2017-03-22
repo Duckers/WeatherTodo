@@ -1,4 +1,3 @@
-var Observable = require("FuseJS/Observable");
 var GeoLocation = require("FuseJS/GeoLocation");
 
 function GeoLocation() {

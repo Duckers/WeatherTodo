@@ -6,7 +6,6 @@
 	],
 	"Projects": [
 		"../Fabric/Fabric.unoproj",
-		"WeatherIcons/WeatherIcons.unoproj",
 		"MaterialIcons/MaterialIcons.unoproj"
 	],
 	"Includes": [
