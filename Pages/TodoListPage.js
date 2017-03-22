@@ -1,5 +1,3 @@
-var WeatherTodo = require("WeatherTodo");
-
 module.exports = {
 	editTodo: function(arg) {
 		var id = arg.data.id;

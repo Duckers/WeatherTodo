@@ -4,7 +4,7 @@ function Weather() {
 		this.forecast = [];
 
 		this.setForecast = function(f) {
-			fabric.set("forecast", forecast);
+			fabric.set("forecast", f);
 		}
 
 		this.refreshForecast = function(latitude, longitude) {

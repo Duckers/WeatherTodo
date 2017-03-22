@@ -16,7 +16,7 @@
 			</Circle>
 			<ScrollView>
 				<StackPanel ItemSpacing="4">
-					<Each Items="{todos}">
+					<Each Items="{sortedTodos}">
 						<Panel Clicked="{editTodo}">
 							<DockPanel Margin="4" Padding="6">
 								<Panel Dock="Left">

@@ -1,5 +1,4 @@
 var Observable = require("FuseJS/Observable");
-var WeatherTodo = require("WeatherTodo");
 
 var title = Observable();
 var description = Observable();
