@@ -73,7 +73,7 @@ function OpenWeatherMapBackend() {
 				daypart: mapIconToDayOrNight(data.weather[0].icon),
 				time: timestamp
 			};
-			console.log('MAPPED: ' + JSON.stringify(ret));
+			fabric.debug('Mapped state of forecast: ' + JSON.stringify(ret));
 			return ret;
 		}
 
@@ -83,7 +83,7 @@ function OpenWeatherMapBackend() {
 				.then(function (data) {
 					fabric.debug('fetchCurrentWeather: Got data from API: ' + JSON.stringify(data));
 					var ret = mapToWeatherSchema(data);
-					console.log ('CURRENT WEATHER: ' + JSON.stringify(ret));
+					fabric.debug('Mapped state of current weather: ' + JSON.stringify(ret));
 					return ret;
 				})
 				.catch(function (err) {
