@@ -72,9 +72,13 @@ function Todos(router) {
 			});
 
 			// Map todos on forecast
-			forecast.forEach(function(f) {
+			forecast.forEach(function(f) {	
+				// Because the store will implicitly serialize the data when stored,
+				// the information about f.time actually being a Date-instance is lost,
+				// so we need to reconstruct that			
+				f.time = new Date(f.time);								
 				if (f.weather in weatherTypes) {
-					weatherTypes[f.weather].forEach(function (t) {
+					weatherTypes[f.weather].forEach(function (t) {						
 						t.fromTime = f.time;
 						t.toTime = new Date(f.time.getTime() + (3 * 60 * 60 * 1000));
 						t.timespan = days[t.fromTime.getDay()] + ' ' + t.fromTime.getHours() + ':00 - ' + t.toTime.getHours() + ':00';
