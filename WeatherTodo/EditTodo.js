@@ -29,11 +29,14 @@ function EditTodo() {
 		}
 
 
-		this.editTodo = function(arg) {
+		this.editTodo = function(arg) {			
 			var id = arg.data.id.value;
 
-			if (id) {
-				edit(fabric.todos.filter(function (t) { return t.id === id; }));
+			if (id !== undefined) {				
+				var todo = fabric.todos.filter(function (t) { return t.id === id; });
+				if (todo) {
+					edit(todo);
+				}
 			}
 		};
 
