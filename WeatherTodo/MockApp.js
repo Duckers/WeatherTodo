@@ -7,10 +7,15 @@ function MockApp() {
       // Login to the todo-store
       this.login = function(username, password) {
     		fabric.debug("Logging in with: " + username + ", and " + password);
-    		return new Promise(function(resolve) {
+    		return new Promise(function(resolve, reject) {
     			setTimeout(function(){
-    				resolve();
-    			},1000);
+            if (username === 'user' && password === 'pass') {
+              resolve();  
+            }
+    				else {
+              reject();
+            }
+    			}, 150);
     		});
       };
 

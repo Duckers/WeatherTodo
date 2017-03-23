@@ -6,5 +6,6 @@
 			<Button Text="Login" Clicked="{login}"/>
 			<Button Text="Sign up" Clicked="{signup}"/>
 		</Grid>
+		<Text Value="{loginErrorMessage}" />
 	</StackPanel>
 </Page>
