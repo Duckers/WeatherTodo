@@ -15,7 +15,8 @@
 			<ScrollView>
 				<StackPanel ItemSpacing="4">
 					<Each Items="{sortedTodos}">
-						<Panel Clicked="{editTodo}">
+						<!-- <Panel Clicked="{editTodo}"> -->
+						<Panel>
 							<DockPanel Margin="4" Padding="6">
 								<Panel Dock="Left">
 									<WhileTrue Value="{forecasted}">
@@ -25,7 +26,7 @@
 										<WeatherIcon Icon="{icon}" Size="20" />
 									</WhileFalse>
 								</Panel>
-								<Switch Margin="16" Dock="Right" Value="{isDone}" />
+								<Switch Margin="16" Dock="Right" Value="{isDone}" ValueChanged="{setTodoIsDone}" />
 								<StackPanel Alignment="VerticalCenter" Margin="15,0">
 									<Text Value="{title}" />
 									<Text Value="{description}" />
