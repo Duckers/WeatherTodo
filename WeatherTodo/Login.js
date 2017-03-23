@@ -14,6 +14,8 @@ function Login(router) {
 			password = args.value;
 		}
 
+		this.user = {}
+
 		this.login = function() {
 			console.log("username: " + fabric.username + ", password: " + password);
 			next.login(fabric.username, password).then(function(){

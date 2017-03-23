@@ -1,21 +1,7 @@
-function Todos(router) {
+function Todos() {
 	return function(fabric, next) {
 
 		this.todos = [];
-
-		this.editTodo = function(arg) {
-			console.log('editTodo: ' + JSON.stringify(arg));
-			var id = arg.data.id.value;			
-			if (id) {				
-				var todo = fabric.todos.filter(function (t) { return t.id === id; });
-				fabric.set('currentTodo', todo);
-				router.push("editTodoPage", { action: "edit", id: id });
-			}
-		};
-
-		this.newTodo = function() {
-			router.push("editTodoPage", { action: "new" });
-		};
 
 		this.setTodos = function(todos) {			
 			console.log(JSON.stringify(todos));
@@ -26,8 +12,6 @@ function Todos(router) {
 
 			console.log("TODOS: " + JSON.stringify(fabric.todos));
 		}
-
-		this.currentTodo = {};
 
 		this.refreshTodos = function() {
 			fabric.fetchTodos()

@@ -1,5 +1,4 @@
 <Page ux:Class="LoginPage">
-	<Router ux:Dependency="router" />
 	<StackPanel Alignment="Center" Width="80%" ItemSpacing="15">
 		<TextInput Value="{username}" ValueChanged="{usernameChanged}" PlaceholderText="username" Alignment="Center"/>
 		<TextInput Value="{password}" ValueChanged="{passwordChanged}" PlaceholderText="password" Alignment="Center" IsPassword="true"/>

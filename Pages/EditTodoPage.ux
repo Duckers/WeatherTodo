@@ -1,43 +1,42 @@
-<Page ux:Class="EditTodoPage">	
-	<Panel Alignment="BottomRight" Margin="30">
-		<Material.MaterialIcon Icon="Check" Color="White" Size="30" Alignment="Center"/>
-		<Circle Width="70" Height="70">
-			<LinearGradient>
-				<GradientStop Offset="0" Color="#ADDDAB"/>
-				<GradientStop Offset="1" Color="#6DC0D2"/>
-			</LinearGradient>
-		</Circle>
-	</Panel>
-
-	<Grid Rows="1*,1*,3*">
-		<StackPanel ItemSpacing="15" Alignment="VerticalCenter" Margin="30,10">
-			<TextInput Value="{currentTodo.title}" TextColor="#000" PlaceholderColor="#888" PlaceholderText="Title" FontSize="25"/>
-			<TextInput Value="{currentTodo.description}" TextColor="#000" PlaceholderColor="#888" PlaceholderText="Description" />
-		</StackPanel>
-
-		<Panel Margin="20,0">
-			<DockPanel ux:Class="CustomSlider">
-				<Panel Dock="Top" Margin="20,0">
-					<WeatherIcon Icon="DaySunny" Size="30"/>
-					<WeatherIcon Icon="NightClear" Size="34" Alignment="Right"/>
-				</Panel>
-				<RangeControl Padding="16,2,16,2" Margin="2" Dock="Top" >
-					<LinearRangeBehavior />
-					<Panel>
-						<Circle Anchor="50%,50%" ux:Name="thumb" Alignment="Left" Color="#ffffffee" Width="28" Height="28" />
-					</Panel>
-					<Rectangle Layer="Background" Color="#aaaaaacc" CornerRadius="45" />
-					<ProgressAnimation>
-						<Move Target="thumb" X="1" RelativeTo="ParentSize" />
-					</ProgressAnimation>
-				</RangeControl>
-			</DockPanel>
-			<CustomSlider />
+<Page ux:Class="EditTodoPage">
+	<With Data="{navHistory[{Parameter navPosition}][{Parameter navRoutePosition}]}">
+		<Panel Alignment="BottomRight" Margin="30">
+			<Material.MaterialIcon Icon="Check" Color="White" Size="30" Alignment="Center"/>
+			<Circle Width="70" Height="70">
+				<LinearGradient>
+					<GradientStop Offset="0" Color="#ADDDAB"/>
+					<GradientStop Offset="1" Color="#6DC0D2"/>
+				</LinearGradient>
+			</Circle>
 		</Panel>
 
-		<WeatherSelector Alignment="Top" SelectedIcon="Cloud"/>
-	</Grid>
+		<Grid Rows="1*,1*,3*">
+			<StackPanel ItemSpacing="15" Alignment="VerticalCenter" Margin="30,10">
+				<TextInput Value="{currentTodo.title}" TextColor="#000" PlaceholderColor="#888" PlaceholderText="Title" FontSize="25"/>
+				<TextInput Value="{currentTodo.description}" TextColor="#000" PlaceholderColor="#888" PlaceholderText="Description" />
+			</StackPanel>
 
+			<Panel Margin="20,0">
+				<DockPanel ux:Class="CustomSlider">
+					<Panel Dock="Top" Margin="20,0">
+						<WeatherIcon Icon="DaySunny" Size="30"/>
+						<WeatherIcon Icon="NightClear" Size="34" Alignment="Right"/>
+					</Panel>
+					<RangeControl Padding="16,2,16,2" Margin="2" Dock="Top" >
+						<LinearRangeBehavior />
+						<Panel>
+							<Circle Anchor="50%,50%" ux:Name="thumb" Alignment="Left" Color="#ffffffee" Width="28" Height="28" />
+						</Panel>
+						<Rectangle Layer="Background" Color="#aaaaaacc" CornerRadius="45" />
+						<ProgressAnimation>
+							<Move Target="thumb" X="1" RelativeTo="ParentSize" />
+						</ProgressAnimation>
+					</RangeControl>
+				</DockPanel>
+				<CustomSlider />
+			</Panel>
 
-
+			<WeatherSelector Alignment="Top" SelectedIcon="Cloud"/>
+		</Grid>
+	</With>
 </Page>

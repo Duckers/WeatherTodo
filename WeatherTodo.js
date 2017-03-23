@@ -1,5 +1,6 @@
 debugger;
 var Fabric = require("Fabric");
+var Store = require("Fabric/Store");
 
 // Backends
 var BackendValidators = require("WeatherTodo/Backends/BackendValidators");
@@ -15,7 +16,8 @@ var ErrorHandling = require('WeatherTodo/ErrorHandling');
 
 // Data & business logic
 var Login = require("WeatherTodo/Login");
-var Todos = require('WeatherTodo/Todos');
+var Todos = require("WeatherTodo/Todos");
+var EditTodo = require("WeatherTodo/EditTodo");
 var Weather = require("WeatherTodo/Weather");
 
 // Mocks
@@ -40,7 +42,8 @@ module.exports = new ObservableAdapter(new Fabric(
 	// App model
 	new Login(router),
 	new Weather(),
-	new Todos(router),
+	new EditTodo(router),
+	new Todos(),
 
 	// Backend
  	new BackendValidators(),
@@ -54,5 +57,8 @@ module.exports = new ObservableAdapter(new Fabric(
 
 	// Mock
 	new MockApp(),
-	new MockGeoLocation('Oslo')
+	new MockGeoLocation('Oslo'),
+
+	// Data store
+	new Store()
 ));
