@@ -66,12 +66,12 @@ function OpenWeatherMapBackend() {
 
 		function mapToForecastSchema(data, city) {
 			//console.log('Mapping: ' + JSON.stringify(data));
-			var timestamp = new Date(data.dt * 1000);
+			var time = new Date(data.dt * 1000);
 			var ret = {
 				id: city + ":" + data.dt,
 				weather: mapIconToWeather(data.weather[0].icon),
 				daypart: mapIconToDayOrNight(data.weather[0].icon),
-				time: timestamp
+				time: time
 			};
 			fabric.debug('Mapped state of forecast: ' + JSON.stringify(ret));
 			return ret;
