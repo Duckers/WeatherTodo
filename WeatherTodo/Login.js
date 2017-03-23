@@ -1,6 +1,6 @@
 
 
-function Login(router) {
+function Login() {
 	return function (fabric, next) {
 
 		this.username = "";
@@ -24,7 +24,7 @@ function Login(router) {
 			console.log("username: " + fabric.username + ", password: " + password);
 			next.login(fabric.username, password)
 				.then(function(){
-					router.goto("todoListPage");
+					fabric.gotoRoute("todoListPage");
 				})
 				.catch(function() {
 					fabric.set("loginErrorMessage", "Invalid username/password");
@@ -33,7 +33,7 @@ function Login(router) {
 
 		this.signup = function(){
 			next.signup(fabric.username, password).then(function(){
-				router.goto("todoListPage");
+				fabric.gotoRoute("todoListPage");
 			});
 		}
 	}

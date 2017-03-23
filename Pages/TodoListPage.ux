@@ -1,4 +1,4 @@
-<Page ux:Class="TodoListPage">
+<Fabric.Page ux:Class="TodoListPage">
 	<DockPanel>
 		<Panel Height="140" Dock="Top" Margin="10">
 			<StackPanel Alignment="BottomRight">
@@ -15,10 +15,9 @@
 			<ScrollView>
 				<StackPanel ItemSpacing="4">
 					<Each Items="{sortedTodos}">
-						<!-- <Panel Clicked="{editTodo}"> -->
-						<Panel>
+						<Panel >
 							<DockPanel Margin="4" Padding="6">
-								<Panel Dock="Left">
+								<Panel Dock="Left" Clicked="{editTodo}">
 									<WhileTrue Value="{forecasted}">
 										<WeatherIcon Icon="{icon}" Size="40" />
 									</WhileTrue>
@@ -27,7 +26,7 @@
 									</WhileFalse>
 								</Panel>
 								<Switch Margin="16" Dock="Right" Value="{isDone}" ValueChanged="{setTodoIsDone}" />
-								<StackPanel Alignment="VerticalCenter" Margin="15,0">
+								<StackPanel Alignment="VerticalCenter" Margin="15,0" Clicked="{editTodo}">
 									<Text Value="{title}" />
 									<Text Value="{description}" />
 									<Text Value="{timespan}" />
@@ -40,4 +39,4 @@
 			</ScrollView>
 		</Panel>
 	</DockPanel>
-</Page>
+</Fabric.Page>

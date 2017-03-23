@@ -2,7 +2,8 @@
 	<string ux:Property="SelectedIcon" />
 
 	<Panel>
-		<Panel ux:InnerClass="WeatherOption" Width="50" Height="50" HitTestMode="LocalBounds">
+		<Panel ux:Class="WeatherOption" Width="50" Height="50" HitTestMode="LocalBounds">
+			<Panel ux:Dependency="selectedPlaceholder" />
 			<WeatherIconName ux:Property="Icon" />
 			<string ux:Property="Value" />
 			<WeatherIcon Icon="{ReadProperty Icon}" Alignment="Center" Size="35"/>
@@ -30,16 +31,15 @@
 			<Selection MinCount="0" MaxCount="1" Value="{Property SelectedIcon}"/>
 			<CircleLayout />
 
-			<WeatherOption Value="clear sky" Icon="DaySunny"/>
-			<WeatherOption Value="clouds" Icon="DayCloudy"/>
-			<WeatherOption Value="few clouds" Icon="Cloud"/>
-			<WeatherOption Value="scattered clouds" Icon="Cloudy"/>
-			<WeatherOption Value="broken clouds" Icon="DayShowers"/>
-			<WeatherOption Value="shower rain" Icon="Rain"/>
-			<WeatherOption Value="thunderstorm" Icon="DayThunderstorm"/>
-			<WeatherOption Value="snow" Icon="DaySnow"/>
-			<WeatherOption Value="mist" Icon="DayFog"/>
-
+			<WeatherOption Value="clear sky" Icon="DaySunny" selectedPlaceholder="selectedPlaceholder"/>
+			<WeatherOption Value="clouds" Icon="DayCloudy"  selectedPlaceholder="selectedPlaceholder"/>
+			<WeatherOption Value="few clouds" Icon="Cloud" selectedPlaceholder="selectedPlaceholder"/>
+			<WeatherOption Value="scattered clouds" Icon="Cloudy" selectedPlaceholder="selectedPlaceholder"/>
+			<WeatherOption Value="broken clouds" Icon="DayShowers" selectedPlaceholder="selectedPlaceholder"/>
+			<WeatherOption Value="shower rain" Icon="Rain" selectedPlaceholder="selectedPlaceholder"/>
+			<WeatherOption Value="thunderstorm" Icon="DayThunderstorm" selectedPlaceholder="selectedPlaceholder"/>
+			<WeatherOption Value="snow" Icon="DaySnow" selectedPlaceholder="selectedPlaceholder"/>
+			<WeatherOption Value="mist" Icon="DayFog" selectedPlaceholder="selectedPlaceholder"/>
 
 		</Panel>
 	</Panel>

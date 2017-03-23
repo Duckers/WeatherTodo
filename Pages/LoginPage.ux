@@ -1,4 +1,4 @@
-<Page ux:Class="LoginPage">
+<Fabric.Page ux:Class="LoginPage">
 	<StackPanel Alignment="Center" Width="80%" ItemSpacing="15">
 		<TextInput Value="{username}" ValueChanged="{usernameChanged}" PlaceholderText="username" Alignment="Center"/>
 		<TextInput Value="{password}" ValueChanged="{passwordChanged}" PlaceholderText="password" Alignment="Center" IsPassword="true"/>
@@ -8,4 +8,4 @@
 		</Grid>
 		<Text Value="{loginErrorMessage}" />
 	</StackPanel>
-</Page>
+</Fabric.Page>

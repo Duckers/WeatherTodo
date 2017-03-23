@@ -1,6 +1,7 @@
 debugger;
 var Fabric = require("Fabric");
 var Store = require("Fabric/Store");
+var RouterController = require("Fabric/RouterController");
 
 // Backends
 var BackendValidators = require("WeatherTodo/Backends/BackendValidators");
@@ -39,8 +40,10 @@ module.exports = new ObservableAdapter(new Fabric(
 	new LogLevelFilter('ERROR'),
 	new ConsoleLogger({ trimLongLines: 120 }),
 
+	new RouterController(router),
+
 	// App model
-	new Login(router),
+	new Login(),
 	new Weather(),
 	new EditTodo(router),
 	new Todos(),

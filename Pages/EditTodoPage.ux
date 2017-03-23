@@ -1,6 +1,6 @@
-<Page ux:Class="EditTodoPage">
-	<!-- <With Data="{navHistory[{Parameter navPosition}][{Parameter navRoutePosition}]}"> -->
-		<Panel Alignment="BottomRight" Margin="30">
+<Fabric.Page ux:Class="EditTodoPage">
+	<DockPanel>
+		<Panel Alignment="BottomRight" Margin="30" Clicked="{save}">
 			<Material.MaterialIcon Icon="Check" Color="White" Size="30" Alignment="Center"/>
 			<Circle Width="70" Height="70">
 				<LinearGradient>
@@ -12,8 +12,8 @@
 
 		<Grid Rows="1*,1*,3*">
 			<StackPanel ItemSpacing="15" Alignment="VerticalCenter" Margin="30,10">
-				<TextInput Value="{currentTodo.title}" TextColor="#000" PlaceholderColor="#888" PlaceholderText="Title" FontSize="25"/>
-				<TextInput Value="{currentTodo.description}" TextColor="#000" PlaceholderColor="#888" PlaceholderText="Description" />
+				<TextInput Value="{todo.title}" ValueChanged="{titleChanged}" TextColor="#000" PlaceholderColor="#888" PlaceholderText="Title" FontSize="25"/>
+				<TextInput Value="{todo.description}" ValueChanged="{descriptionChanged}" TextColor="#000" PlaceholderColor="#888" PlaceholderText="Description" />
 			</StackPanel>
 
 			<Panel Margin="20,0">
@@ -36,7 +36,7 @@
 				<CustomSlider />
 			</Panel>
 
-			<WeatherSelector Alignment="Top" SelectedIcon="Cloud"/>
+			<WeatherSelector Alignment="Top" SelectedIcon="{todo.preferredWeather}"/>
 		</Grid>
-	<!-- </With> -->
-</Page>
+	</DockPanel>
+</Fabric.Page>

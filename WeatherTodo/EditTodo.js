@@ -5,10 +5,11 @@ function EditTodo() {
 		function edit(todo) {
 			fabric.pushRoute("editTodoPage", function (page) {
 
+				this.foobar = "THIS IS FOOBAR";
 				this.todo = todo;
 
-				var title;
-				var description;
+				var title = todo.title;
+				var description = todo.description;
 
 				this.titleChanged = function(args) {
 					title = args.value;
@@ -19,11 +20,9 @@ function EditTodo() {
 				};
 
 				this.save = function(args) {
-					var index = fabric.todos.indexOf(function(x) { return x.id == todo.id; });
-					fabric.set("todos", index, "title", title);
-					fabric.set("todos", index, "description", description);
-
-					fabric.popRoute(result);
+					fabric.set("todos", {id: todo.id}, "title", title);
+					fabric.set("todos", {id: todo.id}, "description", description);
+					fabric.popRoute();
 				};
 			});
 		}
@@ -33,7 +32,7 @@ function EditTodo() {
 			var id = arg.data.id.value;
 
 			if (id !== undefined) {				
-				var todo = fabric.todos.filter(function (t) { return t.id === id; });
+				var todo = fabric.todos.find(function (t) { return t.id === id; });
 				if (todo) {
 					edit(todo);
 				}
