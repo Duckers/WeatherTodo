@@ -16,6 +16,11 @@ function Login(router) {
 
 		this.login = function() {
 			console.log("username: " + fabric.username + ", password: " + password);
+			fabric.set('user', {
+				loggedIn: false,
+				longlivedToken: ''
+			});
+			
 			fabric.set('user', 'longlivedToken', 'a mock token');
 			next.login(fabric.username, password).then(function(){
 				router.goto("todoListPage");
