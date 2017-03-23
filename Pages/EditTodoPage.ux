@@ -1,5 +1,5 @@
 <Page ux:Class="EditTodoPage">
-	<With Data="{navHistory[{Parameter navPosition}][{Parameter navRoutePosition}]}">
+	<!-- <With Data="{navHistory[{Parameter navPosition}][{Parameter navRoutePosition}]}"> -->
 		<Panel Alignment="BottomRight" Margin="30">
 			<Material.MaterialIcon Icon="Check" Color="White" Size="30" Alignment="Center"/>
 			<Circle Width="70" Height="70">
@@ -38,5 +38,5 @@
 
 			<WeatherSelector Alignment="Top" SelectedIcon="Cloud"/>
 		</Grid>
-	</With>
+	<!-- </With> -->
 </Page>
