@@ -1,5 +1,14 @@
 <Panel ux:Class="WeatherSelector" SelectedIcon="Clouds">
 	<string ux:Property="SelectedIcon" />
+	<UserEvent ux:Name="preferredWeatherChangedEvent" />
+	<JavaScript>
+		var Observable = require('FuseJS/Observable');
+
+		this.SelectedIcon.map(function (selectedWeather) {
+			console.log('In component: Selected weather changed: ' + selectedWeather);
+			preferredWeatherChangedEvent.raise({ preferredWeather: selectedWeather});
+		}).subscribe(module);		
+	</JavaScript>
 
 	<Panel>
 		<Panel ux:Class="WeatherOption" Width="50" Height="50" HitTestMode="LocalBounds">
@@ -19,7 +28,7 @@
 			</Clicked>
 		</Panel>
 
-		<Panel Alignment="TopLeft" Width="90%" Height="90%" BoxSizing="FillAspect" Aspect="1">
+		<Panel Alignment="Top" Width="90%" Height="90%" BoxSizing="FillAspect" Aspect="1">
 
 			<Panel Alignment="Center" Layer="Background">
 				<Circle Width="75" Height="75">
@@ -28,7 +37,7 @@
 				<Panel ux:Name="selectedPlaceholder" Alignment="Center" Width="50" Height="50"/>
 			</Panel>
 
-			<Selection MinCount="0" MaxCount="1" Value="{Property SelectedIcon}"/>
+			<Selection MinCount="0" MaxCount="1" Value="{Property SelectedIcon}" />
 			<CircleLayout />
 
 			<WeatherOption Value="clear sky" Icon="DaySunny" selectedPlaceholder="selectedPlaceholder"/>

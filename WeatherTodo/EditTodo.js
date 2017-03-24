@@ -19,6 +19,11 @@ function EditTodo() {
 					description = args.value;
 				};
 
+				this.preferredWeatherChanged = function(args) {
+					console.log('Preferred weather changed: ' + args.preferredWeather);
+					fabric.set("todos", {id: todo.id}, "preferredWeather", args.preferredWeather);
+				}
+
 				this.save = function(args) {
 					fabric.set("todos", {id: todo.id}, "title", title);
 					fabric.set("todos", {id: todo.id}, "description", description);

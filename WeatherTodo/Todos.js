@@ -4,7 +4,7 @@ function Todos() {
 		this.todos = [];
 
 		this.setTodos = function(todos) {			
-			console.log(JSON.stringify(todos));
+			console.log('Setting TODOs:' + JSON.stringify(todos));
 			fabric.set('todos', todos.map(function(todo) {
 				todo.icon = fabric.weatherTypes[todo.preferredWeather].day;
 				return todo;
