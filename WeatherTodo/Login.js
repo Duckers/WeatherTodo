@@ -1,4 +1,5 @@
 
+var Observable = require("FuseJS/Observable");
 
 function Login() {
 	return function (fabric, next) {
@@ -9,15 +10,15 @@ function Login() {
 		this.login = function() {
 			fabric.pushRoute("loginPage", function(page) {
 
-				this.username = "";
-				this.password = "";
+				this.username = Observable("");
+				this.password = Observable("");
 
 				this.loginErrorMessage = "";
 				this.user = {}
 
 				this.login = function() {
-					console.log("username: " + page.username + ", password: " + page.password);
-					next.login(page.username, page.password)
+					console.log("username: " + page.username.value + ", password: " + page.password.value);
+					next.login(page.username.value, page.password.value)
 						.then(function(){
 							fabric.gotoRoute("todoListPage");
 						})
