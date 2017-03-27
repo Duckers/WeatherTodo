@@ -6,34 +6,24 @@ function Login() {
 			fabric.login();
 		};
 
-		this.login = function() {
-			fabric.pushRoute("loginPage", function(page) {
+		this.user = {}
 
-				this.username = Observable("");
-				this.password = Observable("");
-
-				this.loginErrorMessage = "";
-				this.user = {};
-
-				this.login = function() {
-					console.log("username: " + page.username.value + ", password: " + page.password.value);
-					next.login(page.username.value, page.password.value)
-						.then(function() {
-							fabric.gotoRoute("todoListPage");
-						})
-						.catch(function() {
-							page.set("loginErrorMessage", "Invalid username/password");
-						});
-				};
-
-				this.signup = function() {
-					next.signup(page.username, page.password).then(function() {
-						fabric.gotoRoute("todoListPage");
-					});
-				};
+		this.signin = function() {
+			console.log("username: " + fabric.username + ", password: " + password);
+			next.login(fabric.username, password).then(function(){
+				router.goto("todoListPage");
 			});
 		};
-	};
+
+		this.signup = function(){
+			console.log("trying to sign up with: " + fabric.username + ", " + password);
+			next.signup(fabric.username, password).then(function(loggedIn){
+				if (loggedIn === true){
+					router.goto("todoListPage");
+				}
+			});
+		};
+	}
 }
 
 module.exports = Login;

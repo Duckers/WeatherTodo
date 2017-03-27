@@ -6,7 +6,10 @@
 	],
 	"Projects": [
 		"../Fabric/Fabric.unoproj",
-		"MaterialIcons/MaterialIcons.unoproj"
+		"MaterialIcons/MaterialIcons.unoproj",
+		"Fuse.Firebase/src/Firebase/Firebase.unoproj",
+		"Fuse.Firebase/src/Firebase.Authentication/Firebase.Authentication.unoproj",
+		"Fuse.Firebase/src/Firebase.Authentication.Email/Firebase.Authentication.Email.unoproj",
 	],
 	"Includes": [
 		"*",
@@ -16,5 +19,6 @@
 		"WeatherTodo/Infrastructure/*.js:Bundle",
 		"WeatherTodo/Infrastructure/Logging/*.js:Bundle",
 		"WeatherTodo/Infrastructure/GeoLocator/*.js:Bundle",
+		"GoogleService-Info.plist:ObjCSource:iOS"
 	]
 }
