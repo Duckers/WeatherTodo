@@ -3,7 +3,7 @@ function EditTodo() {
 	return function(fabric, next) {
 
 		function edit(todo) {
-			fabric.pushRoute("editTodoPage", function (page) {
+			fabric.pushRoute("editTodoPage", function (page) {	
 				this.todo = todo;
 
 				var title = todo.title;
@@ -19,21 +19,25 @@ function EditTodo() {
 				};
 
 				this.preferredWeatherChanged = function(args) {
-					preferredWeather = args.value;
 					console.log('Preferred weather changed: ' + args.preferredWeather);
+					preferredWeather = args.preferredWeather;
 				}
 
 				this.save = function(args) {
 					if (todo.id === null) {
-						console.log('Pushing new todo!');
-						todo.id = fabric.todos.length;
-						fabric.push('todos', todo);
+						fabric.push("todos", {
+							id: fabric.todos.length,
+							title: title,
+							description: description,
+							preferredWeather: preferredWeather,
+							icon: fabric.weatherTypes[preferredWeather].day
+						});
+					} else {
+						fabric.set("todos", {id: todo.id}, "title", title);
+						fabric.set("todos", {id: todo.id}, "description", description);
+						fabric.set("todos", {id: todo.id}, "preferredWeather", preferredWeather);
+						fabric.set("todos", {id: todo.id}, "icon", fabric.weatherTypes[preferredWeather].day);
 					}
-
-					fabric.set("todos", {id: todo.id}, "title", title);
-					fabric.set("todos", {id: todo.id}, "description", description);
-					//fabric.set("todos", {id: todo.id}, "preferredWeather", preferredWeather);
-				
 					fabric.popRoute();
 				};
 			});
@@ -53,7 +57,7 @@ function EditTodo() {
 
 		this.newTodo = function() {
 			edit({
-				id : null,
+				id: null,
 				description: "Enter description"
 			})
 		};
