@@ -30,7 +30,8 @@ function EditTodo() {
 							title: title,
 							description: description,
 							preferredWeather: preferredWeather,
-							icon: fabric.weatherTypes[preferredWeather].day
+							icon: fabric.weatherTypes[preferredWeather].day,
+							isDone: false
 						});
 					} else {
 						fabric.set("todos", {id: todo.id}, "title", title);
