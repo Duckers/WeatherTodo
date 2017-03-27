@@ -26,8 +26,6 @@ var MockApp = require('WeatherTodo/MockApp');
 var MockBackend = require('WeatherTodo/Mock/MockBackend');
 var MockGeoLocation = require('WeatherTodo/Mock/MockGeoLocation');
 
-var ObservableAdapter = require("Fabric/ObservableAdapter");
-
 module.exports = new Fabric(
 	
 	new ErrorHandling(),
