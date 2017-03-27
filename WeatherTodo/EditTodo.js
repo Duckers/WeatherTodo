@@ -1,15 +1,13 @@
 
 function EditTodo() {
 	return function(fabric, next) {
-
 		function edit(todo) {
 			fabric.pushRoute("editTodoPage", function (page) {
-
-				this.foobar = "THIS IS FOOBAR";
 				this.todo = todo;
 
 				var title = todo.title;
 				var description = todo.description;
+				var preferredWeather = todo.preferredWeather;
 
 				this.titleChanged = function(args) {
 					title = args.value;
@@ -19,14 +17,22 @@ function EditTodo() {
 					description = args.value;
 				};
 
-				this.preferredWeatherChanged = function(args) {
-					console.log('Preferred weather changed: ' + args.preferredWeather);
-					fabric.set("todos", {id: todo.id}, "preferredWeather", args.preferredWeather);
+				this.preferredWeatherChanged = function(args) {					
+					preferredWeather = args.value;
+					console.log('Preferred weather is: ' + preferredWeather);
 				}
 
 				this.save = function(args) {
+					if (todo.id === null) {
+						console.log('Pushing new todo!');
+						todo.id = fabric.todos.length;
+						fabric.push('todos', todo);
+					}
+
 					fabric.set("todos", {id: todo.id}, "title", title);
 					fabric.set("todos", {id: todo.id}, "description", description);
+					//fabric.set("todos", {id: todo.id}, "preferredWeather", preferredWeather);
+				
 					fabric.popRoute();
 				};
 			});

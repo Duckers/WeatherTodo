@@ -1,5 +1,3 @@
-var Observable = require('FuseJS/Observable');
-
 function MockGeoLocation(location) {
 
 	var locations = {
