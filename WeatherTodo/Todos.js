@@ -94,12 +94,14 @@ function Todos() {
 			for (key in weatherTypes) {
 				weatherTypes[key].forEach(function (t) {
 					t.forecasted = false;
+					t.timespan = '';
 					todoList.push(t);
 				});
 			}
 
 			doneTodos.forEach(function(t) { 
 				t.forecasted = false;
+				t.timespan = '';
 				todoList.push(t); 
 			});
 
