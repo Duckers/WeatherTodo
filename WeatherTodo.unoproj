@@ -12,6 +12,9 @@
 		"*",
 		"WeatherTodo/*.js:Bundle",
 		"WeatherTodo/Mock/*.js:Bundle",
-		"WeatherTodo/Backends/*.js:Bundle"
+		"WeatherTodo/Backends/*.js:Bundle",
+		"WeatherTodo/Infrastructure/*.js:Bundle",
+		"WeatherTodo/Infrastructure/Logging/*.js:Bundle",
+		"WeatherTodo/Infrastructure/GeoLocator/*.js:Bundle",
 	]
 }
