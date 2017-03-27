@@ -24,19 +24,18 @@ function FirebaseBackend() {
 		
 		this.signin = function(email, password) {
 			console.log("We are trying to sign in with email and password: " + email + ", " + password);
-			FirebaseEmailAuth.signInWithEmailAndPassword(email, password);
+			FirebaseEmailAuth.signInWithEmailAndPassword(email, password).then(function(user){
+				fabric.gotoRoute("todoListPage");
+			}).catch(function(err){
+				console.log("Error signin in: " + err);
+			});
 			return new Promise(function(resolve){ resolve(); });
 		};
 
 		this.signup = function(email, password) {
 			console.log("We are trying to sign up with email and password: " + email + ", " + password);
 			return FirebaseEmailAuth.createWithEmailAndPassword(email, password).then(function(user){
-				console.log("We got string back: " + user);
-				FirebaseUser.getToken().then(function(result){
-					console.log("TokenResult: " + result);
-				}).catch(function(err){
-					console.log("Error getting token: " + err);
-				});
+				fabric.gotoRoute("todoListPage");
 			}).catch(function(err){
 				console.log("Error signin up: " + err);
 			});
