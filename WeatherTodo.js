@@ -28,7 +28,7 @@ var MockGeoLocation = require('WeatherTodo/Mock/MockGeoLocation');
 
 var ObservableAdapter = require("Fabric/ObservableAdapter");
 
-module.exports = new ObservableAdapter(new Fabric(
+module.exports = new Fabric(
 	
 	new ErrorHandling(),
 
@@ -64,4 +64,4 @@ module.exports = new ObservableAdapter(new Fabric(
 
 	// Data store
 	new Store()
-));
+);

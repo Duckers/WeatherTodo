@@ -4,13 +4,10 @@ function Todos() {
 		this.todos = [];
 
 		this.setTodos = function(todos) {			
-			console.log('Setting TODOs:' + JSON.stringify(todos));
 			fabric.set('todos', todos.map(function(todo) {
 				todo.icon = fabric.weatherTypes[todo.preferredWeather].day;
 				return todo;
 			}));
-
-			console.log("TODOS: " + JSON.stringify(fabric.todos));
 		}
 
 		this.refreshTodos = function() {
@@ -37,14 +34,8 @@ function Todos() {
 			sortTodos();
 		}
 
-		this.setTodoIsDone = function(args, state) {
-			console.log('Flipping the switch on: ' + JSON.stringify(args));
-			console.log('New state: ' + args.value);
-			var id = args.data.id.value;
-			console.log('ID of changed todo: ' + id);
-			if (fabric.todos[id].isDone !== args.value) {
-				fabric.set('todos', id, 'isDone', args.value);
-			}
+		this.setTodoIsDone = function(args) {
+			fabric.set('todos', {id: args.data.id.value}, 'isDone', !args.data.isDone.value);
 		}
 
 		function sortTodos() {

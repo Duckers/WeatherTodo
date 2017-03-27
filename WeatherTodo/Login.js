@@ -2,39 +2,36 @@
 
 function Login() {
 	return function (fabric, next) {
-
-		this.username = "";
-		var password = "";
-
-		this.loginErrorMessage = "";
-
-		this.usernameChanged = function(args) {
-			fabric.set("username", args.value);
-			fabric.set("loginErrorMessage", "");
+		this.create = function() {
+			fabric.login();
 		}
-
-		this.passwordChanged = function(args) {
-			password = args.value;
-			fabric.set("loginErrorMessage", "");
-		}
-
-		this.user = {}
 
 		this.login = function() {
-			console.log("username: " + fabric.username + ", password: " + password);
-			next.login(fabric.username, password)
-				.then(function(){
-					fabric.gotoRoute("todoListPage");
-				})
-				.catch(function() {
-					fabric.set("loginErrorMessage", "Invalid username/password");
-				});
-		}
+			fabric.pushRoute("loginPage", function(page) {
 
-		this.signup = function(){
-			next.signup(fabric.username, password).then(function(){
-				fabric.gotoRoute("todoListPage");
-			});
+				this.username = "";
+				this.password = "";
+
+				this.loginErrorMessage = "";
+				this.user = {}
+
+				this.login = function() {
+					console.log("username: " + page.username + ", password: " + page.password);
+					next.login(page.username, page.password)
+						.then(function(){
+							fabric.gotoRoute("todoListPage");
+						})
+						.catch(function() {
+							page.set("loginErrorMessage", "Invalid username/password");
+						});
+				}
+
+				this.signup = function(){
+					next.signup(page.username, password).then(function(){
+						fabric.gotoRoute("todoListPage");
+					});
+				}
+			})
 		}
 	}
 }

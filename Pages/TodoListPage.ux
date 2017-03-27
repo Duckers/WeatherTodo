@@ -25,7 +25,7 @@
 										<WeatherIcon Icon="{icon}" Size="20" />
 									</WhileFalse>
 								</Panel>
-								<Switch Margin="16" Dock="Right" Value="{isDone}" ValueChanged="{setTodoIsDone}" />
+								<Switch Margin="16" Dock="Right" Value="{Read isDone}" ValueChanged="{setTodoIsDone}" />
 								<StackPanel Alignment="VerticalCenter" Margin="15,0" Clicked="{editTodo}">
 									<Text Value="{title}" />
 									<Text Value="{description}" />
