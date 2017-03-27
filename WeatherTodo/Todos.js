@@ -30,6 +30,7 @@ function Todos() {
 		this.create = function() {
 			fabric.subscribe('todos', sortTodos);
 			fabric.subscribe('forecast', sortTodos);
+			fabric.subscribe('currentWeather', sortTodos);
 			fabric.refreshTodos();
 			sortTodos();
 		}
@@ -41,7 +42,10 @@ function Todos() {
 		function sortTodos() {
 			var todos = fabric.todos;
 			var forecast = fabric.forecast;
-			if (!todos || !forecast) return;
+			var currentWeather = fabric.currentWeather;
+			if (!todos || !forecast || !currentWeather) return;
+
+			debugger;
 
 			var todoList = [];
 
@@ -55,6 +59,15 @@ function Todos() {
 				}
 				weatherTypes[t.preferredWeather].push(t);
 			});
+
+			if (currentWeather.weather in weatherTypes) {
+				weatherTypes[currentWeather.weather].forEach(function (t) {					
+					t.timespan = 'NOW';					
+					t.forecasted = true;
+					todoList.push(t);
+				});
+				delete weatherTypes[currentWeather.weather];
+			}
 
 			// Map todos on forecast
 			forecast.forEach(function(f) {	
