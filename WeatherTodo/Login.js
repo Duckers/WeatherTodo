@@ -27,7 +27,7 @@ function Login() {
 				}
 
 				this.signup = function(){
-					next.signup(page.username, password).then(function(){
+					next.signup(page.username, page.password).then(function(){
 						fabric.gotoRoute("todoListPage");
 					});
 				}
