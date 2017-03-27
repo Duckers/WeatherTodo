@@ -1,6 +1,7 @@
 
 function EditTodo() {
 	return function(fabric, next) {
+
 		function edit(todo) {
 			fabric.pushRoute("editTodoPage", function (page) {
 				this.todo = todo;
@@ -17,9 +18,9 @@ function EditTodo() {
 					description = args.value;
 				};
 
-				this.preferredWeatherChanged = function(args) {					
+				this.preferredWeatherChanged = function(args) {
 					preferredWeather = args.value;
-					console.log('Preferred weather is: ' + preferredWeather);
+					console.log('Preferred weather changed: ' + args.preferredWeather);
 				}
 
 				this.save = function(args) {

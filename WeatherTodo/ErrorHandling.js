@@ -1,5 +1,3 @@
-
-
 function ErrorHandling() {
 	return function(fabric) {
 		this.catch = function(e){

@@ -28,7 +28,8 @@ var MockGeoLocation = require('WeatherTodo/Mock/MockGeoLocation');
 
 var ObservableAdapter = require("Fabric/ObservableAdapter");
 
-module.exports = new ObservableAdapter(new Fabric(
+module.exports = new Fabric(
+	
 	new ErrorHandling(),
 
 	// Config
@@ -39,13 +40,12 @@ module.exports = new ObservableAdapter(new Fabric(
 	new LogLevelFilter('ERROR'),
 	new ConsoleLogger({ trimLongLines: 120 }),
 
-	// Routing
 	new RouterController(router),
 
 	// App model
 	new Login(),
 	new Weather(),
-	new EditTodo(),
+	new EditTodo(router),
 	new Todos(),
 
 	// Backend
@@ -55,11 +55,13 @@ module.exports = new ObservableAdapter(new Fabric(
  	new FirebaseBackend(),
  	new OpenWeatherMapBackend(),
 
-	// Mock
+ 	// MockBackend
 	new MockBackend(),
+
+	// Mock
 	new MockApp(),
 	new MockGeoLocation('Oslo'),
 
 	// Data store
 	new Store()
-));
+);
