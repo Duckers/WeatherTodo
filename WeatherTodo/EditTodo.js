@@ -25,7 +25,7 @@ function EditTodo() {
 
 				this.save = function(args) {
 					if (todo.id === null) {
-						fabric.push("todos", {
+						fabric.addTodo({
 							id: fabric.todos.length,
 							title: title,
 							description: description,

@@ -10,6 +10,11 @@ function Todos() {
 			}));
 		}
 
+		this.addTodo = function(todo) {			
+			fabric.push("todos", todo);
+			return next.addTodo(todo);
+		}
+
 		this.refreshTodos = function() {
 			fabric.fetchTodos()
 				  .then(fabric.setTodos);

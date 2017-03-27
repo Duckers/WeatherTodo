@@ -14,6 +14,10 @@ function FirebaseBackend() {
 		this.fetchTodos = function(){
 			return firebase("todos");
 		};
+
+		this.addTodo = function(todo) {
+			console.log('Adding todo to Firebase backend: ' + JSON.stringify(todo));
+		}
 	}
 }
 
