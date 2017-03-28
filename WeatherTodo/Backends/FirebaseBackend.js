@@ -14,8 +14,10 @@ function FirebaseBackend() {
 				});
 		}
 
-		this.fetchTodos = function() {
-			return firebase("todos");
+		this.fetchTodos = function(){
+			return FirebaseUser.getToken().then(function(token){
+				return firebase("users/" + token + "/todos.json?auth=" + encodeURIComponent(token));
+			});
 		};
 
 		this.addTodo = function(todo) {

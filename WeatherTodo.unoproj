@@ -6,10 +6,10 @@
 	],
 	"Projects": [
 		"../Fabric/Fabric.unoproj",
-		"MaterialIcons/MaterialIcons.unoproj",
-		"Fuse.Firebase/src/Firebase/Firebase.unoproj",
-		"Fuse.Firebase/src/Firebase.Authentication/Firebase.Authentication.unoproj",
-		"Fuse.Firebase/src/Firebase.Authentication.Email/Firebase.Authentication.Email.unoproj",
+		"../MaterialIcons/MaterialIcons.unoproj",
+		"../Firebase/src/Firebase/Firebase.unoproj",
+		"../Firebase/src/Firebase.Authentication/Firebase.Authentication.unoproj",
+		"../Firebase/src/Firebase.Authentication.Email/Firebase.Authentication.Email.unoproj",
 	],
 	"Includes": [
 		"*",
