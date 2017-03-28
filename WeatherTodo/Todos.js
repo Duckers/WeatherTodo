@@ -40,8 +40,14 @@ function Todos() {
 			sortTodos();
 		}
 
-		this.setTodoIsDone = function(args) {
-			fabric.set('todos', {id: args.data.id.value}, 'isDone', !args.data.isDone.value);
+		this.setTodoIsDone = function(args) {			
+			var todo = fabric.todos.find(function (t) { return t.id === args.data.id.value; });			
+			if (todo && todo.isDone !== args.value) {
+				console.log('Setting it');
+				fabric.set('todos', {id: todo.id}, 'isDone', args.value);	
+			} else {
+				console.log('Not setting it');
+			}			
 		}
 
 		function sortTodos() {

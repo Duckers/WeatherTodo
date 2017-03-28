@@ -1,6 +1,6 @@
 var GeoLocation = require("FuseJS/GeoLocation");
 
-function GeoLocation() {
+function GeoLocator() {
     return function(fabric) {
     	
     	this.create = function() {    
@@ -16,4 +16,4 @@ function GeoLocation() {
 
 }
 
-module.exports = GeoLocation;
+module.exports = GeoLocator;
