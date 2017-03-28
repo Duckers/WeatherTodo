@@ -57,6 +57,7 @@ function Todos() {
 			var todosToBeDone = todos.filter(function(t) { return t.isDone === false; });		
 			var doneTodos = todos.filter(function(t) { return t.isDone === true; });
 
+			// Sort all todos into buckets based on preferred weather type
 			var weatherTypes = {};
 			todosToBeDone.forEach(function(t)  {
 				if (t.preferredWeather in weatherTypes === false) {
@@ -65,10 +66,11 @@ function Todos() {
 				weatherTypes[t.preferredWeather].push(t);
 			});
 
+			// Get the weather types that match the current weather (not forecasted)
 			if (currentWeather.weather in weatherTypes) {
 				weatherTypes[currentWeather.weather].forEach(function (t) {					
 					t.timespan = 'NOW';					
-					t.forecasted = true;
+					t.weatherAssigned = true;
 					todoList.push(t);
 				});
 				delete weatherTypes[currentWeather.weather];
@@ -88,7 +90,7 @@ function Todos() {
 						t.day = days[t.fromTime.getDay()];
 						t.fromHour = t.fromTime.getHours() + ':00';
 						t.toHour = t.toTime.getHours() + ':00';
-						t.forecasted = true;
+						t.weatherAssigned = true;
 						todoList.push(t);
 					});
 					delete weatherTypes[f.weather];
@@ -98,14 +100,14 @@ function Todos() {
 			// Add remaining todos
 			for (key in weatherTypes) {
 				weatherTypes[key].forEach(function (t) {
-					t.forecasted = false;
+					t.weatherAssigned = false;
 					t.timespan = '';
 					todoList.push(t);
 				});
 			}
 
 			doneTodos.forEach(function(t) { 
-				t.forecasted = false;
+				t.weatherAssigned = false;
 				t.timespan = '';
 				todoList.push(t); 
 			});

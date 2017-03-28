@@ -18,10 +18,10 @@
 						<Panel >
 							<DockPanel Margin="4" Padding="6">
 								<Panel Dock="Left" Clicked="{editTodo}">
-									<WhileTrue Value="{forecasted}">
+									<WhileTrue Value="{weatherAssigned}">
 										<WeatherIcon Icon="{icon}" Size="40" />
 									</WhileTrue>
-									<WhileFalse Value="{forecasted}">
+									<WhileFalse Value="{weatherAssigned}">
 										<WeatherIcon Icon="{icon}" Size="20" />
 									</WhileFalse>
 								</Panel>
