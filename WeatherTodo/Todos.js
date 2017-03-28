@@ -3,14 +3,14 @@ function Todos() {
 
 		this.todos = [];
 
-		this.setTodos = function(todos) {			
+		this.setTodos = function(todos) {
 			fabric.set('todos', todos.map(function(todo) {
 				todo.icon = fabric.weatherTypes[todo.preferredWeather].day;
 				return todo;
 			}));
 		}
 
-		this.addTodo = function(todo) {			
+		this.addTodo = function(todo) {
 			fabric.push("todos", todo);
 			return next.addTodo(todo);
 		}
@@ -40,14 +40,11 @@ function Todos() {
 			sortTodos();
 		}
 
-		this.setTodoIsDone = function(args) {			
-			var todo = fabric.todos.find(function (t) { return t.id === args.data.id.value; });			
+		this.setTodoIsDone = function(args) {
+			var todo = fabric.todos.find(function (t) { return t.id === args.data.id.value; });
 			if (todo && todo.isDone !== args.value) {
-				console.log('Setting it');
-				fabric.set('todos', {id: todo.id}, 'isDone', args.value);	
-			} else {
-				console.log('Not setting it');
-			}			
+				fabric.set('todos', {id: todo.id}, 'isDone', args.value);
+			}
 		}
 
 		function sortTodos() {
@@ -60,7 +57,7 @@ function Todos() {
 
 			var todoList = [];
 
-			var todosToBeDone = todos.filter(function(t) { return t.isDone === false; });		
+			var todosToBeDone = todos.filter(function(t) { return t.isDone === false; });
 			var doneTodos = todos.filter(function(t) { return t.isDone === true; });
 
 			// Sort all todos into buckets based on preferred weather type
@@ -74,8 +71,8 @@ function Todos() {
 
 			// Get the weather types that match the current weather (not forecasted)
 			if (currentWeather.weather in weatherTypes) {
-				weatherTypes[currentWeather.weather].forEach(function (t) {					
-					t.timespan = 'NOW';					
+				weatherTypes[currentWeather.weather].forEach(function (t) {
+					t.timespan = 'NOW';
 					t.weatherAssigned = true;
 					todoList.push(t);
 				});
@@ -83,13 +80,13 @@ function Todos() {
 			}
 
 			// Map todos on forecast
-			forecast.forEach(function(f) {	
+			forecast.forEach(function(f) {
 				// Because the store will implicitly serialize the data when stored,
 				// the information about f.time actually being a Date-instance is lost,
-				// so we need to reconstruct that			
-				f.time = new Date(f.time);								
+				// so we need to reconstruct that
+				f.time = new Date(f.time);
 				if (f.weather in weatherTypes) {
-					weatherTypes[f.weather].forEach(function (t) {						
+					weatherTypes[f.weather].forEach(function (t) {
 						t.fromTime = f.time;
 						t.toTime = new Date(f.time.getTime() + (3 * 60 * 60 * 1000));
 						t.timespan = days[t.fromTime.getDay()] + ' ' + t.fromTime.getHours() + ':00 - ' + t.toTime.getHours() + ':00';
@@ -112,10 +109,10 @@ function Todos() {
 				});
 			}
 
-			doneTodos.forEach(function(t) { 
+			doneTodos.forEach(function(t) {
 				t.weatherAssigned = false;
 				t.timespan = '';
-				todoList.push(t); 
+				todoList.push(t);
 			});
 
 			fabric.set('sortedTodos', todoList);

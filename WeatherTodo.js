@@ -27,11 +27,11 @@ var MockBackend = require('WeatherTodo/Mock/MockBackend');
 var MockGeoLocation = require('WeatherTodo/Mock/MockGeoLocation');
 
 module.exports = new Fabric(
-	
+
 	new ErrorHandling(),
 
 	// Config
- 	new OpenWeatherMapConfig(),
+	new OpenWeatherMapConfig(),
 	new FirebaseBackendConfig(),
 
 	// Logging
@@ -47,13 +47,13 @@ module.exports = new Fabric(
 	new Todos(),
 
 	// Backend
- 	new BackendValidators(),
+	new BackendValidators(),
 
- 	// Actual implementations of backends
- 	new FirebaseBackend(),
- 	new OpenWeatherMapBackend(),
+	// Actual implementations of backends
+	new FirebaseBackend(),
+	new OpenWeatherMapBackend(),
 
- 	// MockBackend
+	// MockBackend
 	new MockBackend(),
 
 	// Mock

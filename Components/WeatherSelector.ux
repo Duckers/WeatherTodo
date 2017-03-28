@@ -6,8 +6,8 @@
 
 		this.SelectedIcon.map(function (selectedWeather) {
 			console.log('In component: Selected weather changed: ' + selectedWeather);
-			preferredWeatherChangedEvent.raise({ preferredWeather: selectedWeather});
-		}).subscribe(module);		
+			preferredWeatherChangedEvent.raise({ preferredWeather: selectedWeather });
+		}).subscribe(module);
 	</JavaScript>
 
 	<Panel>

@@ -3,7 +3,7 @@ function EditTodo() {
 	return function(fabric, next) {
 
 		function edit(todo) {
-			fabric.pushRoute("editTodoPage", function (page) {	
+			fabric.pushRoute("editTodoPage", function (page) {
 				this.todo = todo;
 
 				var title = todo.title;
@@ -45,10 +45,10 @@ function EditTodo() {
 		}
 
 
-		this.editTodo = function(arg) {			
+		this.editTodo = function(arg) {
 			var id = arg.data.id.value;
 
-			if (id !== undefined) {				
+			if (id !== undefined) {
 				var todo = fabric.todos.find(function (t) { return t.id === id; });
 				if (todo) {
 					edit(todo);

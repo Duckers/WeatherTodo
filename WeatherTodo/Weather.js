@@ -1,5 +1,5 @@
 function Weather() {
-	return function(fabric, next) {		
+	return function(fabric, next) {
 		
 		this.forecast = [];
 
@@ -9,15 +9,14 @@ function Weather() {
 
 		this.refreshForecast = function(latitude, longitude) {
 			fabric.fetchForecast(latitude, longitude)
-				.then(fabric.setForecast);			
+				.then(fabric.setForecast);
 		};
-
 
 		this.currentWeather = {};
 
 		this.setCurrentWeather = function(w) {
 			w.icon = fabric.weatherTypes[w.weather][w.daypart];
-			fabric.set('currentWeather', w);	
+			fabric.set('currentWeather', w);
 		}
 
 		this.weatherTypes = {
@@ -37,7 +36,6 @@ function Weather() {
 			fabric.fetchCurrentWeather(latitude, longitude)
 				.then(fabric.setCurrentWeather);
 		};
-		
 
 		this.locationChanged = function(latitude, longitude) {
 			fabric.refreshCurrentWeather(latitude, longitude);
