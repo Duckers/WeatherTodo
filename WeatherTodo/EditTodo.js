@@ -79,9 +79,9 @@ function EditTodo() {
 		this.newTodo = function() {
 			edit({
 				id: null,
-				description: '',
-				title: '',
-				preferredWeather: ''
+				description: "",
+				title: "",
+				preferredWeather: ""
 			});
 		};
 	};

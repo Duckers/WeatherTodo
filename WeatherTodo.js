@@ -34,7 +34,7 @@ module.exports = new Fabric(
 	new FirebaseBackendConfig(),
 
 	// Logging
-	new LogLevelFilter('ERROR'),
+	new LogLevelFilter("ERROR"),
 	new ConsoleLogger({ trimLongLines: 120 }),
 
 	new RouterController(router),
@@ -57,5 +57,6 @@ module.exports = new Fabric(
 
 	// Mock
 	new MockApp(),
-	new MockGeoLocation('Oslo'),
+	new MockGeoLocation("Oslo")
+
 );

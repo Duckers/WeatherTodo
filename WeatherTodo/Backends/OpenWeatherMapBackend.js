@@ -2,15 +2,15 @@ function OpenWeatherMapBackend() {
 	return function(fabric, next) {
 
 		var iconmap = {
-			'01': 'clear sky',
-			'02': 'few clouds',
-			'03': 'scattered clouds',
-			'04': 'broken clouds',
-			'09': 'shower rain',
-			'10': 'rain',
-			'11': 'thunderstorm',
-			'13': 'snow',
-			'50': 'mist'
+			"01": "clear sky",
+			"02": "few clouds",
+			"03": "scattered clouds",
+			"04": "broken clouds",
+			"09": "shower rain",
+			"10": "rain",
+			"11": "thunderstorm",
+			"13": "snow",
+			"50": "mist"
 		};
 
 		function mapIconToWeather(icon) {
@@ -18,23 +18,23 @@ function OpenWeatherMapBackend() {
 			if (number in iconmap) {
 				return iconmap[number];
 			} else {
-				return 'clear sky';
+				return "clear sky";
 			}
 		}
 
 		function mapIconToDayOrNight(icon) {
-			if (icon[2] === 'd') return 'day';
-			else return 'night';
+			if (icon[2] === "d") return "day";
+			else return "night";
 		}
 
 		function fetchWeatherRest(latitude, longitude) {
 			// Get by latitude/longitude
 			var requestString = fabric.OpenWeatherMapWeatherUrl +
-				'?lat=' + arguments[0].toString() +
-				'&lon=' + arguments[1].toString() +
-				'&APPID=' + fabric.OpenWeatherMapApiKey;
+				"?lat=" + arguments[0].toString() +
+				"&lon=" + arguments[1].toString() +
+				"&APPID=" + fabric.OpenWeatherMapApiKey;
 
-			fabric.debug('Fetching data from: ' + requestString);
+			fabric.debug("Fetching data from: " + requestString);
 
 			return fetch(requestString)
 				.then(function (response) {
@@ -44,11 +44,11 @@ function OpenWeatherMapBackend() {
 
 		function fetchForecastRest(latitude, longitude) {
 			var requestString = fabric.OpenWeatherMapForecastUrl +
-				'?lat=' + latitude.toString() +
-				'&lon=' + longitude.toString() +
-				'&APPID=' + fabric.OpenWeatherMapApiKey;
+				"?lat=" + latitude.toString() +
+				"&lon=" + longitude.toString() +
+				"&APPID=" + fabric.OpenWeatherMapApiKey;
 
-			fabric.debug('Fetching data from: ' + requestString);
+			fabric.debug("Fetching data from: " + requestString);
 
 			return fetch(requestString)
 				.then(function (response) {
@@ -76,12 +76,12 @@ function OpenWeatherMapBackend() {
 		}
 
 		this.fetchCurrentWeather = function(latitude, longitude) {
-			fabric.debug('Fetching currentWeather');
+			fabric.debug("Fetching currentWeather");
 			return fetchWeatherRest(latitude, longitude)
 				.then(function (data) {
-					fabric.debug('fetchCurrentWeather: Got data from API: ' + JSON.stringify(data));
+					fabric.debug("fetchCurrentWeather: Got data from API: " + JSON.stringify(data));
 					var ret = mapToWeatherSchema(data);
-					fabric.debug('Mapped state of current weather: ' + JSON.stringify(ret));
+					fabric.debug("Mapped state of current weather: " + JSON.stringify(ret));
 					return ret;
 				})
 				.catch(function (err) {
@@ -90,10 +90,10 @@ function OpenWeatherMapBackend() {
 		};
 
 		this.fetchForecast = function(latitude, longitude) {
-			fabric.debug('Fetching forecast');
+			fabric.debug("Fetching forecast");
 			return fetchForecastRest(latitude, longitude)
 				.then(function (data) {
-					fabric.debug('fetchForecast: Got data from API: ' + JSON.stringify(data));
+					fabric.debug("fetchForecast: Got data from API: " + JSON.stringify(data));
 					var ret = data.list.map(function (d) {
 						return mapToForecastSchema(d, data.city.name);
 					});

@@ -16,7 +16,7 @@ function FirebaseBackend() {
 		};
 
 		this.addTodo = function(todo) {
-			fabric.info('Adding todo to Firebase backend: ' + JSON.stringify(todo));
+			fabric.info("Adding todo to Firebase backend: " + JSON.stringify(todo));
 		};
 	};
 }

@@ -18,7 +18,7 @@ function BackendValidators() {
 
 		this.addTodo = function(todoData) {
 			if (todoData === null || todoData === undefined) {
-				return validationFailure('todoData');
+				return validationFailure("todoData");
 			} else {
 				return next.addTodo(todoData);
 			}

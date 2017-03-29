@@ -8,13 +8,13 @@ function ConsoleLogger(config) {
 		}
 
 		function trim(message) {
-			if (typeof message !== 'string') {
+			if (typeof message !== "string") {
 				message = message.toString();
 			}
 			if (trimLongLines) {
-				var ellipsis = '';
+				var ellipsis = "";
 				if (message.length > trimLongLines) {
-					ellipsis = '(...)';
+					ellipsis = "(...)";
 				}
 				return message.substring(0, trimLongLines) + ellipsis;
 			} else return message;
@@ -22,31 +22,31 @@ function ConsoleLogger(config) {
 
 		this.debug = function(message) {
 			message = trim(message);
-			console.log('[DEBUG]: ' + message);
+			console.log("[DEBUG]: " + message);
 			next.debug(message);
 		};
 
 		this.info = function(message) {
 			message = trim(message);
-			console.log('[INFO]:  ' + message);
+			console.log("[INFO]:  " + message);
 			next.debug(message);
 		};
 
 		this.warn = function(message) {
 			message = trim(message);
-			console.log('[WARN]:  ' + message);
+			console.log("[WARN]:  " + message);
 			next.warn(message);
 		};
 
 		this.error = function(message) {
 			message = trim(message);
-			console.log('[ERROR]: ' + message);
+			console.log("[ERROR]: " + message);
 			next.error(message);
 		};
 
 		this.fatal = function(message) {
 			message = trim(message);
-			console.log('[FATAL]: ' + message);
+			console.log("[FATAL]: " + message);
 			next.fatal(message);
 		};
 	};

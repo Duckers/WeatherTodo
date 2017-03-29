@@ -8,7 +8,7 @@ function MockApp() {
 			fabric.debug("Logging in with: " + username + ", and " + password);
 			return new Promise(function (resolve, reject) {
 				setTimeout(function () {
-					if (username === 'user' && password === 'pass') {
+					if (username === "user" && password === "pass") {
 						resolve();
 					}
 					else {
@@ -80,7 +80,7 @@ function MockApp() {
 
 		};
 
-		this.currentCity = Observable('');
+		this.currentCity = Observable("");
 
 		// The current weather in city
 		this.currentWeather = Observable({ weather: "broken clouds" });
