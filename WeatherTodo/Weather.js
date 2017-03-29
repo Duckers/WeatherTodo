@@ -22,14 +22,14 @@ function Weather() {
 		this.weatherTypes = {
 			"clear sky" : { day: "DaySunny", night: "NightClear" },
 			"clouds" : { day: "DayCloudy", night: "NightAltCloudy" },
-			"few clouds" : { day: "DayCloudy", night: "NightAltCloudy" },
-			"scattered clouds" : { day: "Cloudy", night: "Cloud" },
-			"broken clouds" : { day: "Cloudy", night: "Cloudy" },
+			"few clouds" : { day: "Cloud", night: "Cloud" },
+			"scattered clouds" : { day: "Cloudy", night: "Cloudy" },
+			"broken clouds" : { day: "DayCloudyHigh", night: "NightCloudyHigh" },
 			"shower rain" : { day: "DayShowers", night: "NightShowers" },
 			"rain" : { day: "Rain", night: "Rain" },
 			"thunderstorm" : { day: "DayThunderstorm", night : "NightThunderstorm" },
 			"snow" : { day: "DaySnow", night : "NightSnow" },
-			"mist" : { day: "DayFog", night: "NightFog" }
+			"mist" : { day: "DayHaze", night: "NightHaze" }
 		}
 
 		this.refreshCurrentWeather = function(latitude, longitude) {

@@ -44,11 +44,12 @@
 			<WeatherOption Value="clouds" Icon="DayCloudy"  selectedPlaceholder="selectedPlaceholder"/>
 			<WeatherOption Value="few clouds" Icon="Cloud" selectedPlaceholder="selectedPlaceholder"/>
 			<WeatherOption Value="scattered clouds" Icon="Cloudy" selectedPlaceholder="selectedPlaceholder"/>
-			<WeatherOption Value="broken clouds" Icon="DayShowers" selectedPlaceholder="selectedPlaceholder"/>
-			<WeatherOption Value="shower rain" Icon="Rain" selectedPlaceholder="selectedPlaceholder"/>
+			<WeatherOption Value="broken clouds" Icon="DayCloudyHigh" selectedPlaceholder="selectedPlaceholder"/>
+			<WeatherOption Value="shower rain" Icon="DayShowers" selectedPlaceholder="selectedPlaceholder"/>
+			<WeatherOption Value="rain" Icon="Rain" selectedPlaceholder="selectedPlaceholder"/>
 			<WeatherOption Value="thunderstorm" Icon="DayThunderstorm" selectedPlaceholder="selectedPlaceholder"/>
 			<WeatherOption Value="snow" Icon="DaySnow" selectedPlaceholder="selectedPlaceholder"/>
-			<WeatherOption Value="mist" Icon="DayFog" selectedPlaceholder="selectedPlaceholder"/>
+			<WeatherOption Value="mist" Icon="DayHaze" selectedPlaceholder="selectedPlaceholder"/>
 
 		</Panel>
 	</Panel>
