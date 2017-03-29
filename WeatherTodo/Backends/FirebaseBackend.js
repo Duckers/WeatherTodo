@@ -4,22 +4,41 @@ var FirebaseEmailAuth = require("Firebase/Authentication/Email");
 function FirebaseBackend() {
 	return function(fabric) {
 
-		function firebase(resource) {
+		function firebaseFetch(resource) {
 			var baseUrl = fabric.firebaseBaseUrl;
 			var url = baseUrl + resource;
 			fabric.info("Fetching Firebase data from: " + url);
-			return fetch(url)
-				.then(function(response){
-					return response.json();
-				});
+			return fetch(url,{
+				method: "GET"
+			}).then(function(response){
+				return response.json();
+			});
 		}
+
+		function firebasePost(resource, todo) {
+			var baseUrl = fabric.firebaseBaseUrl;
+			var url = baseUrl + resource;
+			fabric.info("Fetching Firebase data from: " + url);
+			return fetch(url, {
+				method: "POST",
+				body: todo
+			}).then(function(response){
+				return response.json();
+			});
+		}
+		
 
 		this.fetchTodos = function(){
 			return FirebaseUser.getToken().then(function(token){
-				return firebase("users/" + token + "/todos.json?auth=" + encodeURIComponent(token));
-			}).then(function(result){
-				console.log("Results: " + JSON.stringify(result));
-				return result.json();
+				var uid = FirebaseUser.uid;
+				return firebaseFetch("users/" + uid + "/todos.json?auth=" + encodeURIComponent(token));
+			});
+		};
+
+		this.postTodo = function(){
+			FirebaseUser.getToken().then(function(token){
+				var uid = FirebaseUser.uid;
+				return firebase("users/" + uid + "/todos.json?auth=" + encodeURIComponent(token));
 			});
 		};
 
