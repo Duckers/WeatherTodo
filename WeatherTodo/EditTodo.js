@@ -21,7 +21,7 @@ function EditTodo() {
 				this.preferredWeatherChanged = function(args) {
 					console.log('Preferred weather changed: ' + args.preferredWeather);
 					preferredWeather = args.preferredWeather;
-				}
+				};
 
 				this.save = function(args) {
 					if (todo.id === null) {
@@ -39,6 +39,10 @@ function EditTodo() {
 						fabric.set("todos", {id: todo.id}, "preferredWeather", preferredWeather);
 						fabric.set("todos", {id: todo.id}, "icon", fabric.weatherTypes[preferredWeather].day);
 					}
+					fabric.popRoute();
+				};
+
+				this.cancel = function() {
 					fabric.popRoute();
 				};
 			});

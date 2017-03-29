@@ -1,6 +1,6 @@
 function Weather() {
 	return function(fabric, next) {
-		
+
 		this.forecast = [];
 
 		this.setForecast = function(f) {

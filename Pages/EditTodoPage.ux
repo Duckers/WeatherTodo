@@ -9,7 +9,7 @@
 				</LinearGradient>
 			</Circle>
 		</Panel>
-
+		<Button Dock="Top" Clicked="{cancel}" Text="Cancel" Alignment="Left" Margin="10" />
 		<Grid Rows="1*,3*">
 			<StackPanel ItemSpacing="15" Alignment="VerticalCenter" Margin="30,10">
 				<TextInput Value="{todo.title}" ValueChanged="{titleChanged}" TextColor="#000" PlaceholderColor="#888" PlaceholderText="Title" FontSize="25"/>
@@ -19,7 +19,6 @@
 			<WeatherSelector Alignment="Top" SelectedIcon="{todo.preferredWeather}">
 				<OnUserEvent EventName="preferredWeatherChangedEvent" Handler="{preferredWeatherChanged}" />
 			</WeatherSelector>
-			
 		</Grid>
 	</DockPanel>
 </Fabric.Page>
