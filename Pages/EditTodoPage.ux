@@ -16,9 +16,11 @@
 				<TextInput Value="{todo.description}" ValueChanged="{descriptionChanged}" TextColor="#000" PlaceholderColor="#888" PlaceholderText="Description" />
 			</StackPanel>
 
-			<WeatherSelector Alignment="Top" SelectedIcon="{todo.preferredWeather}">
-				<OnUserEvent EventName="preferredWeatherChangedEvent" Handler="{preferredWeatherChanged}" />
-			</WeatherSelector>
+			<Deferred>
+				<WeatherSelector Alignment="Top" SelectedIcon="{todo.preferredWeather}">
+					<OnUserEvent EventName="preferredWeatherChangedEvent" Handler="{preferredWeatherChanged}" />
+				</WeatherSelector>
+			</Deferred>
 		</Grid>
 	</DockPanel>
 </Fabric.Page>

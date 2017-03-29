@@ -10,8 +10,8 @@ function Login() {
 		this.login = function() {
 			fabric.pushRoute("loginPage", function(page) {
 
-				this.username = Observable("");
-				this.password = Observable("");
+				this.username = Observable("user");
+				this.password = Observable("pass");
 
 				this.loginErrorMessage = "";
 				this.user = {}

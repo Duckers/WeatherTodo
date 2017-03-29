@@ -15,25 +15,27 @@
 			<ScrollView>
 				<StackPanel ItemSpacing="4">
 					<Each Items="{sortedTodos}">
-						<Panel >
-							<DockPanel Margin="4" Padding="6">
-								<Panel Dock="Left" Clicked="{editTodo}" Width="50">
-									<WhileTrue Value="{weatherAssigned}">
-										<WeatherIcon Icon="{icon}" Size="40" Alignment="Center" />
-									</WhileTrue>
-									<WhileFalse Value="{weatherAssigned}">
-										<WeatherIcon Icon="{icon}" Size="20" Alignment="Center" />
-									</WhileFalse>
-								</Panel>
-								<Switch Margin="16" Dock="Right" Value="{Read isDone}" ValueChanged="{setTodoIsDone}" />
-								<StackPanel Alignment="VerticalCenter" Margin="15,0" Clicked="{editTodo}">
-									<Text Value="{title}" />
-									<Text Value="{description}" />
-									<Text Value="{timespan}" />
-								</StackPanel>
-							</DockPanel>
-							<Rectangle CornerRadius="2" Color="#f5f5f5" Layer="Background"/>
-						</Panel>
+						<Deferred>
+							<Panel >
+								<DockPanel Margin="4" Padding="6">
+									<Panel Dock="Left" Clicked="{editTodo}" Width="50">
+										<WhileTrue Value="{weatherAssigned}">
+											<WeatherIcon Icon="{icon}" Size="40" Alignment="Center" />
+										</WhileTrue>
+										<WhileFalse Value="{weatherAssigned}">
+											<WeatherIcon Icon="{icon}" Size="20" Alignment="Center" />
+										</WhileFalse>
+									</Panel>
+									<Switch Margin="16" Dock="Right" Value="{Read isDone}" ValueChanged="{setTodoIsDone}" />
+									<StackPanel Alignment="VerticalCenter" Margin="15,0" Clicked="{editTodo}">
+										<Text Value="{title}" />
+										<Text Value="{description}" />
+										<Text Value="{timespan}" />
+									</StackPanel>
+								</DockPanel>
+								<Rectangle CornerRadius="2" Color="#f5f5f5" Layer="Background"/>
+							</Panel>
+						</Deferred>
 					</Each>
 				</StackPanel>
 			</ScrollView>
