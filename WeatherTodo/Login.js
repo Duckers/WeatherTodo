@@ -6,7 +6,8 @@ function Login() {
 			fabric.login();
 		};
 
-		this.user = {}
+		this.login = function() {
+			fabric.pushRoute("loginPage", function(page) {
 
 		this.signin = function() {
 			console.log("username: " + fabric.username + ", password: " + password);

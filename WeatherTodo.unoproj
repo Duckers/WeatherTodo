@@ -9,7 +9,7 @@
 		"../MaterialIcons/MaterialIcons.unoproj",
 		"../Firebase/src/Firebase/Firebase.unoproj",
 		"../Firebase/src/Firebase.Authentication/Firebase.Authentication.unoproj",
-		"../Firebase/src/Firebase.Authentication.Email/Firebase.Authentication.Email.unoproj",
+		"../Firebase/src/Firebase.Authentication.Email/Firebase.Authentication.Email.unoproj"
 	],
 	"Includes": [
 		"*",
