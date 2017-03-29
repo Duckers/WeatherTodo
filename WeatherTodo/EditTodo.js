@@ -6,21 +6,38 @@ function EditTodo() {
 			fabric.pushRoute("editTodoPage", function (page) {
 				this.todo = todo;
 
+				function validatePageData() {
+					if (!title || !description || !preferredWeather) {
+						page.set("pageDataValid", false);
+					} else {
+						page.set("pageDataValid", true);
+					}
+				}
+
+				this.pageDataValid = false;
+
 				var title = todo.title;
 				var description = todo.description;
-				var preferredWeather = todo.preferredWeather;
+				var preferredWeather = todo.preferredWeather;				
+
+				//this.create = function() {
+				//	validatePageData();
+				//}
 
 				this.titleChanged = function(args) {
 					title = args.value;
+					validatePageData();
 				};
 
 				this.descriptionChanged = function(args) {
 					description = args.value;
+					validatePageData();
 				};
 
 				this.preferredWeatherChanged = function(args) {
 					console.log('Preferred weather changed: ' + args.preferredWeather);
 					preferredWeather = args.preferredWeather;
+					validatePageData();
 				};
 
 				this.save = function(args) {
@@ -68,7 +85,7 @@ function EditTodo() {
 				preferredWeather: ''	
 			})
 		};
-	}
+	};
 }
 
 
