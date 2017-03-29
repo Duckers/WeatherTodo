@@ -16,7 +16,7 @@ function Weather() {
 
 		this.setCurrentWeather = function(w) {
 			w.icon = fabric.weatherTypes[w.weather][w.daypart];
-			fabric.set('currentWeather', w);
+			fabric.set("currentWeather", w);
 		};
 
 		this.weatherTypes = {
