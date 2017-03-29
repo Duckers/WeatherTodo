@@ -59,7 +59,9 @@ function EditTodo() {
 		this.newTodo = function() {
 			edit({
 				id: null,
-				description: "Enter description"
+				description: '',
+				title: '',
+				preferredWeather: ''	
 			})
 		};
 	}
