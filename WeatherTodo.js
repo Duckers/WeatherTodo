@@ -1,6 +1,5 @@
 debugger;
 var Fabric = require("Fabric");
-var Store = require("Fabric/Store");
 var RouterController = require("Fabric/RouterController");
 
 // Backends
@@ -59,7 +58,4 @@ module.exports = new Fabric(
 	// Mock
 	new MockApp(),
 	new MockGeoLocation('Oslo'),
-
-	// Data store
-	new Store()
 );
