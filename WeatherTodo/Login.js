@@ -6,9 +6,6 @@ function Login() {
 			fabric.login();
 		};
 
-		this.login = function() {
-			fabric.pushRoute("loginPage", function(page) {
-
 		this.signin = function() {
 			console.log("username: " + fabric.username + ", password: " + password);
 			next.login(fabric.username, password).then(function(){
@@ -24,7 +21,7 @@ function Login() {
 				}
 			});
 		};
-	}
+	};
 }
 
 module.exports = Login;

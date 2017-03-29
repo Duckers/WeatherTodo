@@ -6,7 +6,7 @@ function FirebaseBackend() {
 
 		function firebase(resource) {
 			var baseUrl = fabric.firebaseBaseUrl;
-			var url = baseUrl + resource + ".json";
+			var url = baseUrl + resource;
 			fabric.info("Fetching Firebase data from: " + url);
 			return fetch(url)
 				.then(function(response){
