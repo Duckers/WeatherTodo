@@ -3,7 +3,7 @@ function ErrorHandling() {
 		this.catch = function(e){
 			fabric.error(e);
 		};
-	}
+	};
 }
 
 module.exports = ErrorHandling;

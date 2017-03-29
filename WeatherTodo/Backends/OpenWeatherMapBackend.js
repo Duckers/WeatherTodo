@@ -1,5 +1,5 @@
 function OpenWeatherMapBackend() {
-	return function(fabric, next) {		
+	return function(fabric, next) {
 
 		var iconmap = {
 			'01': 'clear sky',
@@ -29,30 +29,30 @@ function OpenWeatherMapBackend() {
 
 		function fetchWeatherRest(latitude, longitude) {
 			// Get by latitude/longitude
-			var requestString = fabric.OpenWeatherMapWeatherUrl + 
-				'?lat=' + arguments[0].toString() + 
-				'&lon=' + arguments[1].toString() + 
-				'&APPID=' + fabric.OpenWeatherMapApiKey;
-
-			fabric.debug('Fetching data from: ' + requestString);
-
-			return fetch(requestString)
-				.then(function (response) { 				
-					return response.json(); 				
-				});		
-		}
-
-		function fetchForecastRest(latitude, longitude) {
-			var requestString = fabric.OpenWeatherMapForecastUrl + 
-				'?lat=' + latitude.toString() + 
-				'&lon=' + longitude.toString() + 
+			var requestString = fabric.OpenWeatherMapWeatherUrl +
+				'?lat=' + arguments[0].toString() +
+				'&lon=' + arguments[1].toString() +
 				'&APPID=' + fabric.OpenWeatherMapApiKey;
 
 			fabric.debug('Fetching data from: ' + requestString);
 
 			return fetch(requestString)
 				.then(function (response) {
-					return response.json(); 
+					return response.json();
+				});
+		}
+
+		function fetchForecastRest(latitude, longitude) {
+			var requestString = fabric.OpenWeatherMapForecastUrl +
+				'?lat=' + latitude.toString() +
+				'&lon=' + longitude.toString() +
+				'&APPID=' + fabric.OpenWeatherMapApiKey;
+
+			fabric.debug('Fetching data from: ' + requestString);
+
+			return fetch(requestString)
+				.then(function (response) {
+					return response.json();
 				});
 		}
 
@@ -65,7 +65,6 @@ function OpenWeatherMapBackend() {
 		}
 
 		function mapToForecastSchema(data, city) {
-			//console.log('Mapping: ' + JSON.stringify(data));
 			var time = new Date(data.dt * 1000);
 			var ret = {
 				id: city + ":" + data.dt,
@@ -73,7 +72,6 @@ function OpenWeatherMapBackend() {
 				daypart: mapIconToDayOrNight(data.weather[0].icon),
 				time: time
 			};
-			fabric.debug('Mapped state of forecast: ' + JSON.stringify(ret));
 			return ret;
 		}
 
@@ -88,20 +86,20 @@ function OpenWeatherMapBackend() {
 				})
 				.catch(function (err) {
 					fabric.error(err.toString());
-				});		
-		}
+				});
+		};
 
-		this.fetchForecast = function(latitude, longitude) {		
+		this.fetchForecast = function(latitude, longitude) {
 			fabric.debug('Fetching forecast');
 			return fetchForecastRest(latitude, longitude)
 				.then(function (data) {
-					fabric.debug('fetchForecast: Got data from API: ' + JSON.stringify(data));				
+					fabric.debug('fetchForecast: Got data from API: ' + JSON.stringify(data));
 					var ret = data.list.map(function (d) {
-						return mapToForecastSchema(d, data.city.name);				
+						return mapToForecastSchema(d, data.city.name);
 					});
 					return ret;
-				});		
-		}
+				});
+		};
 	};
 }
 

@@ -5,7 +5,7 @@ function Weather() {
 
 		this.setForecast = function(f) {
 			fabric.set("forecast", f);
-		}
+		};
 
 		this.refreshForecast = function(latitude, longitude) {
 			fabric.fetchForecast(latitude, longitude)
@@ -17,7 +17,7 @@ function Weather() {
 		this.setCurrentWeather = function(w) {
 			w.icon = fabric.weatherTypes[w.weather][w.daypart];
 			fabric.set('currentWeather', w);
-		}
+		};
 
 		this.weatherTypes = {
 			"clear sky" : { day: "DaySunny", night: "NightClear" },
@@ -30,7 +30,7 @@ function Weather() {
 			"thunderstorm" : { day: "DayThunderstorm", night : "NightThunderstorm" },
 			"snow" : { day: "DaySnow", night : "NightSnow" },
 			"mist" : { day: "DayHaze", night: "NightHaze" }
-		}
+		};
 
 		this.refreshCurrentWeather = function(latitude, longitude) {
 			fabric.fetchCurrentWeather(latitude, longitude)
@@ -43,7 +43,7 @@ function Weather() {
 			return next.locationChanged(latitude, longitude);
 		};
 
-	}
+	};
 }
 
 module.exports = Weather;

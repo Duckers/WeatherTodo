@@ -1,10 +1,10 @@
 function ConsoleLogger(config) {
 	return function(fabric, next) {
 
-		var trimLongLines = undefined;
+		var trimLongLines;
 
 		if (config !== undefined) {
-			trimLongLines = config['trimLongLines'];
+			trimLongLines = config.trimLongLines;
 		}
 
 		function trim(message) {
@@ -24,32 +24,32 @@ function ConsoleLogger(config) {
 			message = trim(message);
 			console.log('[DEBUG]: ' + message);
 			next.debug(message);
-		}
+		};
 
 		this.info = function(message) {
 			message = trim(message);
 			console.log('[INFO]:  ' + message);
 			next.debug(message);
-		}
+		};
 
 		this.warn = function(message) {
 			message = trim(message);
 			console.log('[WARN]:  ' + message);
 			next.warn(message);
-		}
+		};
 
 		this.error = function(message) {
 			message = trim(message);
 			console.log('[ERROR]: ' + message);
 			next.error(message);
-		}
+		};
 
 		this.fatal = function(message) {
 			message = trim(message);
 			console.log('[FATAL]: ' + message);
 			next.fatal(message);
-		}
-	}
+		};
+	};
 
 }
 

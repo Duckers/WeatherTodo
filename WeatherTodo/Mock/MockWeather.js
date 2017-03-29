@@ -1,4 +1,4 @@
-	
+
 var mockForecast = [
 	{"id":"Oslo:1490108400","weather":"scattered clouds","daypart":"day",  "time":new Date("2017-03-21T15:00:00.000Z")},
 	{"id":"Oslo:1490119200","weather":"rain","daypart":"night",            "time":new Date("2017-03-21T18:00:00.000Z")},
@@ -34,7 +34,7 @@ var mockForecast = [
 	{"id":"Oslo:1490443200","weather":"few clouds","daypart":"day",        "time":new Date("2017-03-25T12:00:00.000Z")},
 	{"id":"Oslo:1490454000","weather":"clear sky","daypart":"day",         "time":new Date("2017-03-25T15:00:00.000Z")},
 	{"id":"Oslo:1490464800","weather":"clear sky","daypart":"night",       "time":new Date("2017-03-25T18:00:00.000Z")},
-	{"id":"Oslo:1490475600","weather":"rain","daypart":"night",            "time":new Date("2017-03-25T21:00:00.000Z")}	
+	{"id":"Oslo:1490475600","weather":"rain","daypart":"night",            "time":new Date("2017-03-25T21:00:00.000Z")}
 ];
 
 var mockCurrentWeather = {"city":"Oslo","weather":"scattered clouds","daypart":"day"};

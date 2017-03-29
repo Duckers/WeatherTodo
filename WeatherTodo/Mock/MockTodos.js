@@ -30,8 +30,8 @@ var MockTodos = [
 		description: "This is todo item 5",
 		preferredWeather: "mist",
 		isDone: true
-	}			  
-]
+	}
+];
 
 
 module.exports = MockTodos;

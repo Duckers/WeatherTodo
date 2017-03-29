@@ -8,12 +8,12 @@ function Todos() {
 				todo.icon = fabric.weatherTypes[todo.preferredWeather].day;
 				return todo;
 			}));
-		}
+		};
 
 		this.addTodo = function(todo) {
 			fabric.push("todos", todo);
 			return next.addTodo(todo);
-		}
+		};
 
 		this.refreshTodos = function() {
 			fabric.fetchTodos()
@@ -38,22 +38,20 @@ function Todos() {
 			fabric.subscribe('currentWeather', sortTodos);
 			fabric.refreshTodos();
 			sortTodos();
-		}
+		};
 
 		this.setTodoIsDone = function(args) {
 			var todo = fabric.todos.find(function (t) { return t.id === args.data.id.value; });
 			if (todo && todo.isDone !== args.value) {
 				fabric.set('todos', {id: todo.id}, 'isDone', args.value);
 			}
-		}
+		};
 
 		function sortTodos() {
 			var todos = fabric.todos;
 			var forecast = fabric.forecast;
 			var currentWeather = fabric.currentWeather;
 			if (!todos || !forecast || !currentWeather) return;
-
-			debugger;
 
 			var todoList = [];
 
@@ -84,7 +82,6 @@ function Todos() {
 				// Because the store will implicitly serialize the data when stored,
 				// the information about f.time actually being a Date-instance is lost,
 				// so we need to reconstruct that
-				debugger;
 				f.time = new Date(f.time);
 				var todayDay = new Date().getDay();
 				if (f.weather in weatherTypes) {
@@ -108,13 +105,14 @@ function Todos() {
 			});
 
 			// Add remaining todos
-			for (key in weatherTypes) {
-				weatherTypes[key].forEach(function (t) {
-					t.weatherAssigned = false;
-					t.timespan = '';
-					todoList.push(t);
-				});
-			}
+			Object.keys(weatherTypes).forEach(function (key) {
+					weatherTypes[key].forEach(function (t) {
+						t.weatherAssigned = false;
+						t.timespan = '';
+						todoList.push(t);
+					});
+				}
+			);
 
 			doneTodos.forEach(function(t) {
 				t.weatherAssigned = false;
@@ -123,8 +121,8 @@ function Todos() {
 			});
 
 			fabric.set('sortedTodos', todoList);
-		};
-	}
+		}
+	};
 }
 
 module.exports = Todos;

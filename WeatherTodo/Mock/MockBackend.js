@@ -8,8 +8,8 @@ function MockBackend() {
 		this.fetchTodos = function() {
 			return new Promise(function(resolve) {
 				resolve(MockTodos);
-			})
-		}
+			});
+		};
 
 		var todoEnumerator = MockTodos.length;
 
@@ -18,8 +18,8 @@ function MockBackend() {
 			return new Promise(function(resolve) {
 				MockTodos.push(todo);
 				resolve(id);
-			})
-		}
+			});
+		};
 
 		this.setTodoIsDone = function(todoId, isDone) {
 			return new Promise(function(resolve, reject) {
@@ -29,16 +29,16 @@ function MockBackend() {
 						resolve();
 						return;
 					}
-				})
+				});
 				reject("Invalid Todo ID");
-			})
-		}
+			});
+		};
 
 		this.fetchCurrentWeather = function(latitude, longitude) {
 			return new Promise(function(resolve) {
 				resolve(MockWeather.mockCurrentWeather);
 			});
-		}
+		};
 
 		this.fetchForecast = function(latitude, longitude) {
 			return new Promise(function (resolve) {

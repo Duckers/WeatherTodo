@@ -5,7 +5,6 @@
 		var Observable = require('FuseJS/Observable');
 
 		this.SelectedIcon.map(function (selectedWeather) {
-			console.log('In component: Selected weather changed: ' + selectedWeather);
 			preferredWeatherChangedEvent.raise({ preferredWeather: selectedWeather });
 		}).subscribe(module);
 	</JavaScript>

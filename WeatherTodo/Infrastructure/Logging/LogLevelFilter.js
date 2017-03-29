@@ -14,47 +14,51 @@ function LogLevelFilter(logLevel) {
 				case 'DEBUG':
 					return true;
 				case 'INFO':
-					if (level === 'INFO' 
-						|| level === 'WARN'
-						|| level === 'ERROR'
-						|| level === 'FATAL') return true;
+					if (level === 'INFO' ||
+						level === 'WARN' ||
+						level === 'ERROR' ||
+						level === 'FATAL') return true;
 					else return false;
+					break;
 				case 'WARN':
-					if (level === 'WARN'
-						|| level === 'ERROR'
-						|| level === 'FATAL') return true;
+					if (level === 'WARN' ||
+						level === 'ERROR' ||
+						level === 'FATAL') return true;
 					else return false;
+					break;
 				case 'ERROR':
-					if (level === 'ERROR'
-						|| level === 'FATAL') return true;
+					if (level === 'ERROR' ||
+						level === 'FATAL') return true;
+					break;
 				case 'FATAL':
 					if (level === 'FATAL') return true;
 					else return false;
+					break;
 				default:
 					return false;
-			}		
+			}
 		}
 
 		this.debug = function(message) {
-			if (check('DEBUG')) return next.debug(message);		
-		}
+			if (check('DEBUG')) return next.debug(message);
+		};
 
 		this.info = function(message) {
 			if (check('INFO')) return next.info(message);
-		}
+		};
 
 		this.warn = function(message) {
 			if (check('WARN')) return next.warn(message);
-		}
+		};
 
 		this.error = function(message) {
 			if (check('ERROR')) return next.error(message);
-		}
+		};
 
 		this.fatal = function(message) {
 			if (check('FATAL')) return next.fatal(message);
-		}
-	}
+		};
+	};
 }
 
 module.exports = LogLevelFilter;

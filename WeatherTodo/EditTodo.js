@@ -22,7 +22,7 @@ function EditTodo() {
 
 				this.create = function() {
 					validatePageData();
-				}
+				};
 
 				this.titleChanged = function(args) {
 					title = args.value;
@@ -35,7 +35,6 @@ function EditTodo() {
 				};
 
 				this.preferredWeatherChanged = function(args) {
-					console.log('Preferred weather changed: ' + args.preferredWeather);
 					preferredWeather = args.preferredWeather;
 					validatePageData();
 				};
@@ -82,8 +81,8 @@ function EditTodo() {
 				id: null,
 				description: '',
 				title: '',
-				preferredWeather: ''	
-			})
+				preferredWeather: ''
+			});
 		};
 	};
 }
