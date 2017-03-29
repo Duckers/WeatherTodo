@@ -17,12 +17,12 @@
 					<Each Items="{sortedTodos}">
 						<Panel >
 							<DockPanel Margin="4" Padding="6">
-								<Panel Dock="Left" Clicked="{editTodo}">
+								<Panel Dock="Left" Clicked="{editTodo}" Width="50">
 									<WhileTrue Value="{weatherAssigned}">
-										<WeatherIcon Icon="{icon}" Size="40" />
+										<WeatherIcon Icon="{icon}" Size="40" Alignment="Center" />
 									</WhileTrue>
 									<WhileFalse Value="{weatherAssigned}">
-										<WeatherIcon Icon="{icon}" Size="20" />
+										<WeatherIcon Icon="{icon}" Size="20" Alignment="Center" />
 									</WhileFalse>
 								</Panel>
 								<Switch Margin="16" Dock="Right" Value="{Read isDone}" ValueChanged="{setTodoIsDone}" />
