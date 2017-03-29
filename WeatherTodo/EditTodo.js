@@ -4,7 +4,9 @@ function EditTodo() {
 
 		function edit(todo) {
 			fabric.pushRoute("editTodoPage", function (page) {
+
 				this.todo = todo;
+				this.pageDataValid = false;
 
 				function validatePageData() {
 					if (!title || !description || !preferredWeather) {
@@ -14,15 +16,13 @@ function EditTodo() {
 					}
 				}
 
-				this.pageDataValid = false;
-
 				var title = todo.title;
 				var description = todo.description;
-				var preferredWeather = todo.preferredWeather;				
+				var preferredWeather = todo.preferredWeather;
 
-				//this.create = function() {
-				//	validatePageData();
-				//}
+				this.create = function() {
+					validatePageData();
+				}
 
 				this.titleChanged = function(args) {
 					title = args.value;
