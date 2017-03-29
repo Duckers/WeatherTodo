@@ -33,9 +33,9 @@ function Todos() {
 		];
 
 		this.create = function() {
-			fabric.subscribe('todos', sortTodos);
-			fabric.subscribe('forecast', sortTodos);
-			fabric.subscribe('currentWeather', sortTodos);
+			fabric.onChanged('todos', sortTodos);
+			fabric.onChanged('forecast', sortTodos);
+			fabric.onChanged('currentWeather', sortTodos);
 			fabric.refreshTodos();
 			sortTodos();
 		};
