@@ -1,3 +1,6 @@
 [submodule "Fuse.Firebase"]
 	path = Fuse.Firebase
 	url = git@github.com:fuse-compound/Fuse.Firebase.git
+[submodule "Firebase"]
+	path = Firebase
+	url = git@github.com:kristianhasselknippe/Fuse.Firebase.git
