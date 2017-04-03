@@ -1,0 +1,113 @@
+{
+  "project_info": {
+    "project_number": "249630637242",
+    "firebase_url": "https://weathertodo.firebaseio.com",
+    "project_id": "weathertodo",
+    "storage_bucket": "weathertodo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:249630637242:android:aaeb59afeb1b214c",
+        "android_client_info": {
+          "package_name": "com.weathertodo.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "249630637242-4ndomp6h1mdm3lf7f4c7o0ia0efnge75.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.weathertodo.android",
+            "certificate_hash": "edff3e4534ccfe4eae639aa2494a5f30bb7889b5"
+          }
+        },
+        {
+          "client_id": "249630637242-itimp9ebjq6jgsvjqq4ht0guu391e6pm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA39QoAO7h6DhX_BZKBB2XVv1buGUwn-J8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "249630637242-itimp9ebjq6jgsvjqq4ht0guu391e6pm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "249630637242-jntauid6f6jfmujmm0o9q4oj22uqga20.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.weathertodo.ios"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:249630637242:android:00f24f8f66693efa",
+        "android_client_info": {
+          "package_name": "com.apps.firebasetestapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "249630637242-alfe9r2f307a06cknmmliebse8747mpg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.apps.firebasetestapp",
+            "certificate_hash": "edff3e4534ccfe4eae639aa2494a5f30bb7889b5"
+          }
+        },
+        {
+          "client_id": "249630637242-itimp9ebjq6jgsvjqq4ht0guu391e6pm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA39QoAO7h6DhX_BZKBB2XVv1buGUwn-J8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "249630637242-itimp9ebjq6jgsvjqq4ht0guu391e6pm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "249630637242-jntauid6f6jfmujmm0o9q4oj22uqga20.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.weathertodo.ios"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
