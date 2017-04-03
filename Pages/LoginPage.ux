@@ -3,7 +3,7 @@
 		<TextInput Value="{username}" PlaceholderText="username" Alignment="Center"/>
 		<TextInput Value="{password}" PlaceholderText="password" Alignment="Center" IsPassword="true"/>
 		<Grid Columns="1*,1*">
-			<Button Text="Login" Clicked="{signin}"/>
+			<Button Text="Login" Clicked="{login}"/>
 			<Button Text="Sign up" Clicked="{signup}"/>
 		</Grid>
 		<Text Value="{loginErrorMessage}" />
