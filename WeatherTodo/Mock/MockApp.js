@@ -23,7 +23,7 @@ function MockApp() {
 			fabric.debug("Signing up with: " + username + ", and " + password);
 			return new Promise(function (resolve) {
 				setTimeout(function () {
-					resolve();
+					resolve(true);
 				}, 1000);
 			});
 		};
