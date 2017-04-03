@@ -4,15 +4,15 @@ var RouterController = require("Fabric/RouterController");
 
 // Backends
 var BackendValidators = require("WeatherTodo/Backends/BackendValidators");
-var OpenWeatherMapConfig = require('WeatherTodo/Backends/OpenWeatherMapConfig');
+var OpenWeatherMapConfig = require("WeatherTodo/Backends/OpenWeatherMapConfig");
 var OpenWeatherMapBackend = require("WeatherTodo/Backends/OpenWeatherMapBackend");
 var FirebaseBackendConfig = require("WeatherTodo/Backends/FirebaseBackendConfig");
 var FirebaseBackend = require("WeatherTodo/Backends/FirebaseBackend");
 
 // Logging & error handling
-var LogLevelFilter = require('WeatherTodo/Infrastructure/Logging/LogLevelFilter');
-var ConsoleLogger = require('WeatherTodo/Infrastructure/Logging/ConsoleLogger');
-var ErrorHandling = require('WeatherTodo/Infrastructure/ErrorHandling');
+var LogLevelFilter = require("WeatherTodo/Infrastructure/Logging/LogLevelFilter");
+var ConsoleLogger = require("WeatherTodo/Infrastructure/Logging/ConsoleLogger");
+var ErrorHandling = require("WeatherTodo/Infrastructure/ErrorHandling");
 
 // Data & business logic
 var Login = require("WeatherTodo/Login");
@@ -21,9 +21,9 @@ var EditTodo = require("WeatherTodo/EditTodo");
 var Weather = require("WeatherTodo/Weather");
 
 // Mocks
-var MockApp = require('WeatherTodo/Mock/MockApp');
-var MockBackend = require('WeatherTodo/Mock/MockBackend');
-var MockGeoLocation = require('WeatherTodo/Mock/MockGeoLocation');
+var MockApp = require("WeatherTodo/Mock/MockApp");
+var MockBackend = require("WeatherTodo/Mock/MockBackend");
+var MockGeoLocation = require("WeatherTodo/Mock/MockGeoLocation");
 
 module.exports = new Fabric(
 
@@ -34,7 +34,7 @@ module.exports = new Fabric(
 	new FirebaseBackendConfig(),
 
 	// Logging
-	new LogLevelFilter('ERROR'),
+	new LogLevelFilter("ERROR"),
 	new ConsoleLogger({ trimLongLines: 120 }),
 
 	new RouterController(router),
@@ -57,5 +57,5 @@ module.exports = new Fabric(
 
 	// Mock
 	new MockApp(),
-	new MockGeoLocation('Oslo'),
+	new MockGeoLocation("Oslo")
 );

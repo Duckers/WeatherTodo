@@ -26,7 +26,7 @@ function FirebaseBackend() {
 				return response.json();
 			});
 		}
-		
+
 
 		this.fetchTodos = function(){
 			return FirebaseUser.getToken().then(function(token){
@@ -42,23 +42,17 @@ function FirebaseBackend() {
 			});
 		};
 
-		this.addTodo = function(todo) {
-			fabric.info('Adding todo to Firebase backend: ' + JSON.stringify(todo));
-		};
-		
-		this.signin = function(email, password) {
+		this.login = function(email, password) {
 			console.log("We are trying to sign in with email and password: " + email + ", " + password);
 			return FirebaseEmailAuth.signInWithEmailAndPassword(email, password).then(function(success){
 				console.log("we are now logged in");
-			}).catch(function(err){
-				console.log("Error signin in: " + err);
 			});
 		};
 
 		this.signup = function(email, password) {
 			console.log("We are trying to sign up with email and password: " + email + ", " + password);
 			return FirebaseEmailAuth.createWithEmailAndPassword(email, password).then(function(success){
-				
+
 			}).catch(function(err){
 				console.log("Error signin up: " + err);
 			});
