@@ -5,7 +5,12 @@ function EditTodo() {
 		function edit(todo) {
 			fabric.pushRoute("editTodoPage", function (page) {
 
-				this.todo = todo;
+				this.todo = {
+					title: todo.title,
+					description: todo.description,
+					preferredWeather: todo.preferredWeather
+				};
+
 				this.pageDataValid = false;
 
 				function validatePageData() {
@@ -61,12 +66,18 @@ function EditTodo() {
 				this.cancel = function() {
 					fabric.popRoute();
 				};
+
+				this.reset = function() {
+					page.set("todo", "title", "");
+					page.set("todo", "description", "");
+					page.set("todo", "preferredWeather", null);
+				};
 			});
 		}
 
 
 		this.editTodo = function(arg) {
-			var id = arg.data.id.value;
+			var id = arg.data.id;
 
 			if (id !== undefined) {
 				var todo = fabric.todos.find(function (t) { return t.id === id; });
