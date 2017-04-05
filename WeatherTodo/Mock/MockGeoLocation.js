@@ -4,7 +4,7 @@ function MockGeoLocation(location) {
 		Oslo: { latitude: 59.91273, longitude: 10.74609 }
 	};
 
-	return function (fabric) {
+	return function (fabric, next) {
 
 		this.create = function () {
 			var completionTime = 600;
@@ -23,6 +23,10 @@ function MockGeoLocation(location) {
 						fabric.error("Unknown location: " + location);
 					}
 			}
+		};
+
+		this.locationChanged = function (latitude, longitude) {
+			return next.locationChanged(latitude, longitude);
 		};
 	};
 }
