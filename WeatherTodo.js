@@ -27,35 +27,35 @@ var MockGeoLocation = require("WeatherTodo/Mock/MockGeoLocation");
 
 module.exports = new Fabric(
 
-	new ErrorHandling(),
+	ErrorHandling,
 
 	// Config
-	new OpenWeatherMapConfig(),
-	new FirebaseBackendConfig(),
+	OpenWeatherMapConfig,
+	FirebaseBackendConfig,
 
 	// Logging
-	new LogLevelFilter("ERROR"),
+	new LogLevelFilter("DEBUG"),
 	new ConsoleLogger({ trimLongLines: 120 }),
 
 	new RouterController(router),
 
 	// App model
-	new Login(),
-	new Weather(),
+	Login,
+	Weather,
 	new EditTodo(router),
-	new Todos(),
+	Todos,
 
 	// Backend
-	new BackendValidators(),
+	BackendValidators,
 
 	// Actual implementations of backends
-	new FirebaseBackend(),
-	new OpenWeatherMapBackend(),
+	//new FirebaseBackend(),
+	OpenWeatherMapBackend,
 
 	// MockBackend
-	new MockBackend(),
+	MockBackend,
 
 	// Mock
-	new MockApp(),
+	MockApp,
 	new MockGeoLocation("Oslo")
 );

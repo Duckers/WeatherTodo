@@ -1,8 +1,6 @@
-function ErrorHandling() {
-	return function(fabric) {
-		this.catch = function(e){
-			fabric.error(e);
-		};
+function ErrorHandling(fabric) {
+	this.catch = function(e){
+		fabric.error(e);
 	};
 }
 
