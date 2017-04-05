@@ -26,7 +26,6 @@ var MockBackend = require("WeatherTodo/Mock/MockBackend");
 var MockGeoLocation = require("WeatherTodo/Mock/MockGeoLocation");
 
 module.exports = new Fabric(
-
 	ErrorHandling,
 
 	// Config
@@ -34,15 +33,15 @@ module.exports = new Fabric(
 	FirebaseBackendConfig,
 
 	// Logging
-	new LogLevelFilter("DEBUG"),
-	new ConsoleLogger({ trimLongLines: 120 }),
+	LogLevelFilter("DEBUG"),
+	ConsoleLogger({ trimLongLines: 120 }),
 
-	new RouterController(router),
+    RouterController(router),
 
 	// App model
 	Login,
 	Weather,
-	new EditTodo(router),
+	EditTodo(router),
 	Todos,
 
 	// Backend
@@ -57,5 +56,5 @@ module.exports = new Fabric(
 
 	// Mock
 	MockApp,
-	new MockGeoLocation("Oslo")
+	MockGeoLocation("Oslo")
 );
