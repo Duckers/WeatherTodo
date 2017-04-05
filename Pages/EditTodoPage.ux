@@ -20,6 +20,7 @@
 			</StackPanel>
 
 			<WeatherSelector Alignment="Top" SelectedIcon="{todo.preferredWeather}">
+				<!-- This is an antipattern and will be removed in the future -->
 				<OnUserEvent EventName="preferredWeatherChangedEvent" Handler="{preferredWeatherChanged}" />
 			</WeatherSelector>
 		</Grid>
