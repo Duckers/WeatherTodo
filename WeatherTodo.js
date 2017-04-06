@@ -19,6 +19,7 @@ var Login = require("WeatherTodo/Login");
 var Todos = require("WeatherTodo/Todos");
 var EditTodo = require("WeatherTodo/EditTodo");
 var Weather = require("WeatherTodo/Weather");
+var SortedTodos = require("WeatherTodo/SortedTodos");
 
 // Mocks
 var MockApp = require("WeatherTodo/Mock/MockApp");
@@ -41,8 +42,9 @@ module.exports = new Fabric(
 	// App model
 	Login,
 	Weather,
-	EditTodo(router),
+	EditTodo,
 	Todos,
+	SortedTodos,
 
 	// Backend
 	BackendValidators,
