@@ -35,34 +35,34 @@ function MockApp(fabric, next) {
 		"preferredWeather": "clear sky",
 		"title": "Todo item 1"
 	},
-		{
-			"description": "This is todo item 2",
-			"id": 1,
-			"isDone": true,
-			"preferredWeather": "broken clouds",
-			"title": "Todo item 2"
-		},
-		{
-			"description": "This is todo item 3",
-			"id": 2,
-			"isDone": false,
-			"preferredWeather": "rain",
-			"title": "Todo item 3"
-		},
-		{
-			"description": "This is todo item 4",
-			"id": 3,
-			"isDone": false,
-			"preferredWeather": "snow",
-			"title": "Todo item 4"
-		},
-		{
-			"description": "This is todo item 5",
-			"id": 4,
-			"isDone": true,
-			"preferredWeather": "mist",
-			"title": "Todo item 5"
-		});
+	{
+		"description": "This is todo item 2",
+		"id": 1,
+		"isDone": true,
+		"preferredWeather": "broken clouds",
+		"title": "Todo item 2"
+	},
+	{
+		"description": "This is todo item 3",
+		"id": 2,
+		"isDone": false,
+		"preferredWeather": "rain",
+		"title": "Todo item 3"
+	},
+	{
+		"description": "This is todo item 4",
+		"id": 3,
+		"isDone": false,
+		"preferredWeather": "snow",
+		"title": "Todo item 4"
+	},
+	{
+		"description": "This is todo item 5",
+		"id": 4,
+		"isDone": true,
+		"preferredWeather": "mist",
+		"title": "Todo item 5"
+	});
 
 	// Add a todo to the store
 	this.addTodo = function (todoData) {
