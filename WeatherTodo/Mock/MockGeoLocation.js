@@ -6,7 +6,7 @@ function MockGeoLocation(location) {
 
 	return function (fabric, next) {
 
-		this.create = function () {
+		this.init = function () {
 			var completionTime = 600;
 
 			switch (location) {

@@ -19,7 +19,7 @@ Here are some of the features shown in the app:
 - Pushing viewmodels onto a route (`EditTodo.js`)
 - Setting page local data (`EditTodo.js`)
 - Adding configuration to the fabric (`OpenWeatherMapConfig.js`)
-- Using `this.create` to respond to Fabric lifecycle events
+- Using `this.init` to respond to Fabric lifecycle events
 - How to use `next` for fiber chaining (`ConsoleLogger.js`, `GeoLocator.js`, etc)
 - Creating Fabric events (`MockGeoLocation.js` and `GeoLocator.js`)
 - Creating mock code that can stand in for real implementations (`MockGeoLocation.js`, `MockBackend.js`, etc)

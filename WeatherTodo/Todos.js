@@ -19,7 +19,7 @@ function Todos(fabric, next) {
 			.then(fabric.setTodos);
 	};
 
-	this.create = function () {
+	this.init = function () {
 		fabric.refreshTodos();
 	};
 

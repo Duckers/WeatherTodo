@@ -2,6 +2,9 @@ debugger;
 var Fabric = require("Fabric");
 var RouterController = require("Fabric/RouterController");
 
+// Initialization
+var AppInit = require("WeatherTodo/AppInit");
+
 // Backends
 var BackendValidators = require("WeatherTodo/Backends/BackendValidators");
 var OpenWeatherMapConfig = require("WeatherTodo/Backends/OpenWeatherMapConfig");
@@ -27,6 +30,7 @@ var MockBackend = require("WeatherTodo/Mock/MockBackend");
 var MockGeoLocation = require("WeatherTodo/Mock/MockGeoLocation");
 
 module.exports = new Fabric(
+	AppInit,
 	ErrorHandling,
 
 	// Config
@@ -37,6 +41,7 @@ module.exports = new Fabric(
 	LogLevelFilter("DEBUG"),
 	ConsoleLogger({ trimLongLines: 120 }),
 
+	// Routing
     RouterController(router),
 
 	// App model

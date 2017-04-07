@@ -10,7 +10,7 @@ function SortedTodos(fabric) {
 		"Saturday"
 	];
 
-    this.create = function () {
+    this.init = function () {
 		fabric.onChanged("todos", sortTodos);
 		fabric.onChanged("forecast", sortTodos);
 		fabric.onChanged("currentWeather", sortTodos);

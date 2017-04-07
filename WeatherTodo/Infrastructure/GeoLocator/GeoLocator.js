@@ -3,7 +3,7 @@ var GeoLocation = require("FuseJS/GeoLocation");
 function GeoLocator() {
 	return function (fabric, next) {
 
-		this.create = function () {
+		this.init = function () {
 			var timeoutMs = 5000;
 
 			GeoLocation.getLocation(timeoutMs).then(function (location) {
