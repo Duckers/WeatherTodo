@@ -24,7 +24,7 @@ function Todos(fabric, next) {
 	};
 
 	this.setTodoIsDone = function (args) {
-		var todo = fabric.todos.find(function (t) { return t.id === args.data.id.value; });
+		var todo = fabric.todos.find(function (t) { return t.id === args.data.id; });
 		if (todo && todo.isDone !== args.value) {
 			fabric.set("todos", { id: todo.id }, "isDone", args.value);
 		}
