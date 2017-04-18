@@ -1,4 +1,7 @@
 {
+    "Android": {
+        "Package": "com.weathertodo.android"
+    },
 	"RootNamespace":"",
 	"Packages": [
 		"Fuse",
