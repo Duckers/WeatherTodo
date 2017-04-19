@@ -5,7 +5,7 @@ function EditTodo(fabric) {
 		console.log(JSON.stringify(fabric.navigationStack));
 	}
 
-	this.editTodo = function(arg) {
+	this.editTodo = function (arg) {
 		debugger;
 		var id = arg.data.id;
 
@@ -17,7 +17,7 @@ function EditTodo(fabric) {
 		}
 	};
 
-	this.newTodo = function() {
+	this.newTodo = function () {
 		edit({
 			id: null,
 			description: "",
@@ -47,26 +47,32 @@ function EditTodo(fabric) {
 		var description = todo.description;
 		var preferredWeather = todo.preferredWeather;
 
-		this.init = function() {
+		this.init = function () {
+			// ATTN @duckers, this updates at erratic times and not when
+			// the actual weather is changed in the selector. Is this the
+			// right approach? Also see: EditTodoPage.ux
+			page.onInput("todo", "preferredWeather", function () {
+				console.log("Preferred weather changed");
+			});
 			validatePageData();
 		};
 
-		this.titleChanged = function(args) {
+		this.titleChanged = function (args) {
 			title = args.value;
 			validatePageData();
 		};
 
-		this.descriptionChanged = function(args) {
+		this.descriptionChanged = function (args) {
 			description = args.value;
 			validatePageData();
 		};
 
-		this.preferredWeatherChanged = function(args) {
+		this.preferredWeatherChanged = function (args) {
 			preferredWeather = args.preferredWeather;
 			validatePageData();
 		};
 
-		this.save = function(args) {
+		this.save = function (args) {
 			if (todo.id === null) {
 				fabric.addTodo({
 					id: fabric.todos.length,
@@ -77,19 +83,19 @@ function EditTodo(fabric) {
 					isDone: false
 				});
 			} else {
-				fabric.set("todos", {id: todo.id}, "title", title);
-				fabric.set("todos", {id: todo.id}, "description", description);
-				fabric.set("todos", {id: todo.id}, "preferredWeather", preferredWeather);
-				fabric.set("todos", {id: todo.id}, "icon", fabric.weatherTypes[preferredWeather].day);
+				fabric.set("todos", { id: todo.id }, "title", title);
+				fabric.set("todos", { id: todo.id }, "description", description);
+				fabric.set("todos", { id: todo.id }, "preferredWeather", preferredWeather);
+				fabric.set("todos", { id: todo.id }, "icon", fabric.weatherTypes[preferredWeather].day);
 			}
 			fabric.popRoute();
 		};
 
-		this.cancel = function() {
+		this.cancel = function () {
 			fabric.popRoute();
 		};
 
-		this.reset = function() {
+		this.reset = function () {
 			page.set("todo", "title", "");
 			page.set("todo", "description", "");
 			page.set("todo", "preferredWeather", null);
