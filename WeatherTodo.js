@@ -1,4 +1,5 @@
 debugger;
+
 var Fabric = require("Fabric");
 var RouterController = require("Fabric/RouterController");
 
@@ -55,11 +56,11 @@ module.exports = new Fabric(
 	BackendValidators,
 
 	// Actual implementations of backends
-	//new FirebaseBackend(),
+	FirebaseBackend,
 	OpenWeatherMapBackend,
 
 	// MockBackend
-	MockBackend,
+	//MockBackend,
 
 	// Mock
 	MockApp,

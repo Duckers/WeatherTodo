@@ -2,20 +2,20 @@
 	<DockPanel>
 		<Panel Height="140" Dock="Top" Margin="10">
 			<StackPanel Alignment="BottomRight">
-				<Text Value="{currentWeather.city}" FontSize="30" TextAlignment="Right"/>
+				<Text Value="{currentWeather.city}" FontSize="30" TextAlignment="Right" />
 				<Text Value="{currentWeather.weather}" FontSize="20" TextAlignment="Right" />
 			</StackPanel>
-			<WeatherIcon Icon="{currentWeather.icon}"  Alignment="TopLeft" Margin="25,0,0,0" Size="80"/>
+			<WeatherIcon Icon="{currentWeather.icon}" Alignment="TopLeft" Margin="25,0,0,0" Size="80" />
 		</Panel>
 		<Panel>
 			<Circle Width="60" Height="60" Color="#ddd" Alignment="BottomRight" Margin="50" Clicked="{newTodo}">
-				<Rectangle Width="3" Height="35%" Color="#fff"/>
-				<Rectangle Height="3" Width="35%" Color="#fff"/>
+				<Rectangle Width="3" Height="35%" Color="#fff" />
+				<Rectangle Height="3" Width="35%" Color="#fff" />
 			</Circle>
 			<ScrollView>
 				<StackPanel ItemSpacing="4">
 					<Each Items="{sortedTodos}">
-						<Panel >
+						<Panel>
 							<DockPanel Margin="4" Padding="6">
 								<Panel Dock="Left" Clicked="{editTodo}" Width="50">
 									<WhileTrue Value="{weatherAssigned}">
@@ -32,7 +32,7 @@
 									<Text Value="{timespan}" />
 								</StackPanel>
 							</DockPanel>
-							<Rectangle CornerRadius="2" Color="#f5f5f5" Layer="Background"/>
+							<Rectangle CornerRadius="2" Color="#f5f5f5" Layer="Background" Background="#2AFF5C" />
 						</Panel>
 					</Each>
 				</StackPanel>

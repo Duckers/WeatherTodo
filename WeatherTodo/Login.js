@@ -21,8 +21,8 @@ function Login(fabric, next) {
 			console.log("username: " + self.username + ", password: " + self.password);
 			next.login(self.username, self.password).then(function () {
 				fabric.gotoRoute("todoListPage");
-			})
-			.catch(function () {
+			}).catch(function () {
+				console.log("Got an error while signing in");
 				page.set("loginErrorMessage", "Invalid username/password");
 			});
 		};
