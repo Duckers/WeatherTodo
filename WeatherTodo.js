@@ -43,7 +43,7 @@ module.exports = new Fabric(
 	ConsoleLogger({ trimLongLines: 120 }),
 
 	// Routing
-    RouterController(router),
+	RouterController(router),
 
 	// App model
 	Login,
