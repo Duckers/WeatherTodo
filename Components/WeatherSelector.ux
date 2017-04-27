@@ -1,16 +1,5 @@
 <Panel ux:Class="WeatherSelector" SelectedIcon="Clouds">
 	<string ux:Property="SelectedIcon" />
-	<!-- This section using UserEvent is considered an antipattern,
-	     and will be removed in the future -->
-	<UserEvent ux:Name="preferredWeatherChangedEvent" />
-	<JavaScript>
-		var Observable = require('FuseJS/Observable');
-
-		this.SelectedIcon.map(function (selectedWeather) {
-			preferredWeatherChangedEvent.raise({ preferredWeather: selectedWeather });
-		}).subscribe(module);
-	</JavaScript>
-
 	<Panel>
 		<Panel ux:Class="WeatherOption" Width="50" Height="50" HitTestMode="LocalBounds">
 			<Panel ux:Dependency="selectedPlaceholder" />
