@@ -60,7 +60,7 @@ module.exports = new Fabric(
 	OpenWeatherMapBackend,
 
 	// MockBackend
-	//MockBackend,
+	MockBackend,
 
 	// Mock
 	MockApp,
