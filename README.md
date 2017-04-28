@@ -25,6 +25,7 @@ Here are some of the features shown in the app:
 - Creating mock code that can stand in for real implementations (`MockGeoLocation.js`, `MockBackend.js`, etc)
 - Layering APIs (`ConsoleLogger.js`, `LogLevelFilter.js`)
 - How to create a facade for multiple fibers (`BackendValidator.js`)
+- Listening to two-way bindings using `onInput` (`EditTodo.js`)
 
 It is not yet decided that all of these techniques are considered best practice.
 
@@ -33,12 +34,4 @@ It is not yet decided that all of these techniques are considered best practice.
 There are a number of features not shown in this project yet, including:
 
 - Namespacing
-- `onInput`
 - Testing
-
-## Antipatterns
-
-This example code curently exhibits some antipatterns that will be removed as Fabric becomes more mature:
-
-- The selection API uses two way binding, and that is currently handled using `UserEvent`. This will be replaced by `onInput` once it is ready.
--

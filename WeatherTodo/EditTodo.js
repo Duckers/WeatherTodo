@@ -47,13 +47,16 @@ function EditTodo(fabric) {
 		var description = todo.description;
 		var preferredWeather = todo.preferredWeather;
 
+		page.onInput("todo", "preferredWeather", function (arg) {
+			preferredWeather = arg;
+			validatePageData();
+		});
+
 		this.init = function () {
 			// ATTN @duckers, this updates at erratic times and not when
 			// the actual weather is changed in the selector. Is this the
 			// right approach? Also see: EditTodoPage.ux
-			page.onInput("todo", "preferredWeather", function () {
-				console.log("Preferred weather changed");
-			});
+
 			validatePageData();
 		};
 
@@ -64,11 +67,6 @@ function EditTodo(fabric) {
 
 		this.descriptionChanged = function (args) {
 			description = args.value;
-			validatePageData();
-		};
-
-		this.preferredWeatherChanged = function (args) {
-			preferredWeather = args.preferredWeather;
 			validatePageData();
 		};
 
