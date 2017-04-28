@@ -53,10 +53,6 @@ function EditTodo(fabric) {
 		});
 
 		this.init = function () {
-			// ATTN @duckers, this updates at erratic times and not when
-			// the actual weather is changed in the selector. Is this the
-			// right approach? Also see: EditTodoPage.ux
-
 			validatePageData();
 		};
 
