@@ -25,6 +25,9 @@ var EditTodo = require("WeatherTodo/EditTodo");
 var Weather = require("WeatherTodo/Weather");
 var SortedTodos = require("WeatherTodo/SortedTodos");
 
+// Phone
+var GeoLocator = require("WeatherTodo/Infrastructure/GeoLocator/GeoLocator");
+
 // Mocks
 var MockApp = require("WeatherTodo/Mock/MockApp");
 var MockBackend = require("WeatherTodo/Mock/MockBackend");
@@ -51,6 +54,9 @@ module.exports = new Fabric(
 	EditTodo,
 	Todos,
 	SortedTodos,
+
+	// GeoLocation
+	GeoLocator,
 
 	// Backend
 	BackendValidators,

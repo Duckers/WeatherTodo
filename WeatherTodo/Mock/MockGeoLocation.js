@@ -1,3 +1,5 @@
+var Environment = require('FuseJS/Environment');
+
 function MockGeoLocation(location) {
 
 	var locations = {
@@ -6,28 +8,30 @@ function MockGeoLocation(location) {
 
 	return function (fabric, next) {
 
-		this.init = function () {
-			var completionTime = 600;
+		if (!Environment.ios && !Environment.android) {
+			this.init = function () {
+				var completionTime = 600;
 
-			switch (location) {
-				case "fail":
-					fabric.info("Mock is set to never get location");
-					break;
-				default:
-					fabric.info("Mock is generating mock location for " + location);
-					if (location in locations) {
-						setTimeout(function () {
-							fabric.locationChanged(locations[location].latitude, locations[location].longitude);
-						}, completionTime);
-					} else {
-						fabric.error("Unknown location: " + location);
-					}
-			}
-		};
+				switch (location) {
+					case "fail":
+						fabric.info("Mock is set to never get location");
+						break;
+					default:
+						fabric.info("Mock is generating mock location for " + location);
+						if (location in locations) {
+							setTimeout(function () {
+								fabric.locationChanged(locations[location].latitude, locations[location].longitude);
+							}, completionTime);
+						} else {
+							fabric.error("Unknown location: " + location);
+						}
+				}
+			};
 
-		this.locationChanged = function (latitude, longitude) {
-			return next.locationChanged(latitude, longitude);
-		};
+			this.locationChanged = function (latitude, longitude) {
+				return next.locationChanged(latitude, longitude);
+			};
+		}
 	};
 }
 
